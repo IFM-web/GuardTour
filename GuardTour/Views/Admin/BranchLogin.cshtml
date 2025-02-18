@@ -1,0 +1,338 @@
+﻿@model GuardTour.Models.branch_login;
+
+@{
+    ViewData["Title"] = "Branch Login";
+
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    /*     height: 100vh; */
+        margin: 0;
+    }
+
+    .login-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+        margin: auto;
+    }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #666;
+            text-align: left;
+        }
+
+        .login-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f7f7f7;
+        }
+
+
+        .login-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+            .login-container button:hover {
+                background-color: #45a049;
+            }
+
+
+    body {
+        font-family: "Poppins", sans-serif;
+    }
+
+    .container-scroller {
+        background-image: url(img/Rectangle-922.png);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .content-wrapper {
+        background: transparent;
+    }
+
+    .auth .auth-form-light {
+        background: #ffffff;
+        border-radius: 23px;
+    }
+
+    .form_text {
+        h4
+
+    {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    h6 {
+        font-size: 19px;
+        color: #858F99;
+        margin-bottom: 25px;
+    }
+
+    }
+
+    .auth-form-light {
+        padding: 30px;
+        height: 440px;
+        text-align: center;
+    }
+
+
+    input {
+        background-color: rgba(236, 236, 236, 1) !important;
+        border-radius: 8px !important;
+        border: none !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        font-weight: 600 !important;
+    }
+
+    a.auth-link.text-black {
+        text-align: end;
+        width: 100%;
+        font-size: 15px;
+        font-weight: 500 !important;
+    }
+
+    .auth form .auth-form-btn {
+        background-color: #003666;
+        border-radius: 8px;
+        font-size: 15px;
+    }
+
+    .auth .auth-form-light img {
+        margin-top: -73px;
+        width: 85px;
+        height: 85px;
+        margin-bottom: 25px;
+        background-image: url(img/logo-login.png);
+        border-radius: 50%;
+        padding: 7px;
+        background-size: contain;
+    }
+
+    .form-group {
+        text-align: left !important;
+        p
+
+    {
+        font-size: 15px;
+        color: black;
+        font-weight: 500;
+    }
+
+    }
+
+    .navbar{
+        max-width:100%;
+    }
+
+    .container{
+      max-width:100% !important;
+      padding:0 !important;
+    }
+
+
+
+    .login-size {
+        max-width: 500px;
+        margin-top: 70px;
+    }
+
+    .auth-form-light {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-text {
+        font-size: 14px;
+        color: #888;
+        margin-top: 5px;
+    }
+
+    .form-control-lg {
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        font-size: 16px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+
+
+
+
+
+
+
+
+
+    /* #btnlogout {
+            margin-top: -50px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            float: right;
+            cursor: pointer;
+            text-decoration: none;
+        } */
+
+    /*  #btnlogout:hover {
+                background-color: #45a049;
+            } */
+
+</style>
+
+@* <a id="btnlogout" type="button" asp-controller="Home" asp-action="Logout" style="background-color:lightgray; !important; color:black !important; margin-top:-140px;margin-right: -100px;">Logout</a> *@
+@* 
+ <a id="btnlogout" type="button" asp-controller="Home" asp-action="Logout"
+   style="position: absolute; top: 10px; right: 10px; background-color: lightgray; color: black; padding: 10px 20px; border: none; text-decoration: none;">
+    Logout
+</a>
+
+
+<a id="btncompany" type="button" asp-controller="Admin" asp-action="Company"
+   style="position: absolute; top: 10px; left: 10px; background-color: lightgray; color: black; padding: 10px 20px; border: none; text-decoration: none;">
+    Company
+</a>
+
+
+<a id="btnbranch" type="button" asp-controller="Admin" asp-action="Branch"
+   style="position: absolute; top: 10px; left: 125px; background-color: lightgray; color: black; padding: 10px 20px; border: none; text-decoration: none;">
+    Branch
+</a> *@
+
+
+
+<nav class="navbar navbar-expand-lg bg-white navbar-light">
+    <a href="" class="navbar-brand d-flex align-items-center ps-2">
+        <img src="~/img/logo.png" alt="" class="img-fluid" width="140px" />
+    </a>
+    <button type="button"
+            class="navbar-toggler me-4"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ">
+            <a href="/Admin/Company" class="nav-item nav-link">
+                <div class="d-flex align-items-left gap-1">
+
+                    <strong>Create Company</strong>
+                </div>
+            </a>
+            <a href="/Admin/Branch" class="nav-item nav-link">
+                <div class="d-flex align-items-center gap-1">
+
+                    <strong>Create Branch</strong>
+                </div>
+            </a>
+            
+        </div>
+     
+        <a id="btnlogout" type="button" asp-controller="Home" asp-action="Logout"
+           style="position: absolute; top: 10px; right: 10px;background-color: #4CAF50; color: white; padding: 6px 20px; border: none; text-decoration: none;">
+            Logout
+        </a>
+    </div>
+</nav>
+
+
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth px-0">
+            <div class="row w-100 mx-0">
+                <div class="col-lg-4 mx-auto login-size">
+                    <div class="auth-form-light text-left p-5" style="width: 489px;">
+                        <div class="text-center">
+                            <img src="~/img/Logo-Icon.png" class="mb-4" style="max-width: 150px;" alt="Logo">
+                            <h2 class="fw-light mb-4">Branch Login</h2>
+                        </div>
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="company" class="form-label">Company</label>
+                                <select id="company" class="form-control form-control-lg" asp-for="companyid" onchange="bindBranch(this.value)">
+                                   @*  <option value="0">Select</option> *@
+                                    @if (ViewBag.com != null)
+                                    {
+                                        foreach (var item in ViewBag.com)
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="form-group mt-4">
+                                <label for="branch" class="form-label">Branch</label>
+                                <select class="form-control form-control-lg" id="branch" asp-for="branch_id">
+                                    @* <option value="0">Select Branch</option> *@
+                                </select>
+                            </div>
+
+                            <div class="d-flex justify-content-center mt-5">
+                                <button type="submit" id="continue" class="btn btn-primary btn-lg w-100" style="background-color: #4CAF50; color: white;">
+                                    Continue
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+@* <script src="~/grouplreportingportal/js/Reports/BranchLogin.js"></script> *@
+<script src="~/js/Admin/BranchLogin.js"></script>
+
+
+<script>
+
+    var message = '@ViewBag.message';
+    if (message)
+        alert(message)
+</script>
+
+

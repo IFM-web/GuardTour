@@ -1,0 +1,760 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = null;
+}
+
+<style>
+    #map {
+        height: 600px;
+        width: 100%;
+
+    }
+
+  
+
+    /* Avatar styling */
+    .avatar {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Popup styling for marker info */
+    .custom-popup {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Name and company below the marker */
+    .marker-label {
+        background-color: #fff;
+        padding: 5px 10px;
+    width: max-content;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        /* margin-top: 5px; */
+        font-weight: bold;
+        /* font-size: 14px; */
+        color: #333;
+    }
+
+  
+    .qr-status {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+        .qr-status .checked, .qr-status .unchecked {
+            margin: 0 2px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+
+    .checked {
+        background-color: green;
+    }
+
+    .unchecked {
+        background-color: red;
+    }
+</style>
+
+
+ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>IFM360 Guard Tour</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #0a1d3e;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar1 {
+            background-color: #C62828;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+           /*  justify-content: space-between; */
+        }
+
+
+        .navbar2 {
+            background-color: #fff;
+            color: #fff;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            /*  justify-content: space-between; */
+        }
+        input {
+            margin-right: 20px;
+        }
+
+      
+
+        label{
+            text-wrap:nowrap !important;
+        }
+
+        .navbar .logo {
+                display: flex;
+                align-items: center;
+            }
+
+                .navbar .logo img {
+                    height: 40px;
+                    margin-right: 10px;
+                }
+
+            .navbar .date-picker,
+            .navbar .guard-tour,
+            .navbar .user-info {
+                display: flex;
+                align-items: center;
+            }
+
+            .navbar .drop-picker {
+                display: flex;
+                align-items: center;
+            }
+
+
+                .navbar .drop-picker select {
+                background-color: #ffffff;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                color: #333;
+                margin-left: 10px;
+                font-size: 14px;
+            }
+                .navbar .date-picker input {
+                    background-color: #ffffff;
+                    border: none;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    color: #333;
+                    margin-left: 10px;
+                    font-size: 14px;
+                }
+
+        
+
+
+            .navbar .user-info {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+                .navbar .user-info img {
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                }
+
+   
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        
+
+        
+
+            
+
+          
+        button {
+            border-radius: 5px;
+            padding: 4px;
+        }
+
+        * {
+            margin: 0;
+           /*  padding: 4px; */
+            box-sizing: border-box;
+        }
+           
+
+                
+
+
+      
+
+        .container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .refresh {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            color: black;
+            font-weight: bold;
+        }
+
+        .refresh-icon {
+            margin-right: 5px;
+        }
+
+        .switch {
+            position: relative;
+            width: 34px;
+            height: 18px;
+            margin-left: 5px;
+        }
+
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #ccc;
+            border-radius: 34px;
+            transition: 0.4s;
+        }
+
+            .slider:before {
+                content: "";
+                position: absolute;
+                height: 14px;
+                width: 14px;
+                left: 2px;
+                bottom: 2px;
+                background: white;
+                border-radius: 50%;
+                transition: 0.4s;
+            }
+
+        input:checked + .slider {
+            background: #4CAF50;
+        }
+
+            input:checked + .slider:before {
+                transform: translateX(16px);
+            }
+
+
+        .dropdown-container {
+            background-color: #ffffff;
+            border: none;
+            padding: 0px 0px;
+            border-radius: 5px;
+            color: #333;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        
+        select {
+           
+            font-size: 14px;
+            padding: 5px;
+            width: 220%;
+            background: white;
+            color: black;
+        }
+
+        .next-btn {
+            
+            margin-top: 55px;
+            position: fixed;
+           /*  top: 33%; */
+            right: 10px; /* Adjust this for spacing */
+            transform: translateY(-50%);
+            background: #f5f5f5;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+            .next-btn svg {
+                width: 30px;
+                height: 30px;
+                fill: gray;
+                transform: rotate(180deg);
+            }
+
+
+        .prev-btn {
+            margin-top: 55px;
+            position: fixed;
+            /* top: 33%; */
+            left: 10px; /* Adjust this for spacing */
+            transform: translateY(-50%);
+            background: #f5f5f5;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+            .prev-btn svg {
+                width: 30px;
+                height: 30px;
+                fill: gray;
+            }
+
+        .container1 {
+            display: flex;
+            gap: 10px;
+            margin-inline-start: 80px;
+            margin-bottom: -30px;
+            margin-top: -30px;
+        }
+
+        .card {
+            
+            width: 190px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+            color: black;
+        }
+
+        .count {
+            font-size: 16px;
+            margin: 0;
+            color: black;
+        }
+
+            .count span {
+                color: green;
+                font-weight: bold;
+            }
+
+
+        .container-fluid {
+            padding-top: 10px;
+            padding-left: 60px;
+            padding-right: 60px;
+            background:black
+        }
+
+        .panel {
+            padding: 15px;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: #000000;
+            overflow: auto;
+            color: white;
+        }
+
+       
+        .btn-custom {
+            background-color: #c23136;
+            color: white;
+            /* border: none; */
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-custom1 {
+            background-color: white;
+            color: black;
+           /*  border: none; */
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .chart-container {
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-end; /* Right Side Align */
+            width: 100%;
+        }
+
+    </style>
+   
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="~/img/Logo.png" width="100px" alt="IFM360 Logo"> <!-- Replace with actual logo path -->
+           
+        </div>
+        <input type="hidden" id="CompanyId" value="@HttpContextAccessor.HttpContext.Session.GetString("companyid")" />
+        <input type="hidden" id="BranchId" value="@HttpContextAccessor.HttpContext.Session.GetString("branchid")" />
+        @* <div class="date-picker">
+            <label for="date-range">Date Range:</label>
+            <input type="text" id="date-range" placeholder="19/11/2024 - 25/11/2024">
+        </div>
+
+        <div class="drop-picker">
+            <label for="Select Site">Select Site:</label>
+            <select class="form-control" id="siteid" onchange="bindsite(this.value)">
+                <option value="0">Select Site</option>
+                @if (ViewBag.site != null)
+                {
+                    @foreach (var item in ViewBag.site as List<SelectListItem>)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                }
+            </select>
+        </div> 
+
+        <div class="drop-picker">
+            <label for="beats">Select Beats:</label><br>
+            <select class="form-control" id="beatid">
+                <option value="0">Select Beats</option>
+                @if (ViewBag.beat != null)
+                {
+                    @foreach (var item in ViewBag.beat as List<SelectListItem>)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+
+                }
+
+            </select>
+        </div>
+
+        <button type="button" onclick="mapAction()">View Reports</button> *@
+        <div class="guard-tour">
+            <h3>Guard Tour</h3>
+        </div>
+
+
+        <div class="user-info">
+            <p>Cameron Williamson<br><span style="font-size: 12px; color: #ccc;">Security Guard</span></p>
+            <img src="~/img/Photos.png" alt="User Profile"> <!-- Replace with actual profile image path -->
+        </div>
+    </div>
+
+    <div class="navbar1">
+      
+        <div class="date-picker">
+            <label for="date-range"></label>
+            <input type="text" id="date-range" placeholder="19/11/2024 - 25/11/2024">
+        </div>
+        <div class="dropdown-container">
+           @* <select id="shift-dropdown">
+                <option value="A">Shift A (06:00 - 18:00)</option>
+                <option value="B">Shift B (18:00 - 06:00)</option>
+                <option value="C">Shift C (Flexible)</option>
+            </select> *@
+            <select id="shift-dropdown">
+                <
+                <option value="0">Select Shift</option>
+                @if (ViewBag.shift != null)
+                {
+                    foreach (var item in ViewBag.shift as List<SelectListItem>)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                }
+            </select>
+            
+        </div>
+
+       
+
+        <div class="container">
+            <div class="refresh">
+                <i class="fas fa-sync-alt mr-2 d-flex p-1"></i>
+                @* <i class="bi bi-arrow-clockwise mr-2 d-flex"></i> *@
+               @*  <span class="refresh-icon">⟳</span> *@
+                <label>Refresh: <span id="status">OFF</span></label>
+                <label class="switch">
+                    <input type="checkbox" id="toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="navbar2">
+
+
+
+        <button class="prev-btn" aria-label="Previous">
+            <svg viewBox="0 0 100 100">
+                <path d="M10,50 L60,100 L70,90 L30,50 L70,10 L60,0 Z"></path>
+            </svg>
+        </button>
+
+
+        <div class="container1">
+            <div class="card">
+                <p class="title">User</p>
+                <p class="count"><span>0</span> / 5</p>
+            </div>
+            <div class="card">
+                <p class="title">BIT MESRA PATRO....</p>
+                <p class="count"><span>0</span> / 14</p>
+            </div>
+        </div>
+
+        <button class="next-btn" aria-label="Next">
+            <svg viewBox="0 0 100 100">
+                <path d="M10,50 L60,100 L70,90 L30,50 L70,10 L60,0 Z"></path>
+            </svg>
+        </button>
+
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+           
+            <div class="col-md-6 panel" >
+                <div class="row mb-2">
+                    <div class="col-md-5">
+                        @* <select class="form-control">
+                            <option value="0">Select Route</option>
+                        </select> *@
+
+                        <select name="Route Name" class="form-control mandatory" style="border: 1px solid lightgray;" id="routeid" onchange="bindsite(this.value)">
+                            <option value="0">Select Route</option>
+                            @if (ViewBag.Route != null)
+                            {
+                                foreach (var item in ViewBag.Route as List<SelectListItem>)
+                            {
+                            <option value="@item.Value">@item.Text</option>
+                            }
+                            } 
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        @* <select class="form-control">
+                            <option value="0">Select Beat</option>
+                        </select> *@
+
+
+
+                        <select name="Beat Name" class="form-control mandatory" onchange="mapAction()" style="border: 1px solid lightgray;" id="beatid">
+                            <option value="0">Select Beat</option>
+                                     @if (ViewBag.Beat != null)
+                                    {
+                            foreach (var item in ViewBag.Beat as List<SelectListItem>)
+                                    {
+                                    <option value="@item.Value">@item.Text</option>
+                                    }
+                                    } 
+                                </select>
+
+                         
+                        
+
+                    </div>
+                    @* <div class="col-md-3">
+                        <button class="btn-custom w-100">Show Report</button>
+                    </div> *@
+                </div>
+                <!-- Map Display -->
+                <div class="position-relative" style="background-color: white; height: 300px; border-radius: 5px;">
+                    <div id="map" style="width:100%; height:638px;border-radius: 5px;"></div>
+                    
+                </div>
+            </div>
+
+            <!-- Right Panel - Charts -->
+            <div class="col-md-6 panel">
+                <div class="row pt-1 mb-1 mx-1" style="background: #c23136; color: white; align-items: center; border-radius: 5px;">
+                    <div class="col-md-8">
+                        <p style="font-size: 20px; font-weight: 600; margin-bottom: 0;">OBSERVATION AND SUGGESTIONS</p>
+                    </div>
+                    @* <div class="col-md-4 text-end">
+                        <button style="margin-bottom: 3px;" class="btn-custom1">Show Report</button>
+                    </div> *@
+                </div>
+                <!-- Charts -->
+                <div class="bg-white p-3" style="border-radius: 5px;">
+                    <div class="chart-container" style="">
+                        <canvas id="myChart" width="500" height="250"></canvas>
+                    </div>
+                    <hr />
+                    <div class="chart-container">
+                        <canvas width="600" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+   
+
+
+
+
+    <!-- Content -->
+
+    @* <div class="container">
+        <div class="selector-container">
+           <div>
+                <label for="site">Select Site</label><br>
+                <select class="form-control" id="siteid" onchange="bindsite(this.value)">
+                    <option value="0">Select Site</option>
+                    @if (ViewBag.site != null)
+                    {
+                        @foreach (var item in ViewBag.site as List<SelectListItem>)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+
+                    }
+
+                </select>
+            </div> 
+            <div>
+                <label for="beats">Select Beats</label><br>
+                <select class="form-control" id="beatid" >
+                    <option value="0">Select Beats</option>
+                    @if (ViewBag.beat != null)
+                    {
+                        @foreach (var item in ViewBag.beat as List<SelectListItem>)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+
+                    }
+
+                </select>
+            </div>
+            <button type="button" onclick="mapAction()">View Reports</button>
+        </div>
+    </div> *@
+   
+
+       
+       @*  <div id="map" style="width:100%; height:500px;"></div> *@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+    <!-- Fullscreen Plugin CSS -->
+    <!-- ✅ Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- ✅ Fullscreen Plugin -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Control.FullScreen.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Control.FullScreen.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- ✅ Your Custom Script (Last me load karein) -->
+    <script src="~/js/Dashboard/Dashboard.js"></script>
+
+
+
+
+</body>
+</html>
+
+
+
+<script>
+    const xValues = ["India"];
+    const yValues = [55];
+    const barColors = [
+        "#b91d47",
+
+    ];
+
+    new Chart("myChart", {
+        type: "doughnut",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: "World Wide Wine Production 2018"
+            }
+        }
+    });
+</script>
+@* <script>
+    document.getElementById("toggle").addEventListener("change", function () {
+        document.getElementById("status").textContent = this.checked ? "ON" : "OFF";
+    });
+    
+
+
+
+</script> *@
