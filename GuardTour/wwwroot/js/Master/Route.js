@@ -150,7 +150,7 @@ function deleteselectedpost(row) {
 
 
 function filterAndDeleteItems() {
-    // Filter out items that do not match any ID in delallitem
+
     let list3 = list.filter(item =>
         !delallitem.some(delItem => delItem.beatid === item.beatid)
     );
@@ -184,8 +184,9 @@ function Data() {
         var Itemprod = new Array();
         
 
-            $("#Selectedid TBODY TR").each(function () {
+            $("#Selectedid TBODY TR").each(function (index,row) {
                 var Items = {};
+             
                 var row = $(this);
                 Items.siteid = $("#siteid").val();
                 Items.custid = $("#custid").val();
@@ -199,7 +200,10 @@ function Data() {
                 Items.status = $("#status").is(':checked') ? 1 : 0,
                 Items.mode = $("#flgmode").val();
                 Items.type = 20;
+                Items.index = index+1;
+             
                 Itemprod.push(Items);
+             
             })
 
 

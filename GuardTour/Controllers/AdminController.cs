@@ -176,7 +176,7 @@ namespace GuardTour.Controllers
             var companyid = HttpContext.Session.GetString("companyid").ToString();
             var branchid = HttpContext.Session.GetString("branchid").ToString();
             //var ds = util.Fill("select * from Employees a join beatmaster b on a.beatid=b.beatid where a.beatid='" + id + "'", util.strElect);
-            var ds = util.Fill("select a.RouteName,c.BeatId,c.BeatName,c.latitude,c.Longitude as longitude,d.CustomerName as EmpName from  RouteMaster a left outer join AssignBeat b on a.SiteId=b.SiteId join BEATMASTER c on a.PostId=c.BeatId join Customer d on c.CustomerId=d.Id  where  b.BeatId='" + id + "' and  a.CompanyId='" + companyid + "' and a.BranchId='" + branchid + "'", util.strElect);
+            var ds = util.Fill("select a.,a.RouteName,c.BeatId,c.BeatName,c.latitude,c.Longitude as longitude,d.CustomerName as EmpName from  RouteMaster a left outer join AssignBeat b on a.SiteId=b.SiteId join BEATMASTER c on a.PostId=c.BeatId join Customer d on c.CustomerId=d.Id  where  b.BeatId='" + id + "' and  a.CompanyId='" + companyid + "' and a.BranchId='" + branchid + "'", util.strElect);
             //var ds = util.Fill("select * from  beatmaster where beatid='" + id + "'", util.strElect);
             var dt = ds.Tables[0];
             var data = JsonConvert.SerializeObject(dt);
