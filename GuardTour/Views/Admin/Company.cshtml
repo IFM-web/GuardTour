@@ -4,7 +4,6 @@
 }
 
 
-<!-- partial -->
 <div class="main-panel main-panel-one" style="width:100% !important">
     <div class="content-wrapper pt-0">
         <div class="row">
@@ -24,51 +23,57 @@
                                                     <div class="d-sm-flex justify-content-between align-items-start">
                                                         <div>
                                                             <h4 class="card-title card-title-dash">
-                                                                Master / <a href="#">
+                                                                <a href="#">
                                                                     Company Master
                                                                 </a>
                                                             </h4>
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <div class="row">
+                                                    <div id="hidshowhead" class="row">
 
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label>Company Code</label>
-                                                                <input type="text" id="Companycode" name="Company Code" class="form-control mandatory" />
+                                                       
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Company Code</label>
+                                                                    <input type="text" id="Companycode" name="Company Code" class="form-control mandatory" />
 
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Company Name</label>
+                                                                    <input type="text" id="Companyname" name="Company Name" class="form-control mandatory" />
+
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="col-md-1" style="    margin-top: 37px;">
+                                                                <div class="form-group">
+                                                                    <label>Status</label>
+                                                                    <input type="checkbox" id="status" checked aria-label="Checkbox for following text input">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2" style="    margin-top: 37px;">
+                                                                <button onclick="SAVEall()" id="submitbtn" class="btn btn-success">
+                                                                    Save
+                                                                </button>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label>Company Name</label>
-                                                                <input type="text" id="Companyname" name="Company Name" class="form-control mandatory" />
-
-                                                            </div>
+                                                   
+                                                    <div class="row" id="griddiv">
+                                                        <div>
+                                                            <button class="btn btn-success float-end" onclick="Hidegrid()">Add New</button>
                                                         </div>
-                                                        
-
-                                                        <div class="col-md-1" style="    margin-top: 37px;">
-                                                            <div class="form-group" >
-                                                                <label>Status</label>
-                                                                <input type="checkbox" id="status" checked aria-label="Checkbox for following text input">
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-2" style="    margin-top: 37px;">
-                                                            <button onclick="SAVEall()" id="submitbtn" class="btn btn-success">
-                                                                Save
-                                                            </button>
-                                                        </div>
-
                                                         <div class="col-md-12">
                                                             <div class="table-data">
                                                                 <div id="printdiv"></div>
                                                             </div>
                                                         </div>
-
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -83,7 +88,7 @@
     </div>
 
 </div>
-<!-- main-panel ends -->
+
 
 <script src="~/js/Admin/Company.js"></script>
 <script src="~/js/InsAjax.js"></script>

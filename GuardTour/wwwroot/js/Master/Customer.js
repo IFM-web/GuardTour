@@ -1,6 +1,7 @@
 ﻿
 $(document).ready(() => {
     Showdata();
+    showgrid()
 })
 
 
@@ -9,6 +10,7 @@ function SAVEall() {
     if (vali == '') {
 
         save();
+        showgrid()
     } else {
         alert(vali);
     }
@@ -66,7 +68,7 @@ const Showdata =()=> {
 }
 
 function EditbyId(id) {
-
+    Hidegrid()
     var custid = $("#Hid_id" + id + "").html();
     var custcode = $("#CustomerCode" + id + "").html();
     var custname = $("#CustomerName" + id + "").html();

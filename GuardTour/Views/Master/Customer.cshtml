@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "CustomerMaser";
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
@@ -26,54 +25,60 @@
                                                         <div>
                                                             <h4 class="card-title card-title-dash">
                                                                 Master / <a href="#">
-                                                                    Customer 
+                                                                    Customer
                                                                 </a>
                                                             </h4>
+                                                            <a href="/Admin/DashboardLogin" class="btn btn-success">
+                                                                Back
+                                                            </a>
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label>Customer Code</label>
-                                                                <input type="text" id="custcode" name="Customer Code" class="form-control mandatory" />
-
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label>Customer Name</label>
-                                                                <input type="text" id="custname" name="Customer Name" class="form-control mandatory" />
-
-                                                            </div>
-                                                        </div>
+                                                    <div class="row" id="hidshowhead">
                                                         
-                                                      
-                                                        <div class="col-md-1" style="    margin-top: 37px;">
-                                                            <div class="form-group" >
-                                                                <label>Status</label>
-                                                                <input type="checkbox" id="status" checked aria-label="Checkbox for following text input">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Customer Code</label>
+                                                                    <input type="text" id="custcode" name="Customer Code" class="form-control mandatory" />
 
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-3" style="    margin-top: 37px;">
-                                                            <button onclick="SAVEall()" id="submitbtn" class="btn btn-success">
-                                                                Save
-                                                            </button>
 
-                                                            <a href="/Admin/DashboardLogin">
-                                                                <button id="backtbtn" class="btn btn-success">Back</button>
-                                                            </a>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Customer Name</label>
+                                                                    <input type="text" id="custname" name="Customer Name" class="form-control mandatory" />
 
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                            <div class="table-data">
-                                                                <div id="printdiv"></div>
+                                                                </div>
                                                             </div>
-                                                        </div>
 
+
+                                                            <div class="col-md-1" style="    margin-top: 37px;">
+                                                                <div class="form-group">
+                                                                    <label>Status</label>
+                                                                    <input type="checkbox" id="status" checked aria-label="Checkbox for following text input">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3" style="    margin-top: 37px;">
+                                                                <button onclick="SAVEall()" id="submitbtn" class="btn btn-success">
+                                                                    Save
+                                                                </button>
+
+
+
+                                                          </div>
+                                                        </div> <div class="row" id="griddiv">
+                                                            <div>
+                                                                <button class="btn btn-success float-end" onclick="Hidegrid()">Add New</button>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="table-data">
+                                                                    <div id="printdiv"></div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,12 +91,11 @@
                 </div>
             </div>
         </div>
+
     </div>
+    <!-- main-panel ends -->
 
-</div>
-<!-- main-panel ends -->
-
-<script src="~/js/Master/Customer.js"></script>
-<script src="~/js/InsAjax.js"></script>
-<script src="~/js/Master.js"></script>
+    <script src="~/js/Master/Customer.js"></script>
+    <script src="~/js/InsAjax.js"></script>
+    <script src="~/js/Master.js"></script>
 

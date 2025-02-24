@@ -34,42 +34,16 @@ namespace GuardTour.Controllers
         }
 
         [HttpPost]
-        //public IActionResult BranchLogin(branch_login obj)
-        //{
-
-
-        //    if (obj.companyid != "0" && /*obj.location_id != null && */obj.branch_id != "0")
-        //    {
-        //        HttpContext.Session.SetString("companyid", obj.companyid.ToString());
-        //        //HttpContext.Session.SetString("locationid", obj.location_id.ToString());
-        //        HttpContext.Session.SetString("branchid", obj.branch_id.ToString());
-
-
-
-        //        return RedirectToAction("Site", "Master");
-        //        //return RedirectToAction("DashBoard", "Admin");
-        //    }
-        //    else
-        //    {
-        //        ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
-
-        //        ViewBag.message = "All Field Required!";
-        //    }
-
-        //    return View();
-        //}
-
-
-       
+          
 
         public IActionResult BranchLogin(branch_login obj)
         {
-            if (obj.companyid != "0" && obj.branch_id != "0")
+			ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
+			if (obj.companyid != null  && obj.branch_id != null)
             {
 
                 HttpContext.Session.SetString("companyid", obj.companyid.ToString());
-                HttpContext.Session.SetString("branchid", obj.branch_id.ToString());
-                //     HttpContext.Session.SetString("locationid", obj.location_id.ToString());
+                HttpContext.Session.SetString("branchid", obj.branch_id.ToString());               
                 string query = @"SELECT a.BranchName, b.CompanyName FROM Branch a JOIN Company b ON a.CompanyId = b.Com_Id where a.CompanyId = '" + obj.companyid + "' AND a.Branch_Id = '" + obj.branch_id + "'";
                 var ds = util.Fill(query, util.strElect);
                 var dt = ds.Tables[0];
@@ -77,7 +51,7 @@ namespace GuardTour.Controllers
                 string comname = dt.Rows[0][1].ToString();
                 HttpContext.Session.SetString("companyname", comname.ToString());
                 HttpContext.Session.SetString("branchname", brnname.ToString());
-                //return RedirectToAction("Site", "Master");
+              
                 return RedirectToAction("DashboardLogin", "Admin");
             }
             else
@@ -176,7 +150,7 @@ namespace GuardTour.Controllers
             var companyid = HttpContext.Session.GetString("companyid").ToString();
             var branchid = HttpContext.Session.GetString("branchid").ToString();
             //var ds = util.Fill("select * from Employees a join beatmaster b on a.beatid=b.beatid where a.beatid='" + id + "'", util.strElect);
-            var ds = util.Fill("select a.,a.RouteName,c.BeatId,c.BeatName,c.latitude,c.Longitude as longitude,d.CustomerName as EmpName from  RouteMaster a left outer join AssignBeat b on a.SiteId=b.SiteId join BEATMASTER c on a.PostId=c.BeatId join Customer d on c.CustomerId=d.Id  where  b.BeatId='" + id + "' and  a.CompanyId='" + companyid + "' and a.BranchId='" + branchid + "'", util.strElect);
+            var ds = util.Fill("select a.RouteName,c.BeatId,c.BeatName,c.latitude,c.Longitude as longitude,d.CustomerName as EmpName from  RouteMaster a left outer join AssignBeat b on a.SiteId=b.SiteId join BEATMASTER c on a.PostId=c.BeatId join Customer d on c.CustomerId=d.Id  where  b.BeatId='" + id + "' and  a.CompanyId='" + companyid + "' and a.BranchId='" + branchid +"'", util.strElect);
             //var ds = util.Fill("select * from  beatmaster where beatid='" + id + "'", util.strElect);
             var dt = ds.Tables[0];
             var data = JsonConvert.SerializeObject(dt);
@@ -267,15 +241,18 @@ namespace GuardTour.Controllers
 
         public IActionResult DashboardLogin()
         {
-            ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
+           
             return View();
         }
 
-        public JsonResult binddashboard(string CompanyId)
+        public JsonResult binddashboard()
         {
-            DataTable dt = new DataTable();
+			var companyid = HttpContext.Session.GetString("companyid").ToString();
+			var branchid = HttpContext.Session.GetString("branchid").ToString();
 
-            string sqlquery = "exec drop_BindDoardLogin @CompanyId='" + CompanyId + "' ";
+			DataTable dt = new DataTable();
+
+            string sqlquery = "exec drop_BindDoardLogin @CompanyId='" + companyid + "', @BranchId='"+ branchid + "' ";
             DataSet ds = util.Fill(sqlquery, util.strElect);
 
             if (ds.Tables[0].Rows.Count > 0)

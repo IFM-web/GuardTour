@@ -37,11 +37,13 @@
                                                                 Master / <a href="#">
                                                                     Beat Master
                                                                 </a>
-                                                            </h4>
+                                                            </h4> <a href="/Admin/DashboardLogin">
+                                                                <button id="backtbtn" class="btn btn-success">Back</button>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <div class="row">
+                                                    <div class="row" id="hidshowhead">
 
 
                                                         <div class="col-md-4">
@@ -64,7 +66,7 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Site Name</label>
-                                                                <select name="Site Name" class="form-control mandatory"  id="siteid" style="border: 1px solid lightgray;">
+                                                                <select name="Site Name" class="form-control mandatory" id="siteid" style="border: 1px solid lightgray;">
                                                                     <option value="0">Select</option>
                                                                     @if (ViewBag.site != null)
                                                                     {
@@ -110,19 +112,19 @@
 
                                                             </div>
                                                         </div>
-                                                       
-                                                  
+
+
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Start Time</label>
-                                                                <input type="text" id="intime" name="Start Time" class="form-control mandatory"  />
+                                                                <input type="text" id="intime" name="Start Time" class="form-control mandatory" />
 
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>End Time</label>
-                                                                <input type="text" id="outtime" name="End Time" class="form-control mandatory"  />
+                                                                <input type="text" id="outtime" name="End Time" class="form-control mandatory" />
 
                                                             </div>
                                                         </div>
@@ -139,18 +141,21 @@
                                                             <button onclick="SAVEall()" id="submitbtn" class="btn btn-success">
                                                                 Save
                                                             </button>
-
-                                                            <a href="/Admin/DashboardLogin">
-                                                                <button id="backtbtn" class="btn btn-success">Back</button>
-                                                            </a>
                                                         </div>
-
-                                                        <div class="col-md-12">
-                                                            <div class="table-data">
-                                                                <div id="printdiv"></div>
+                                                        </div>
+                                                        <div class="row" id="griddiv">
+                                                            <div>
+                                                                <button class="btn btn-success float-end" onclick="Hidegrid()">Add New</button>
                                                             </div>
-                                                        </div>
 
+
+                                                            <div class="col-md-12">
+                                                                <div class="table-data">
+                                                                    <div id="printdiv"></div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -163,25 +168,24 @@
                 </div>
             </div>
         </div>
+
     </div>
+    <!-- main-panel ends -->
 
-</div>
-<!-- main-panel ends -->
-
-<script src="~/js/Master/Beat.js"></script>
-<script src="~/js/InsAjax.js"></script>
-<script src="~/js/Master.js"></script>
+    <script src="~/js/Master/Beat.js"></script>
+    <script src="~/js/InsAjax.js"></script>
+    <script src="~/js/Master.js"></script>
 
 
 
 
 
-<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@* <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-<script>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @* <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+    <script>
     $("#shiftid").select2();
 
 
-</script> *@
+    </script> *@

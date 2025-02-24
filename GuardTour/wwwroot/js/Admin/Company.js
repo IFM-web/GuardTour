@@ -1,5 +1,7 @@
 ﻿$(document).ready(() => {
     Showdata();
+    showgrid()
+    
 })
 
 
@@ -9,10 +11,13 @@ function SAVEall() {
     if (vali == '') {
 
         saveCompany();
+        showgrid()
+       
     } else {
         alert(vali);
     }
 }
+
 
 
 function saveCompany() {
@@ -67,7 +72,7 @@ function Showdata() {
 }
 
 function EditbyId(id) {
-
+    Hidegrid()
     var comid = $("#Hid_Com_Id" + id + "").html();
     var comName = $("#CompanyName" + id + "").html();
     var comCode = $("#CompanyCode" + id + "").html();

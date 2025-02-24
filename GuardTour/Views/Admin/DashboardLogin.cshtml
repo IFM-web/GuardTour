@@ -104,28 +104,7 @@
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <div class="row">
-                                                        <div class="col-md-4 mb-2">
-                                                            <div class="form-group">
-                                                                <label>Company Name</label>
-                                                                <select name="Company Name" onchange="binddashboard()" class="form-control mandatory" id="Companyid" style="border: 1px solid lightgray;">
-                                                                    <option value="0">All</option>
-                                                                    @if (ViewBag.com != null)
-                                                                    {
-                                                                        foreach (var item in ViewBag.com as List<SelectListItem>)
-                                                                        {
-                                                                            <option value="@item.Value">@item.Text</option>
-                                                                        }
-                                                                    }
-                                                                </select>
-
-                                                            </div>
-                                                        </div>
-
-
-                                                        
-
-                                                    </div>
+                                                  
 
                                                     <div class="dashboard">
                                                         <a href="/Master/Customer" style="text-decoration: none;">

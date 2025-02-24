@@ -1,7 +1,7 @@
 ﻿
 $(document).ready(() => {
     Showdata();
-
+    showgrid()
 })
 
 
@@ -10,6 +10,7 @@ function SAVEall() {
     if (vali == '') {
 
         save();
+        showgrid();
     } else {
         alert(vali);
     }
@@ -97,7 +98,7 @@ const Showdata = () => {
 
 
 function EditbyId(id) {
-
+    Hidegrid()
     var comid = $("#Hid_brid" + id + "").html();
     var companyname = $("#BranchName" + id + "").html();
     var companyid = $("#Hid_CompanyId" + id + "").html();
@@ -114,6 +115,7 @@ function EditbyId(id) {
     $("#txtHiddenId").val(comid);
     $("#Branchname").val(companyname);
     $("#Companyid").val(companyid);
+    $("#Companyid").prop("disabled", true);
     $("#Companyid").trigger("change");
     $("#Branchcode").val(companycode);
     $("#Branchcode").prop("disabled", true);
@@ -145,6 +147,7 @@ function clear() {
     $('#Companyid').trigger('change'); 
     $("#Branchcode").val('')
     $("#Branchcode").prop("disabled", false);
+    $("#Companyid").prop("disabled", false);
     $("#submitbtn").html('Save');
     $("#flgmode").val('ADD')
     Showdata();

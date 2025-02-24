@@ -27,11 +27,13 @@
                                                                 Master / <a href="#">
                                                                     Shift Master
                                                                 </a>
-                                                            </h4>
+                                                            </h4>    <a href="/Admin/DashboardLogin">
+                                                                <button id="backtbtn" class="btn btn-success">Back</button>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <div class="row">
+                                                    <div class="row" id="hidshowhead">
                                                         <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label>Customer Name</label>
@@ -94,6 +96,7 @@
                                                             <div class="form-group">
                                                                 <label for="intime">In Time</label>
                                                                 <input type="text" id="intime" name="In Time" class="form-control mandatory" />
+                                                              
                                                             </div>
                                                         </div>
 
@@ -116,11 +119,14 @@
                                                             <button onclick="SAVEall()" id="submitbtn" class="btn btn-success">
                                                                 Save
                                                             </button>
-                                                            <a href="/Admin/DashboardLogin">
-                                                                <button id="backtbtn" class="btn btn-success">Back</button>
-                                                            </a>
+                                                        
                                                         </div>
+                                                    </div>
 
+                                                    <div class="row" id="griddiv">
+                                                        <div>
+                                                            <button class="btn btn-success float-end" onclick="Hidegrid()">Add New</button>
+                                                        </div>
                                                         <div class="col-md-12">
                                                             <div class="table-data">
                                                                 <div id="printdiv"></div>

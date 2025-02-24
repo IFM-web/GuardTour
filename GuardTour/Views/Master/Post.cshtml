@@ -39,10 +39,13 @@
                                                                     Post Master
                                                                 </a>
                                                             </h4>
+                                                            <a href="/Admin/DashboardLogin">
+                                                                <button id="backtbtn" class="btn btn-success">Back</button>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <div class="row">
+                                                    <div class="row" id="hidshowhead">
 
 
                                                         <div class="col-md-4">
@@ -122,11 +125,14 @@
                                                                 Save
                                                             </button>
 
-                                                            <a href="/Admin/DashboardLogin">
-                                                                <button id="backtbtn" class="btn btn-success">Back</button>
-                                                            </a>
+                                                       
                                                         </div>
+                                                    </div>
 
+                                                    <div class="row" id="griddiv">
+                                                        <div>
+                                                            <button class="btn btn-success float-end" onclick="Hidegrid()">Add New</button>
+                                                        </div>
                                                         <div class="col-md-12">
                                                             <div class="table-data">
                                                                 <div id="printdiv"></div>

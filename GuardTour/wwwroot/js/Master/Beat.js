@@ -1,6 +1,7 @@
 ﻿
 $(document).ready(() => {
     Showdata();
+    showgrid();
 })
 
 function bindsiteid(id,site) {
@@ -32,43 +33,47 @@ function SAVEall() {
     if (vali == '') {
 
         savebeat();
+        showgrid();
     } else {
         alert(vali);
     }
 }
 
 function savebeat() {
+    if (checktime == '') {
 
-    url_add = window.location.href;
-    var data = url_add.split("://");
-    data = data[1].split("/");
-    var menuname = data[1] + "/" + data[2];
-    var url_add = window.location.protocol + "//" + window.location.host + "/";
-    var url = url_add + 'api/ApiServices/Save';
-    var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
+        url_add = window.location.href;
+        var data = url_add.split("://");
+        data = data[1].split("/");
+        var menuname = data[1] + "/" + data[2];
+        var url_add = window.location.protocol + "//" + window.location.host + "/";
+        var url = url_add + 'api/ApiServices/Save';
+        var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
 
-    var Data = {
+        var Data = {
 
-       
-        beatidd: $("#txtHiddenId").val(),
-        custid: $("#custid").val(),
-        sitenameid: $("#siteid").val(),
-        shiftid: $("#shiftid").val(),
-        beatname: $("#beatname").val(),
-        beatcode: $("#beatcode").val(),
-        intime: $("#intime").val(),
-        outtime: $("#outtime").val(),
-        CompanyId: $("#CompanyId").val(),
-        BranchId: $("#BranchId").val(),
-        type: 21,
-        mode: $("#flgmode").val(),
-        status: $("#status").is(':checked') ? 1 : 0,
-    }
 
-    CommonAjax(url, JSON.stringify(Data), "", "", "", "", "PrintdivModal");
+            beatidd: $("#txtHiddenId").val(),
+            custid: $("#custid").val(),
+            sitenameid: $("#siteid").val(),
+            shiftid: $("#shiftid").val(),
+            beatname: $("#beatname").val(),
+            beatcode: $("#beatcode").val(),
+            intime: $("#intime").val(),
+            outtime: $("#outtime").val(),
+            CompanyId: $("#CompanyId").val(),
+            BranchId: $("#BranchId").val(),
+            type: 21,
+            mode: $("#flgmode").val(),
+            status: $("#status").is(':checked') ? 1 : 0,
+        }
 
+        CommonAjax(url, JSON.stringify(Data), "", "", "", "", "PrintdivModal");
+
+    } else
+        alert(checktime);
 }
-
+var checktime=''
 
 $('#intime').on('input', function () {
     var timeFormat = /^(?:[01]\d|2[0-3]):[0-5]\d$/; // For HH:mm format
@@ -86,12 +91,14 @@ $('#intime').on('input', function () {
             .text('Valid time format!')
             .css('color', 'green')
             .show();
+        checktime = '';
     } else {
         $(this).css('border-color', 'red');
         $('#timeMessage')
             .text('Invalid time format. Please use HH:mm.')
             .css('color', 'red')
             .show();
+        checktime ='Invalid time format. Please use HH:mm.'
     }
 });
 
@@ -103,40 +110,30 @@ $('#intime').on('input', function () {
 
 
 $('#outtime').on('input', function () {
-    var intime = $('#intime').val(); // Get the intime value
-    var outtime = $(this).val().replace(/[^0-9:]/g, ''); // Remove invalid characters
-    var timeFormat = /^([01]\d|2[0-3]):([0-5]\d)$/; // HH:mm format
+    var timeFormat = /^(?:[01]\d|2[0-3]):[0-5]\d$/; // For HH:mm format
+    // var timeFormat = /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/; // For HH:mm:ss
+    var inputVal = $(this).val();
+
 
     if ($('#timeMessage1').length === 0) {
         $(this).after('<span id="timeMessage1" style="display:none;"></span>');
     }
 
-    // Auto-insert ":" if needed
-    if (outtime.length === 2 && outtime.indexOf(':') === -1) {
-        outtime = outtime + ':';
-    }
+    if (timeFormat.test(inputVal)) {
+        $(this).css('border-color', 'green');
+        $('#timeMessage1')
+            .text('Valid time format!')
+            .css('color', 'green')
+            .show();
+        checktime = '';
 
-    // Ensure input length does not exceed HH:mm format
-    if (outtime.length > 5) {
-        outtime = outtime.substring(0, 5);
-    }
-
-    $(this).val(outtime); // Set formatted value back
-
-    if (timeFormat.test(outtime)) {
-        var intimeMinutes = convertToMinutes(intime);
-        var outtimeMinutes = convertToMinutes(outtime);
-
-        if (outtimeMinutes <= intimeMinutes) {
-            $(this).css('border-color', 'red');
-            $('#timeMessage1').text('Out time must be greater than In time.').css('color', 'red').show();
-        } else {
-            $(this).css('border-color', 'green');
-            $('#timeMessage1').text('Valid time format!').css('color', 'green').show();
-        }
     } else {
         $(this).css('border-color', 'red');
-        $('#timeMessage1').text('Invalid time format. Please use HH:mm.').css('color', 'red').show();
+        $('#timeMessage1')
+            .text('Invalid time format. Please use HH:mm.')
+            .css('color', 'red')
+            .show();
+        checktime = 'Invalid time format. Please use HH:mm'
     }
 });
 
@@ -176,7 +173,7 @@ function Showdata() {
 }
 
 function EditbyId(id) {
-
+    Hidegrid();
     var bshiftid = $("#Hid_BeatShift_Id" + id + "").html();
     var Hid_Id = $("#Hid_Id" + id + "").html();
     var BeatCode = $("#BeatCode" + id + "").html();
@@ -198,6 +195,9 @@ function EditbyId(id) {
 
     $("#txtHiddenId").val(bshiftid);
     $("#custid").val(Hid_Id);
+    $("#custid").prop('disabled', true);
+    $("#siteid").prop('disabled', true);
+    $("#shiftid").prop('disabled', true);
     bindsiteid(Hid_Id, Hid_siteid);
     $("#shiftid").val(shiftid);
     $("#shiftid").trigger("change");
@@ -233,6 +233,9 @@ function clear() {
     $("#intime").val('')
     $("#custid").val(0);
     bindsiteid(0, 0);
+    $("#custid").prop('disabled', false);
+    $("#siteid").prop('disabled', false);
+    $("#shiftid").prop('disabled', false);
     $("#beatcode").val('');
     $('#timeMessage').text('').css('color', 'green').hide();
     $('#timeMessage1').text('').css('color', 'green').hide();

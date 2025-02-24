@@ -1,5 +1,17 @@
 ﻿//const { parseJSON } = require("jquery");
 
+function Hidegrid() {
+    $("#griddiv").hide()
+    $("#hidshowhead").show()
+}
+function showgrid() {
+    $("#hidshowhead").hide()
+    $("#griddiv").show()
+
+}
+
+
+
 function Validation() {
     var msg = "";
     var charregex = /^[a-zA-Z\s]+$/;
@@ -513,8 +525,11 @@ function CreateTableFromArray(arrItems, divid) {
 
     // Show the table.
     let container = document.getElementById('' + divid + '');
-    container.innerHTML = '';
-    container.appendChild(table);
+    if (container != null) {
+        container.appendChild(table);
+    }
+   
+  
 
 
     //jQuery.noConflict();

@@ -1,6 +1,7 @@
 ﻿
 $(document).ready(() => {
     Showdata();
+    showgrid()
 })
 
 
@@ -9,6 +10,7 @@ function SAVEallty() {
     if (vali == '') {
 
         save();
+        showgrid()
     } else {
         alert(vali);
     }
@@ -67,7 +69,7 @@ function Showdata() {
 }
 
 function EditbyId(id) {
-
+    Hidegrid();
     var siteid = $("#Hid_siteid" + id + "").html();
     var SiteName = $("#SiteName" + id + "").html();
     var custid = $("#Hid_custid" + id + "").html();
@@ -86,6 +88,7 @@ function EditbyId(id) {
 
     $("#txtHiddenId").val(siteid);  
     $("#custid").val(custid);
+    $("#custid").prop("disabled", true);
     $("#sitename").val(SiteName);
     $("#sitecode").val(SiteCode);
     $("#sitecode").prop("disabled", true);
@@ -115,6 +118,7 @@ function clear() {
     $("#custid").val(0)
     $("#sitename").val('')
     $("#sitecode").val('')
+    $("#custid").prop("disabled", false);
     $("#sitecode").prop("disabled", false);
     //$("#latitude").val('')
     //$("#longtitude").val('')

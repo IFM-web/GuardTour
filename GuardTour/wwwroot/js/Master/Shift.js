@@ -1,12 +1,7 @@
 ﻿$(document).ready(function () {
     Showdata();
-   
+    showgrid();
 });
-
-
-
-
-
 
 
 
@@ -35,9 +30,11 @@ $('#intime').on('input', function () {
     if (timeFormat.test(inputVal)) {
         $(this).css('border-color', 'green');
         $('#timeMessage').text('Valid time format!').css('color', 'green').show();
+        checktime=''
     } else {
         $(this).css('border-color', 'red');
         $('#timeMessage').text('Invalid time format. Please use HH:mm.').css('color', 'red').show();
+        checktime ='Invalid time format. Please use HH:mm.'
     }
 });
 
@@ -70,7 +67,7 @@ $('#intime').on('input', function () {
 //});
 
 
-$('#outtime').on('input', function () {
+/*$('#outtime').on('input', function () {
     var intime = $('#intime').val(); // Get the intime value
     var outtime = $(this).val().replace(/[^0-9:]/g, ''); // Remove invalid characters
     var timeFormat = /^([01]\d|2[0-3]):([0-5]\d)$/; // HH:mm format
@@ -106,7 +103,7 @@ $('#outtime').on('input', function () {
         $(this).css('border-color', 'red');
         $('#timeMessage1').text('Invalid time format. Please use HH:mm.').css('color', 'red').show();
     }
-});
+}); */
 
 // Function to convert HH:mm to total minutes for comparison
 function convertToMinutes(time) {
@@ -150,31 +147,34 @@ function convertToMinutes(time) {
 //    }
 //});
 
+var checktime = '';
+$('#outtime').on('input', function () {
+    var timeFormat = /^(?:[01]\d|2[0-3]):[0-5]\d$/; // For HH:mm format
+    // var timeFormat = /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/; // For HH:mm:ss
+    var inputVal = $(this).val();
 
-//$('#outtime').on('input', function () {
-//    var timeFormat = /^(?:[01]\d|2[0-3]):[0-5]\d$/; // For HH:mm format
-//    // var timeFormat = /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/; // For HH:mm:ss
-//    var inputVal = $(this).val();
 
+    if ($('#timeMessage1').length === 0) {
+        $(this).after('<span id="timeMessage1" style="display:none;"></span>');
+    }
 
-//    if ($('#timeMessage1').length === 0) {
-//        $(this).after('<span id="timeMessage1" style="display:none;"></span>');
-//    }
-
-//    if (timeFormat.test(inputVal)) {
-//        $(this).css('border-color', 'green');
-//        $('#timeMessage1')
-//            .text('Valid time format!')
-//            .css('color', 'green')
-//            .show();
-//    } else {
-//        $(this).css('border-color', 'red');
-//        $('#timeMessage1')
-//            .text('Invalid time format. Please use HH:mm.')
-//            .css('color', 'red')
-//            .show();
-//    }
-//});
+    if (timeFormat.test(inputVal)) {
+        $(this).css('border-color', 'green');
+        $('#timeMessage1')
+            .text('Valid time format!')
+            .css('color', 'green')
+            .show();
+        checktime = '';
+            
+    } else {
+        $(this).css('border-color', 'red');
+        $('#timeMessage1')
+            .text('Invalid time format. Please use HH:mm.')
+            .css('color', 'red')
+            .show();
+        checktime ='Invalid time format. Please use HH:mm'
+    }
+});
 function bindsiteid(id, SiteId) {
 
     $.ajax({
@@ -202,54 +202,48 @@ function bindsiteid(id, SiteId) {
 
 
 
-
-
-
-
-
-
-
-
-
-
 function SAVEall() {
     var vali = Validation();
     if (vali == '') {
 
         save();
+        showgrid();
     } else {
         alert(vali);
     }
 }
 function save() {
+    if (checktime == '') {
 
-    url_add = window.location.href;
-    var data = url_add.split("://");
-    data = data[1].split("/");
-    var menuname = data[1] + "/" + data[2];
-    var url_add = window.location.protocol + "//" + window.location.host + "/";
-    var url = url_add + 'api/ApiServices/Save';
-    var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
 
-    var Data = {
+        url_add = window.location.href;
+        var data = url_add.split("://");
+        data = data[1].split("/");
+        var menuname = data[1] + "/" + data[2];
+        var url_add = window.location.protocol + "//" + window.location.host + "/";
+        var url = url_add + 'api/ApiServices/Save';
+        var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
 
-        //Beatsiteid: $("#txtHiddenId").val(),
-        shiftid: $("#txtHiddenId").val(),
-        custid: $("#custid").val(),
-        sitenameid: $("#siteid").val(),
-        Shiftname: $("#Shiftname").val(),
-        routecode: $("#Shiftcode").val(),
-        intime: $("#intime").val(),
-        outtime: $("#outtime").val(),
-        CompanyId: $("#CompanyId").val(),
-        BranchId: $("#BranchId").val(),
-        type: 17,
-        mode: $("#flgmode").val(),
-        status: $("#status").is(':checked') ? 1 : 0,
-    }
+        var Data = {
 
-    CommonAjax(url, JSON.stringify(Data), "", "", "", "", "PrintdivModal");
+            //Beatsiteid: $("#txtHiddenId").val(),
+            shiftid: $("#txtHiddenId").val(),
+            custid: $("#custid").val(),
+            sitenameid: $("#siteid").val(),
+            Shiftname: $("#Shiftname").val(),
+            routecode: $("#Shiftcode").val(),
+            intime: $("#intime").val(),
+            outtime: $("#outtime").val(),
+            CompanyId: $("#CompanyId").val(),
+            BranchId: $("#BranchId").val(),
+            type: 17,
+            mode: $("#flgmode").val(),
+            status: $("#status").is(':checked') ? 1 : 0,
+        }
 
+        CommonAjax(url, JSON.stringify(Data), "", "", "", "", "PrintdivModal");
+    } else
+        alert(checktime);
 }
 
 function Showdata() {
@@ -276,7 +270,7 @@ function Showdata() {
 
 
 function EditbyId(id) {
-
+    Hidegrid();
     var shiftid = $("#Hid_Shift_Id" + id + "").html();
     var siteidd = $("#Hid_siteid" + id + "").text();
     var custid = $("#Hid_Id" + id).html();
@@ -297,6 +291,9 @@ function EditbyId(id) {
 
     $("#txtHiddenId").val(shiftid);
     $("#custid").val(custid);
+    $("#custid").prop('disabled', true);
+    $("#siteid").prop('disabled', true);
+
     bindsiteid(custid, siteidd);
     $("#Shiftname").val(ShiftName);
     $("#Shiftcode").val(ShiftCode);
@@ -331,6 +328,8 @@ function clear() {
     $("#intime").val('')
     $("#custid").val(0);
     bindsiteid(0, 0);
+    $("#custid").prop('disabled', false);
+    $("#siteid").prop('disabled', false);
     $("#Shiftcode").val('');
     $('#timeMessage').text('').css('color', 'green').hide();
     $('#timeMessage1').text('').css('color', 'green').hide();

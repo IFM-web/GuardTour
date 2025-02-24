@@ -1,4 +1,9 @@
 ﻿
+$(document).ready(() => {
+    Showdata();
+    showgrid();
+})
+
 
 function bindsiteid(id,SiteId) {
 
@@ -27,10 +32,6 @@ function bindsiteid(id,SiteId) {
 
 
 
-$(document).ready(() => {
-    Showdata();
-})
-
 
 
 
@@ -40,6 +41,7 @@ function SAVEall() {
     if (vali == '') {
 
         save();
+        showgrid();
     } else {
         alert(vali);
     }
@@ -125,7 +127,7 @@ $(document).ready(() => {
     //Showdata();
 })
 function EditbyId(id) {
-
+    Hidegrid();
     var beatid = $("#Hid_beatid" + id + "").html();
     var custid = $("#Hid_custid" + id + "").html();
     var siteidd = $("#Hid_siteid" + id + "").text();
@@ -147,8 +149,8 @@ function EditbyId(id) {
     $("#txtHiddenId").val(beatid);
     $("#Hid_BeatId").val(beatid);
     $("#custid").val(custid);
-    //$("#custid").trigger("change");
-    //$("#siteid").val(sitename);
+    $("#custid").prop("disabled", true);
+    $("#siteid").prop('disabled',true);
     bindsiteid(custid, siteidd);
    
     $("#beatname").val(beatname);

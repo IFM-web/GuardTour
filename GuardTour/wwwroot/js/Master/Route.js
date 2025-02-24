@@ -224,7 +224,7 @@ function clear() {
     $("#Selectedbody").empty();
     $("#submitbtn").html('Save');
     $("#flgmode").val('ADD')
-    Showdata();
+   
 
 };
 
