@@ -529,7 +529,32 @@ function CreateTableFromArray(arrItems, divid) {
         container.appendChild(table);
     }
    
-  
+
+    $('#filterInput').on('keyup', function () {
+        let filter = $(this).val().toUpperCase();
+
+
+        $('#data-table tbody tr').each(function (index) {
+            if (index === 0) return;
+
+            let row = $(this);
+            let match = false;
+
+            // Check each cell in the row
+            row.find('td').each(function () {
+                if ($(this).text().toUpperCase().indexOf(filter) > -1) {
+                    match = true;
+                    return false;
+                }
+                else {
+                    row.add('not Found')
+                }
+            });
+
+
+            row.toggle(match);
+        });
+    });
 
 
     //jQuery.noConflict();

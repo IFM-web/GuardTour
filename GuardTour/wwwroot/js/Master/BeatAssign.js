@@ -1,6 +1,7 @@
 ﻿$(document).ready(() => {
    /* $("#siteid").trigger("change")*/
     Showdata();
+    showgrid();
 })
 
 
@@ -108,6 +109,7 @@ function Updateall() {
     if (vali == '') {
 
         Update();
+        showgrid();
     } else {
         alert(vali);
     }
@@ -134,6 +136,7 @@ function Update() {
         routename: $("#routeid").val(),
         CompanyId: $("#CompanyId").val(),
         BranchId: $("#BranchId").val(),
+        UserId: $("#UserId").val(),
         type: 15,
         mode: $("#flgmode").val(),
         status: $("#status").is(':checked') ? 1 : 0,
@@ -204,7 +207,7 @@ function Showdata() {
 
 
 function EditbyId(id) {
-
+    Hidegrid();
     var Hid_BeatRoute_Id = $("#Hid_BeatRoute_Id" + id + "").html();
     var Hid_ShiftId = $("#Hid_ShiftId" + id + "").html();
     var Hid_SiteId = $("#Hid_SiteId" + id + "").html();

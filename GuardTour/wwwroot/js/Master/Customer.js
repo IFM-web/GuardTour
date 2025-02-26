@@ -18,7 +18,6 @@ function SAVEall() {
 
 
 
-
 function save() {
 
     url_add = window.location.href;

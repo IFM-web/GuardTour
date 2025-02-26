@@ -220,9 +220,12 @@
 
       
 
-        .container {
+        .myContainer{
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-around;
+            padding:10px;
+            background-color: #C62828;
+            
         }
 
         .refresh {
@@ -294,6 +297,7 @@
             color: #333;
             margin-left: 10px;
             font-size: 14px;
+            width: 20%;
         }
 
         
@@ -442,75 +446,22 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <div class="navbar">
-        <div class="logo">
-            <img src="~/img/Logo.png" width="100px" alt="IFM360 Logo"> <!-- Replace with actual logo path -->
-           
-        </div>
-        <input type="hidden" id="CompanyId" value="@HttpContextAccessor.HttpContext.Session.GetString("companyid")" />
-        <input type="hidden" id="BranchId" value="@HttpContextAccessor.HttpContext.Session.GetString("branchid")" />
-        @* <div class="date-picker">
-            <label for="date-range">Date Range:</label>
-            <input type="text" id="date-range" placeholder="19/11/2024 - 25/11/2024">
-        </div>
-
-        <div class="drop-picker">
-            <label for="Select Site">Select Site:</label>
-            <select class="form-control" id="siteid" onchange="bindsite(this.value)">
-                <option value="0">Select Site</option>
-                @if (ViewBag.site != null)
-                {
-                    @foreach (var item in ViewBag.site as List<SelectListItem>)
-                    {
-                        <option value="@item.Value">@item.Text</option>
-                    }
-                }
-            </select>
-        </div> 
-
-        <div class="drop-picker">
-            <label for="beats">Select Beats:</label><br>
-            <select class="form-control" id="beatid">
-                <option value="0">Select Beats</option>
-                @if (ViewBag.beat != null)
-                {
-                    @foreach (var item in ViewBag.beat as List<SelectListItem>)
-                    {
-                        <option value="@item.Value">@item.Text</option>
-                    }
-
-                }
-
-            </select>
-        </div>
-
-        <button type="button" onclick="mapAction()">View Reports</button> *@
-        <div class="guard-tour">
-            <h3>Guard Tour</h3>
-        </div>
 
 
-        <div class="user-info">
-            <p>Cameron Williamson<br><span style="font-size: 12px; color: #ccc;">Security Guard</span></p>
-            <img src="~/img/Photos.png" alt="User Profile"> <!-- Replace with actual profile image path -->
-        </div>
-    </div>
 
-    <div class="navbar1">
-      
+    <div class="row myContainer">
+        <div class="col-md-1"> </div>
+            <div class="col-md-2">
         <div class="date-picker">
             <label for="date-range"></label>
-            <input type="text" id="date-range" placeholder="19/11/2024 - 25/11/2024">
+                <input type="date" id="date-range" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" placeholder="Select date">
         </div>
-        <div class="dropdown-container">
-           @* <select id="shift-dropdown">
-                <option value="A">Shift A (06:00 - 18:00)</option>
-                <option value="B">Shift B (18:00 - 06:00)</option>
-                <option value="C">Shift C (Flexible)</option>
-            </select> *@
-            <select id="shift-dropdown">
-                <
+            </div>
+        <div class="col-md-2">
+        <div class="">
+     
+            <select id="shift-dropdown" class="form-control">
+                
                 <option value="0">Select Shift</option>
                 @if (ViewBag.shift != null)
                 {
@@ -522,10 +473,12 @@
             </select>
             
         </div>
-
+        </div>
+        <div class="col-md-2"></div>
        
-
-        <div class="container">
+            
+           <div class="col-md-2"></div>
+           <div class="col-md-2">
             <div class="refresh">
                 <i class="fas fa-sync-alt mr-2 d-flex p-1"></i>
                 @* <i class="bi bi-arrow-clockwise mr-2 d-flex"></i> *@
@@ -536,11 +489,11 @@
                     <span class="slider"></span>
                 </label>
             </div>
+            </div>
         </div>
 
 
 
-    </div>
 
     <div class="navbar2">
 
@@ -559,7 +512,7 @@
                 <p class="count"><span>0</span> / 5</p>
             </div>
             <div class="card">
-                <p class="title">BIT MESRA PATRO....</p>
+                <p class="title">@HttpContextAccessor.HttpContext.Session.GetString("companyname")</p>
                 <p class="count"><span>0</span> / 14</p>
             </div>
         </div>

@@ -360,6 +360,7 @@
 
                     <input type="hidden" id="CompanyId" value="@HttpContextAccessor.HttpContext.Session.GetString("companyid")" />
                     <input type="hidden" id="BranchId" value="@HttpContextAccessor.HttpContext.Session.GetString("branchid")" />
+                    <input type="hidden" id="UserId" value="@HttpContextAccessor.HttpContext.Session.GetString("UserId")" />
                     @* <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
                         <img src="~/img/Menus.png">
                     </button> *@
@@ -388,12 +389,13 @@
                     <a class="nav-link" href="#" >Branch Login</a>
                     </li> *@
                 </ul>
-                <li class="nav-item d-block btn-login" style="width: 146px; height: 24px;">
+                <li class="nav-item d-block btn-login" style="width: 16%; height: 24px;">
                     <a class="nav-link" href="#" style="font-size: 16px;" id="branch-login-link">Branch Login</a>
                 </li>
-                <h6 style="margin-left: -267px; font-weight: bold; font-size: 17px; color: black;margin-top: 7px;">
+                <h6 style="margin-left: -267px; font-weight: bold; font-size: 17px; color: black;margin-top: 7px;"> 
                     Welcome:<span style="color: #007bff;">
-                        Admin</span>  @* @HttpContextAccessor.HttpContext.Session.GetString("UserName") *@
+                        @HttpContextAccessor.HttpContext.Session.GetString("UserName")
+                    </span>  @* @HttpContextAccessor.HttpContext.Session.GetString("UserName") *@
                    @*  <button onclick="window.location.href='/Admin/Login'" style="color: black; background-color: lightgray; border: none; padding: 8px 10px; cursor: pointer; font-size: 16px; border-radius: 0px;">
                         Logout
                     </button> *@

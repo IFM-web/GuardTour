@@ -14,23 +14,59 @@ namespace GuardTour.Controllers
     public class AdminController : Controller
     {
         db_Utility util = new db_Utility();
+        public IActionResult Login()
+        {
+           
+
+            return View();
+        }
+
+        [HttpPost]
         public IActionResult Login(Adm_User obj)
         {
-            if (obj.email == "Admin" && obj.password == "123")
-            {
-                return RedirectToAction("BranchLogin", "Admin");
-            }
+            var ds = util.Fill("exec LoginValidate @username='" + obj.email + "',@password='" + obj.password + "' ", util.strElect);
+          
+              //  var userid = ds.Tables[0].Rows[0][0];
+                string errmsg = ds.Tables[0].Rows[0][1].ToString();
+                if(errmsg != "Incorrect Password")
+                {
+                    if (errmsg != "Invalid Username")
+                    {
+                    HttpContext.Session.SetString("UserId", ds.Tables[0].Rows[0]["UserId"].ToString());
+                    HttpContext.Session.SetString("UserName", ds.Tables[0].Rows[0]["UserName"].ToString());
+                        return RedirectToAction("BranchLogin", "Admin");
+                    }
+                    else
+                        ViewBag.msg = errmsg;
+
+                }
+                else
+                {
+                    ViewBag.msg = errmsg;
+                }
+              
+         
+           
 
             return View();
         }
 
 
-
-        public IActionResult BranchLogin(Adm_User obj)
+        public IActionResult BranchLogin()
         {
+            
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
+            {
+                ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Admin");
+            }
            
-            ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
-            return View();
+       
         }
 
         [HttpPost]
@@ -38,26 +74,32 @@ namespace GuardTour.Controllers
 
         public IActionResult BranchLogin(branch_login obj)
         {
-			ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
-			if (obj.companyid != null  && obj.branch_id != null)
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
             {
 
-                HttpContext.Session.SetString("companyid", obj.companyid.ToString());
-                HttpContext.Session.SetString("branchid", obj.branch_id.ToString());               
-                string query = @"SELECT a.BranchName, b.CompanyName FROM Branch a JOIN Company b ON a.CompanyId = b.Com_Id where a.CompanyId = '" + obj.companyid + "' AND a.Branch_Id = '" + obj.branch_id + "'";
-                var ds = util.Fill(query, util.strElect);
-                var dt = ds.Tables[0];
-                string brnname = dt.Rows[0][0].ToString();
-                string comname = dt.Rows[0][1].ToString();
-                HttpContext.Session.SetString("companyname", comname.ToString());
-                HttpContext.Session.SetString("branchname", brnname.ToString());
-              
-                return RedirectToAction("DashboardLogin", "Admin");
+                ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
+                if (obj.companyid != null && obj.branch_id != null)
+                {
+
+                    HttpContext.Session.SetString("companyid", obj.companyid.ToString());
+                    HttpContext.Session.SetString("branchid", obj.branch_id.ToString());
+                    string query = @"SELECT a.BranchName, b.CompanyName FROM Branch a JOIN Company b ON a.CompanyId = b.Com_Id where a.CompanyId = '" + obj.companyid + "' AND a.Branch_Id = '" + obj.branch_id + "'";
+                    var ds = util.Fill(query, util.strElect);
+                    var dt = ds.Tables[0];
+                    string brnname = dt.Rows[0][0].ToString();
+                    string comname = dt.Rows[0][1].ToString();
+                    HttpContext.Session.SetString("companyname", comname.ToString());
+                    HttpContext.Session.SetString("branchname", brnname.ToString());
+
+                    return RedirectToAction("DashboardLogin", "Admin");
+                }
+                else
+                {
+                    ViewBag.message = "All Field Required!";
+                }
             }
             else
-            {
-                ViewBag.message = "All Field Required!";
-            }
+                return RedirectToAction("Login");
 
             return View();
         }
@@ -65,14 +107,17 @@ namespace GuardTour.Controllers
         public IActionResult Dashboard()
 
         {
-            var companyid = HttpContext.Session.GetString("companyid").ToString();
-            var branchid = HttpContext.Session.GetString("branchid").ToString();
-            ViewBag.site = util.PopulateDropDown("exec drop_site", util.strElect);
-            ViewBag.Route = util.PopulateDropDown(" SELECT   MIN(a.RouteId) AS RouteId,ISNULL(a.RouteName, '') + ' (' + ISNULL(a.RouteCode, '') + ')'AS RouteName FROM Routemaster a where CompanyId='" + companyid + "' and BranchId='" + branchid + "' GROUP BY a.RouteName, a.RouteCode ", util.strElect);
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
+            {
+                var companyid = HttpContext.Session.GetString("companyid").ToString();
+                var branchid = HttpContext.Session.GetString("branchid").ToString();
+                ViewBag.site = util.PopulateDropDown("exec drop_site ", util.strElect);
+                ViewBag.Route = util.PopulateDropDown("exec Dropdownlist @action='Routebinddash', @id= '" + companyid + "', @id2='" + branchid + "'", util.strElect);
 
-            ViewBag.shift = util.PopulateDropDown("exec drop_Shift @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
-
-
+                ViewBag.shift = util.PopulateDropDown("exec drop_Shift @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
+            }
+            else
+                return RedirectToAction("Login");
             return View();
         }
         [Route("LogintoDashboard")]
@@ -150,7 +195,7 @@ namespace GuardTour.Controllers
             var companyid = HttpContext.Session.GetString("companyid").ToString();
             var branchid = HttpContext.Session.GetString("branchid").ToString();
             //var ds = util.Fill("select * from Employees a join beatmaster b on a.beatid=b.beatid where a.beatid='" + id + "'", util.strElect);
-            var ds = util.Fill("select a.RouteName,c.BeatId,c.BeatName,c.latitude,c.Longitude as longitude,d.CustomerName as EmpName from  RouteMaster a left outer join AssignBeat b on a.SiteId=b.SiteId join BEATMASTER c on a.PostId=c.BeatId join Customer d on c.CustomerId=d.Id  where  b.BeatId='" + id + "' and  a.CompanyId='" + companyid + "' and a.BranchId='" + branchid +"'", util.strElect);
+            var ds = util.Fill("exec GetmapDetails @beatid='"+id+ "',@branch='"+ branchid + "',@companyid='"+companyid+"'", util.strElect);
             //var ds = util.Fill("select * from  beatmaster where beatid='" + id + "'", util.strElect);
             var dt = ds.Tables[0];
             var data = JsonConvert.SerializeObject(dt);
