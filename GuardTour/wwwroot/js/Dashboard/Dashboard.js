@@ -56,27 +56,77 @@ $(document).ready(() => {
 //        console.error("Fullscreen plugin is not loaded.");
 //    }
 //}
+var baseLayers = {
+    "OpenStreetMap": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors"
+    }),
+    "Satellite": L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap France"
+    }),
+    "Terrain": L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenTopoMap"
+    })
+};
+
+var map; // Declare map globally
 
 function initializeMap() {
-    
+    // Remove existing map if it exists
     if (map) {
-        map.off(); 
+        map.off();
         map.remove();
     }
 
- 
-    map = L.map('map').setView([28.6139, 77.209], 10);
-
-    
-    googleTerrain = L.tileLayer('http://{s}.google.com/vt?lyrs=p&x={x}&y={y}&z={z}', {
+    var googleTerrain = L.tileLayer('http://{s}.google.com/vt?lyrs=p&x={x}&y={y}&z={z}', {
         maxZoom: 18,
-        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-        
-    }).addTo(map);
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
 
- 
+    var googleSatellite = L.tileLayer('http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}', {
+        maxZoom: 18,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
 
+    var googleStreets = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}', {
+        maxZoom: 18,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+    var googleHybrid = L.tileLayer('http://{s}.google.com/vt?lyrs=y&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+
+    var baseLayers = {
+        "Terrain": googleTerrain,
+        "Satellite": googleSatellite,
+        "Streets": googleStreets,
+        "Hybrid": googleHybrid
+    };
+
+    // Add control to switch between layers
+
+
+    // Create a new Leaflet map
+    map = L.map('map', {
+        center: [28.6139, 77.209],
+        zoom: 10,
+        fullscreenControl: true // Correct placement of fullscreen option
+    });
+
+    // Add Google Terrain layer
+    //var googleTerrain = L.tileLayer('http://{s}.google.com/vt?lyrs=p&x={x}&y={y}&z={z}', {
+    //    maxZoom: 18,
+    //    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    //}).addTo(map);
+    L.control.layers(baseLayers).addTo(map);
+
+    // Default layer
+    googleTerrain.addTo(map);
 }
+
+// Call the function to initialize the map
+initializeMap();
+
 
 
 function mapAction() {
@@ -97,7 +147,7 @@ function mapAction() {
                 latLngs.push(latLng);
 
                 L.marker(latLng, {
-                    icon: createCustomMarker('', data[i].BeatName, data[i].EmpName)
+                    icon: createCustomMarker(data[i].indexsequenace, data[i].BeatName, data[i].EmpName)
                 })
                     .addTo(map)
                     .bindPopup(
@@ -177,16 +227,16 @@ function mapAction() {
 //                    );
 //            }
 
-           
+
 //            if (latLngs.length > 1) {
 //                L.polyline(latLngs, {
-//                    color: 'red', 
-//                    weight: 3, 
-//                    opacity: 0.7 
+//                    color: 'red',
+//                    weight: 3,
+//                    opacity: 0.7
 //                }).addTo(map);
 //            }
 
-           
+
 //            if (latLngs.length > 0) {
 //                var bounds = L.latLngBounds(latLngs);
 //                map.fitBounds(bounds);
@@ -200,19 +250,19 @@ function mapAction() {
 
 
 //function mapAction() {
-    
+
 //    initializeMap();
 
 
 //    $.ajax({
-//        url: '/Admin/getBeats',  
+//        url: '/Admin/getBeats',
 //        method: 'GET',
 //        dataType: 'json',
 //        data: { id: $("#beatid").val()},
 //        success: function (data) {
 //            var data = JSON.parse(data);
 //            console.log(data)
-//            var latLngs = [];  
+//            var latLngs = [];
 
 //            for (var i = 0; i < data.length; i++) {
 //                var latLng = [data[i].latitude, data[i].longitude];
@@ -238,15 +288,15 @@ function mapAction() {
 //        <div class="icon success">✓</div>
 //    </div>
 //</div>`, {
-//                        offset: L.point(0, 20) 
+//                        offset: L.point(0, 20)
 //                    })
-                   
+
 //            }
 
-            
+
 //            if (latLngs.length > 0) {
 //                var bounds = L.latLngBounds(latLngs);
-//               map.fitBounds(bounds);  
+//               map.fitBounds(bounds);
 //            }
 //        },
 //        error: function (error) {
@@ -257,6 +307,9 @@ function mapAction() {
 
 
 // Function to create custom HTML icons for the markers
+
+
+
 function createCustomMarker(avatarUrl, name, company) {
     return L.divIcon({
         className: '',
@@ -293,7 +346,7 @@ function createCustomMarker(avatarUrl, name, company) {
         </style>
     <div class="custom-marker">
     <span>
-       <i style="font-size:40px; color:red;" class="fa fa-location-dot"></i></span>
+       <i style="font-size:40px; color:${avatarUrl==1?'Green':'red'};" class="fa fa-location-dot"></i></span>
         
     </div>`,
         iconSize: [100, 100], // Icon size

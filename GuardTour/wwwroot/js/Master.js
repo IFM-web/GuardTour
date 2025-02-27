@@ -547,7 +547,7 @@ function CreateTableFromArray(arrItems, divid) {
                     return false;
                 }
                 else {
-                    row.add('not Found')
+                    row.add('<tr><td>Not Found</td></tr>')
                 }
             });
 
