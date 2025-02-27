@@ -1,4 +1,4 @@
-﻿//// Captcha Code
+﻿
 $(document).ready(() => {
     generateCaptcha();
 })

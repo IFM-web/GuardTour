@@ -2,7 +2,7 @@
 
 @inject IHttpContextAccessor HttpContextAccessor
 @{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = "Map Dashboard ";
     Layout = null;
 }
 
@@ -315,7 +315,7 @@
             margin-top: 55px;
             position: fixed;
            /*  top: 33%; */
-            right: 10px; /* Adjust this for spacing */
+            right: 10px; 
             transform: translateY(-50%);
             background: #f5f5f5;
             border: none;
@@ -437,7 +437,7 @@
             text-align: center;
             padding: 20px;
             display: flex;
-            justify-content: flex-end; /* Right Side Align */
+            justify-content: flex-end; 
             width: 100%;
         }
 
@@ -475,7 +475,6 @@
         </div>
         </div>
         <div class="col-md-2"></div>
-       
             
            <div class="col-md-2"></div>
            <div class="col-md-2">
@@ -484,8 +483,11 @@
                 @* <i class="bi bi-arrow-clockwise mr-2 d-flex"></i> *@
                @*  <span class="refresh-icon">⟳</span> *@
                 <label>Refresh: <span id="status">OFF</span></label>
+             
                 <label class="switch">
-                    <input type="checkbox" id="toggle">
+
+
+                    <input type="checkbox" id="togglecheck">
                     <span class="slider"></span>
                 </label>
             </div>

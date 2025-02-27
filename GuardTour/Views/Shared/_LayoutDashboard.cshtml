@@ -288,9 +288,13 @@
         .icon {
             margin-left: 8px;
         }
+         
+        #printdiv {
+            overflow-x:auto;
+            
+        }
 
-
-        /* Initial state of the branch-info div (hidden and slightly above the normal position) */
+   
         #branch-info {
             opacity: 0; /* Fully transparent initially */
             transform: translateY(-20px); /* Start from slightly above the view */
@@ -352,6 +356,7 @@
 </head>
 <body class="with-welcome-text">
     <div class="container-scroller">
+        
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row nav-one">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-between">
@@ -381,13 +386,8 @@
                 <ul class="navbar-nav ms-auto" style="width: 100%;">
                     <li class="nav-item d-block"
                         style="width: 430px;margin: 0px;font-size: 18px;text-align: center;font-weight: 700;color: black;">
-                       @*  Dashboard, (IFM360 Softech (Gurgaon) *@
+                        @*  Dashboard, (IFM360 Softech (Gurgaon) *@
                     </li>
-                    @*  <li class="nav-item d-block btn-login">Branch Login</li> *@
-                    @* <li class="nav-item d-block btn-login"><a class="nav-link" href="/Admin/BranchLogin">Branch Login </a></li> *@
-                    @*     <li class="nav-item d-block btn-login">
-                    <a class="nav-link" href="#" >Branch Login</a>
-                    </li> *@
                 </ul>
                 <li class="nav-item d-block btn-login" style="width: 16%; height: 24px;">
                     <a class="nav-link" href="#" style="font-size: 16px;" id="branch-login-link">Branch Login</a>
@@ -395,14 +395,11 @@
                 <h6 style="margin-left: -267px; font-weight: bold; font-size: 17px; color: black;margin-top: 7px;"> 
                     Welcome:<span style="color: #007bff;">
                         @HttpContextAccessor.HttpContext.Session.GetString("UserName")
-                    </span>  @* @HttpContextAccessor.HttpContext.Session.GetString("UserName") *@
-                   @*  <button onclick="window.location.href='/Admin/Login'" style="color: black; background-color: lightgray; border: none; padding: 8px 10px; cursor: pointer; font-size: 16px; border-radius: 0px;">
-                        Logout
-                    </button> *@
+                    </span> 
                 </h6>
 
                 <!-- Branch Info -->
-                <div id="branch-info" style="border: solid 1px #ddd; position: absolute; top: 72px; right: 20px; padding: 25px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); background-color: #ffffff; width: 406px; height: auto; display: none; font-family: 'Arial', sans-serif;">
+                <div id="branch-info" style="border: solid 1px #ddd; position: absolute; top: 72px; right: 20px; padding: 25px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); background-color: #ffffff; width:400px; height: auto; display: none; font-family: 'Arial', sans-serif;">
                     <h6 style="font-size: 16px; font-weight: bold; margin-bottom: 10px; color: #333;">Branch Information</h6>
                     <div style="margin-bottom: 10px;">
                         <label style="font-weight: bold; color: #555;">Company:</label>
@@ -430,6 +427,7 @@
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
                         data-bs-toggle="offcanvas">
                     <span class="mdi mdi-menu"></span>
+                   
                 </button>
             </div>
         </nav>

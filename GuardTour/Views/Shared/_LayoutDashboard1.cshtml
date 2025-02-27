@@ -309,8 +309,7 @@
 
 
 
-
-
+      
 
 
 
@@ -323,7 +322,20 @@
                 background: #fff;
                 overflow: hidden;
             }
+
+            #btncompany{
+                position: absolute;
+                top: 10px;
+                right: 110px
+            }
+            #btncompany1{
+                position: absolute;
+                top: 10px;
+                right: 10px
+            }
         }
+
+
     </style>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script type="text/javascript">
@@ -340,6 +352,7 @@
                 }
             });
         });
+    
     </script>
 
 </head>
@@ -357,7 +370,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ">
-                    <a href="/Admin/Company" class="nav-item nav-link">
+                  
+                    <a href="~/Admin/Company" class="nav-item nav-link">
                         <div class="d-flex align-items-left gap-1">
 
                             <strong>Create Company</strong>
@@ -370,22 +384,25 @@
                         </div>
                     </a>
 
+                    <a id="btncompany" type="button" asp-controller="Admin" style="background-color: #4CAF50; color: white; padding: 6px 20px; border-radius:10px; border: none; text-decoration: none; " asp-action="BranchLogin">
+                       
+
+                            Branch Login
+                       
+                    </a>  
+                    <a id="btncompany1" style="background-color: #4CAF50; color: white; padding: 6px 20px; border: none; border-radius:10px; text-decoration: none; " type="button" asp-controller="Home" asp-action="Logout">
+                      
+                            Logout
+                        
+                    </a>
+
+                    
+
                 </div>
-                @*  <a href="/Pages/MemberLogin">
-                <div class="btn btn-memeber me-3 p-2">
-                <img src="~/img/member-icon.png" class="img-fluid" alt="" width="18px" />
-                <span>Admin LogOut</span>
-                </div>
-                </a> *@
-                <a id="btncompany" type="button" asp-controller="Admin" asp-action="BranchLogin"
-                   style="position: absolute; top: 10px; right: 110px; background-color: #4CAF50; color: white; padding: 6px 20px; border: none; text-decoration: none;">
-                    Branch Login
-                </a>
-                <a id="btnlogout" type="button" asp-controller="Home" asp-action="Logout"
-                   style="position: absolute; top: 10px; right: 10px;background-color: #4CAF50; color: white; padding: 6px 20px; border: none; text-decoration: none;">
-                    Logout
-                </a>
+              
+              
             </div>
+       
         </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper side-nav">
@@ -434,7 +451,9 @@
     const branchLoginLink = document.getElementById("branch-login-link");
     const branchInfo = document.getElementById("branch-info");
 
-    // Add event listener to the "Branch Login" link
+    if (branchLoginLink != null) {
+
+  
     branchLoginLink.addEventListener("click", function (event) {
         event.preventDefault(); // Prevent default action (e.g., following the link)
 
@@ -445,11 +464,12 @@
         if (!branchInfo.classList.contains("show")) {
             setTimeout(function () {
                 branchInfo.style.display = 'none'; // Hide after animation
-            }, 500); // Match the transition time (500ms)
+            }, 500); 
         } else {
             branchInfo.style.display = 'block'; // Show the div when "show" class is added
         }
-    });
+        });
+    }
 
 
 </script>

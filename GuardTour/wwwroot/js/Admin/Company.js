@@ -18,8 +18,6 @@ function SAVEall() {
     }
 }
 
-
-
 function saveCompany() {
 
     url_add = window.location.href;
@@ -29,8 +27,7 @@ function saveCompany() {
     var url_add = window.location.protocol + "//" + window.location.host + "/";
     var url = url_add + 'api/ApiServices/Save';
     var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
-    //var valid = Validation();
-    //if (valid == "") {
+            
       var Data = {
 
         comid: $("#txtHiddenId").val(),
@@ -43,10 +40,6 @@ function saveCompany() {
       }
 
       CommonAjax(url, JSON.stringify(Data), "", "", "", "", "PrintdivModal");
-    //}
-    //else {
-    //    alert(valid);
-    //}
 }
 
 

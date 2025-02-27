@@ -10530,7 +10530,7 @@ progress {
 .form-control::placeholder, .typeahead::placeholder,
 .tt-query::placeholder,
 .tt-hint::placeholder, .select2-container--default .select2-selection--single .select2-search__field::placeholder, .select2-container--default .select2-selection--single::placeholder {
-  color: #c9c8c8;
+  color: black;
   opacity: 1;
 }
 .form-control:disabled, .typeahead:disabled,
@@ -25932,7 +25932,7 @@ svg {
 
 .input-group-append,
 .input-group-prepend {
-  color: #c9c8c8;
+  color: black;
   width: auto;
   border: none;
 }
@@ -25940,7 +25940,7 @@ svg {
 .input-group-prepend .input-group-text {
   border-color: #dee2e6;
   padding: 0.875rem 0.75rem;
-  color: #c9c8c8;
+  color: black;
   height: 2.75rem;
 }
 
@@ -25960,7 +25960,7 @@ select.tt-hint, .select2-container--default .select2-selection--single select.se
   padding: 0.4375rem 0.75rem;
   border: 0;
   outline: 1px solid #dee2e6;
-  color: #c9c8c8;
+  color: black;
   appearance: none;
   background: url("../../images/arrow-down.svg");
   background-repeat: no-repeat;

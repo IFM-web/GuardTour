@@ -77,7 +77,7 @@ function initializeMap() {
         map.remove();
     }
 
-    var googleTerrain = L.tileLayer('http://{s}.google.com/vt?lyrs=p&x={x}&y={y}&z={z}', {
+    var googleTerrain = L.tileLayer('https://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}', {
         maxZoom: 18,
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
@@ -87,7 +87,7 @@ function initializeMap() {
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
 
-    var googleStreets = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}', {
+    var googleStreets = L.tileLayer('https://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}', {
         maxZoom: 18,
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
@@ -103,32 +103,23 @@ function initializeMap() {
         "Hybrid": googleHybrid
     };
 
-    // Add control to switch between layers
-
-
-    // Create a new Leaflet map
     map = L.map('map', {
         center: [28.6139, 77.209],
         zoom: 10,
-        fullscreenControl: true // Correct placement of fullscreen option
+        fullscreenControl: true 
     });
 
-    // Add Google Terrain layer
-    //var googleTerrain = L.tileLayer('http://{s}.google.com/vt?lyrs=p&x={x}&y={y}&z={z}', {
-    //    maxZoom: 18,
-    //    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-    //}).addTo(map);
     L.control.layers(baseLayers).addTo(map);
 
     // Default layer
     googleTerrain.addTo(map);
 }
 
-// Call the function to initialize the map
+
 initializeMap();
 
 
-
+let lastindex = null;
 function mapAction() {
     initializeMap();
 
@@ -140,12 +131,16 @@ function mapAction() {
         success: function (data) {
             var data = JSON.parse(data);
             console.log(data);
-            var latLngs = [];
+            if (data.length != 0) {
 
+        
+            var latLngs = [];
+            lastindex = data[data.length - 1].indexsequenace;
             for (var i = 0; i < data.length; i++) {
                 var latLng = [data[i].latitude, data[i].longitude];
                 latLngs.push(latLng);
-
+            
+                
                 L.marker(latLng, {
                     icon: createCustomMarker(data[i].indexsequenace, data[i].BeatName, data[i].EmpName)
                 })
@@ -154,7 +149,7 @@ function mapAction() {
                         `
                         <strong>Route Name :<span>${ data[i].RouteName }</span></strong><br>
                         <strong>Post Name :<span>${data[i].BeatName}</span></strong><br>
-                         <strong>Is Checked :<span>No</span></strong><br>`,
+                         <strong>Is Checked :<span>${data[i].Checked}</span></strong><br>`,
                         {
                             offset: L.point(0, 20)
                         }
@@ -176,6 +171,7 @@ function mapAction() {
             if (latLngs.length > 0) {
                 var bounds = L.latLngBounds(latLngs);
                 map.fitBounds(bounds);
+                }
             }
         },
         error: function (error) {
@@ -184,132 +180,7 @@ function mapAction() {
     });
 }
 
-//function mapAction() {
-//    initializeMap();
-
-//    $.ajax({
-//        url: '/Admin/getBeats',
-//        method: 'GET',
-//        dataType: 'json',
-//        data: { id: $("#beatid").val() },
-//        success: function (data) {
-//            var data = JSON.parse(data);
-//            console.log(data);
-//            var latLngs = [];
-
-//            for (var i = 0; i < data.length; i++) {
-//                var latLng = [data[i].latitude, data[i].longitude];
-//                latLngs.push(latLng);
-
-//                L.marker(latLng, {
-//                    icon: createCustomMarker('', data[i].BeatName, data[i].EmpName)
-//                })
-//                    .addTo(map)
-//                    .bindPopup(
-//                        `<div class="status-card">
-//    <h4>QR Scanned</h4>
-//    <div class="status-icons">
-//        <div class="icon success">✓</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon success">✓</div>
-//    </div>
-//</div>`,
-//                        {
-//                            offset: L.point(0, 20)
-//                        }
-//                    );
-//            }
-
-
-//            if (latLngs.length > 1) {
-//                L.polyline(latLngs, {
-//                    color: 'red',
-//                    weight: 3,
-//                    opacity: 0.7
-//                }).addTo(map);
-//            }
-
-
-//            if (latLngs.length > 0) {
-//                var bounds = L.latLngBounds(latLngs);
-//                map.fitBounds(bounds);
-//            }
-//        },
-//        error: function (error) {
-//            console.log('Error fetching data:', error);
-//        }
-//    });
-//}
-
-
-//function mapAction() {
-
-//    initializeMap();
-
-
-//    $.ajax({
-//        url: '/Admin/getBeats',
-//        method: 'GET',
-//        dataType: 'json',
-//        data: { id: $("#beatid").val()},
-//        success: function (data) {
-//            var data = JSON.parse(data);
-//            console.log(data)
-//            var latLngs = [];
-
-//            for (var i = 0; i < data.length; i++) {
-//                var latLng = [data[i].latitude, data[i].longitude];
-//                latLngs.push(latLng);
-
-
-//                L.marker(latLng, {
-//                    icon: createCustomMarker('', data[i].BeatName, data[i].EmpName)
-//                })
-//                    .addTo(map)
-//                    .bindPopup(`<div class="status-card">
-//    <h4>QR Scanned</h4>
-//    <div class="status-icons">
-//        <div class="icon success">✓</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon success">✓</div>
-//    </div>
-//</div>`, {
-//                        offset: L.point(0, 20)
-//                    })
-
-//            }
-
-
-//            if (latLngs.length > 0) {
-//                var bounds = L.latLngBounds(latLngs);
-//               map.fitBounds(bounds);
-//            }
-//        },
-//        error: function (error) {
-//            console.log('Error fetching data:', error);
-//        }
-//    });
-//}
-
-
-// Function to create custom HTML icons for the markers
-
-
-
+// User for create the marker on the map
 function createCustomMarker(avatarUrl, name, company) {
     return L.divIcon({
         className: '',
@@ -346,7 +217,7 @@ function createCustomMarker(avatarUrl, name, company) {
         </style>
     <div class="custom-marker">
     <span>
-       <i style="font-size:40px; color:${avatarUrl==1?'Green':'red'};" class="fa fa-location-dot"></i></span>
+       <i style="font-size:40px; color:${avatarUrl == 1 ? 'Green' : avatarUrl == lastindex ? 'Yellow' : 'red'};" class="fa fa-location-dot"></i></span>
         
     </div>`,
         iconSize: [100, 100], // Icon size
@@ -355,27 +226,7 @@ function createCustomMarker(avatarUrl, name, company) {
     });
 }
 
-//<div class="marker-label">
-//    <strong>${name}</strong><br>
-//        ${company}
-//</div>
 
-
-//<div class="status-card">
-//    <h4>QR Scanned</h4>
-//    <div class="status-icons">
-//        <div class="icon success">✓</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon success">✓</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon failure">✗</div>
-//        <div class="icon success">✓</div>
-//    </div>
-//</div>
 
 function bindsite(id) {
 
@@ -399,4 +250,19 @@ function bindsite(id) {
             alert(error.massage);
         }
     })
+}
+
+$("#togglecheck").on("click", () => 
+    checkmap()
+
+);
+
+const checkmap = () => {
+    let value = $("#togglecheck").prop("checked") ? 1 : 0;
+    if (value == 1) {
+        setTimeout(() => {
+            mapAction();
+            checkmap()
+        }, 5000)
+    }
 }

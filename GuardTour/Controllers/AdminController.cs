@@ -17,7 +17,6 @@ namespace GuardTour.Controllers
         public IActionResult Login()
         {
            
-
             return View();
         }
 
@@ -40,13 +39,11 @@ namespace GuardTour.Controllers
                         ViewBag.msg = errmsg;
 
                 }
-                else
+                else if(errmsg == "Incorrect Password")
                 {
                     ViewBag.msg = errmsg;
                 }
               
-         
-           
 
             return View();
         }
@@ -103,7 +100,7 @@ namespace GuardTour.Controllers
 
             return View();
         }
-
+        #region Dashboard
         public IActionResult Dashboard()
 
         {
@@ -120,6 +117,10 @@ namespace GuardTour.Controllers
                 return RedirectToAction("Login");
             return View();
         }
+        #endregion
+
+
+        #region LogintoDashborad
         [Route("LogintoDashboard")]
         public IActionResult LogintoDashborad(Adm_User obj)
         {
@@ -129,6 +130,8 @@ namespace GuardTour.Controllers
             }
             return View();
         }
+        #endregion
+
 
         [HttpGet]
         public JsonResult bindbeatwithroute(int id)
@@ -203,7 +206,7 @@ namespace GuardTour.Controllers
         }
 
         #region Text to Voice Generator
-        public IActionResult Speak(string text, int rate = -4, int volume = 100)
+        public IActionResult Speak(string text, int rate = 4, int volume = 100)
         {
             if (string.IsNullOrEmpty(text))
                 return BadRequest("Text cannot be empty.");

@@ -52,7 +52,7 @@
             border-radius: 23px;
         }
 
-        .form_text {
+        
             h4
 
         {
@@ -66,7 +66,7 @@
             margin-bottom: 25px;
         }
 
-        }
+        
 
         .auth-form-light {
             padding: 30px;
@@ -109,16 +109,18 @@
         }
 
         .form-group {
-            text-align: left !important;
-            p
-
-        {
+            text-align: left !important;        
             font-size: 15px;
             color: black;
             font-weight: 500;
         }
 
+        #captchaAlert {
+            position: absolute;
+            top: 10px;
+            right: 40px;
         }
+      
     </style>
 </head>
 <body>
@@ -133,6 +135,13 @@
                                 <h4>Login</h4>
                                 <h5 class="fw-light">Login your Account</h5>
                             </div>
+                            @if (ViewBag.msg != null)
+                            {
+                                <div id="captchaAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    @ViewBag.msg
+                             
+                                </div>
+                            }
                             <form class="pt-3" method="post">
                                 <div class="form-group">
                                     <p>Login Id</p>
@@ -156,6 +165,8 @@
                     </div>
                 </div>
             </div>
+
+           
             <!-- content-wrapper ends -->
         </div>
         <!-- page-body-wrapper ends -->
@@ -175,6 +186,15 @@
     <script src="~/assets/js/todolist.js"></script>
     <script src="~/js/Admin/Login.js"></script>
     <!-- endinject -->
+
+
+        <script>
+
+            setTimeout(function () {
+                $('#captchaAlert').alert('close');
+                }, 2000);
+    </script>
+
 </body>
 </html>
 

@@ -10530,7 +10530,7 @@ progress {
 .form-control::placeholder, .typeahead::placeholder,
 .tt-query::placeholder,
 .tt-hint::placeholder, .select2-container--default .select2-selection--single .select2-search__field::placeholder, .select2-container--default .select2-selection--single::placeholder {
-  color: #c9c8c8;
+  color: black;
   opacity: 1;
 }
 .form-control:disabled, .typeahead:disabled,
@@ -26071,7 +26071,7 @@ select.form-select {
   padding: 0.4375rem 0.75rem;
   border: 0;
   outline: 1px solid #dee2e6;
-  /*color: #c9c8c8;*/
+color:black !important;
   appearance: none;
   background: url("../../images/arrow-down.svg");
   background-repeat: no-repeat;
@@ -28334,7 +28334,7 @@ dl li {
   background: #ffffff;
 }
 .auth .auth-form-light select {
-  color: #c9c8c8;
+  /*color: #c9c8c8;*/
 }
 .auth .auth-form-light .input-group .form-control:focus, .auth .auth-form-light .input-group .select2-container--default .select2-selection--single:focus, .select2-container--default .auth .auth-form-light .input-group .select2-selection--single:focus, .auth .auth-form-light .input-group .select2-container--default .select2-selection--single .select2-search__field:focus, .select2-container--default .select2-selection--single .auth .auth-form-light .input-group .select2-search__field:focus, .auth .auth-form-light .input-group .typeahead:focus,
 .auth .auth-form-light .input-group .tt-query:focus,
