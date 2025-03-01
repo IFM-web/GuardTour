@@ -284,7 +284,15 @@ namespace GuardTour.Controllers
         }
         #endregion
 
-
+        #region ForgetPassword
+        public JsonResult ForgetPassword(string username,string oldpwd ,string confpwd)
+        {
+            var ds = util.Fill("exec Udp_Forgetpassword @username='"+username+ "',@oldpwd='"+oldpwd+ "',@confpwd='"+confpwd+"'", util.strElect);
+            string errmsg = ds.Tables[0].Rows[0][1].ToString();
+            
+            return Json(errmsg);
+        }
+        #endregion
 
 
         public IActionResult DashboardLogin()

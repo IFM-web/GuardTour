@@ -65,9 +65,47 @@ namespace GuardTour.Controllers
         #endregion
 
 
+        #region Employee 
+
+        public IActionResult Employee()
+        {
+            return View();
+        }
+
+        #endregion
 
 
+        #region EmployeeMaptocustomerandsite
 
+        public IActionResult EmployeeMaptoCustomerandSite()
+        {
+
+            string companyid = HttpContext.Session.GetString("companyid").ToString();
+            string branchid = HttpContext.Session.GetString("branchid").ToString();
+          
+            ViewBag.Employee = util.PopulateDropDown(@$"exec Dropdownlist 'BindEmployee', @id='{companyid}',@id2='{branchid}'", util.strElect);
+            ViewBag.Cust = util.PopulateDropDown(@$"exec Dropdownlist 'BindCustomer',  @id='{companyid}',@id2='{branchid}'", util.strElect);
+            ViewBag.Site = util.PopulateDropDown(@$"exec Dropdownlist 'Bindsite', @id='{companyid}',@id2='{branchid}'", util.strElect);
+            return View();
+        }
+
+        #endregion
+
+
+        #region Employee Map To Route
+        public IActionResult EmployeeMapToRoute()
+        {
+            string companyid = HttpContext.Session.GetString("companyid").ToString();
+            string branchid = HttpContext.Session.GetString("branchid").ToString();
+
+            ViewBag.Employee = util.PopulateDropDown(@$"exec Dropdownlist 'BindEmployee', @id='{companyid}',@id2='{branchid}'", util.strElect);
+
+            ViewBag.Route = util.PopulateDropDown(@$"exec Dropdownlist 'BindRoute', @id='{companyid}',@id2='{branchid}'", util.strElect);
+
+            return View();
+        }
+
+        #endregion
 
         #region Customer Type
         public IActionResult Customer()

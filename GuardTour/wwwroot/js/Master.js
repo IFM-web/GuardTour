@@ -10,7 +10,19 @@ function showgrid() {
 
 }
 
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
 
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
 
 function Validation() {
     var msg = "";
@@ -142,10 +154,6 @@ function CommonAjax(var_url, var_data, var_type, var_ct, var_dt, UserData, divid
         },
     });
 }
-
-
-
-
 
 function Bindtrntable(var_url, var_data, var_type, var_ct, var_dt, UserData, divid) {
 
@@ -487,7 +495,7 @@ function CreateTableFromArray(arrItems, divid) {
     table.setAttribute('class', 'table table-bordered');
     // Create table header row.
 
-    let tr = table.insertRow(-1);		// table row.
+    let tr = table.insertRow(-1)	// table row.
 
     for (let i = 0; i < col.length; i++) {
         let th = document.createElement('th');  // table header.
@@ -517,8 +525,8 @@ function CreateTableFromArray(arrItems, divid) {
                 'padding: 2px 3px; text-align: center;' +
                 'display:' + result + ';'
             );
-            tabCell.setAttribute('class', "" + col[j].replace(" ", "") + "");
-            tabCell.setAttribute('id', "" + col[j].replace(" ", "") + "" + z + "");
+            tabCell.setAttribute('class', "" + col[j].replace(" ", "").replace(" ","") + "");
+            tabCell.setAttribute('id', "" + col[j].replace(" ", "").replace(" ", "") + "" + z + "");
 
         }
     }
@@ -555,21 +563,6 @@ function CreateTableFromArray(arrItems, divid) {
             row.toggle(match);
         });
     });
-
-
-    //jQuery.noConflict();
-    //(function ($jq) {
-    //    var myTable = $jq("#data-table");
-    //    var thead = myTable.find("thead");
-    //    var thRows = myTable.find("tr:has(th)");
-    //    if (thead.length === 0) {  //if there is no thead element, add one.
-    //        thead = $jq("<thead></thead>").appendTo(myTable);
-    //    }
-    //    var copy = thRows.clone(true).appendTo("thead");
-    //    thRows.remove();
-    //    myTable.dataTable();
-    //})(jQuery);
-
 
 }
 

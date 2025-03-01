@@ -90,5 +90,45 @@ async function speakText() {
     } catch (error) {
         console.error("Error generating speech:", error);
     }
+
+
+
 }
 
+
+const Forgetpassword = () => {
+    let oldpwd = $("#oldpwd").val();
+    let pwd = $("#pwd").val();
+    let confpwd = $("#confpwd").val();
+    let username = $("#Username").val();
+    let val = Validation();
+    if (val == '') {
+
+
+
+        if (pwd == confpwd || pwd != '') {
+            $.ajax({
+
+
+                url: '/Admin/ForgetPassword',
+                type: "post",
+                data: { username: username, oldpwd: oldpwd, pwd: pwd, confpwd: confpwd },
+                success: (success) => {
+                    $("#oldpwd").val('');
+                    $("#pwd").val('');
+                    $("#confpwd").val('');
+                    $("#Username").val('');
+                    alert(success)
+                },
+                error: (err) => {
+                    alert(err.message)
+                }
+
+
+            });
+        }
+        else
+            alert('Password and Confirm Password Not Match')
+    } else
+        alert(val);
+}

@@ -19,6 +19,9 @@ function binddashboard() {
             var data = JSON.parse(data);
             console.log(data);
             $('#totalcustomer').html(data[0].TotalCustomers);
+            $('#totalemployee').html(data[0].TotalEmployees);
+            $('#EmployeesMapTocustomerSite').html(data[0].EmployeesMapTocustomerSite);
+            $('#EmployeeMapToRoute').html(data[0].EmployeeMapToRoute);
             $('#totalsite').html(data[0].TotalSites);
             $('#totalpost').html(data[0].TotalPosts);
             $('#totalroute').html(data[0].TotalRoutes);

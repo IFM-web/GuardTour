@@ -107,55 +107,42 @@
                                                   
 
                                                     <div class="dashboard">
-                                                        <a href="~/Master/Customer" style="text-decoration: none;">
+
+                                                        <a href="~/Master/Employee" style="text-decoration: none;">
                                                             <div class="dashboard-box" style="background-color:#C62828; cursor: pointer;">
+                                                                <i class="fas fa-user-tie" style="font-size:40px !important; color: #fff;"></i>
+                                                                <p id="totalemployee" style="color: #fff;">0.0</p>
+                                                                <p style="color: #fff; font-size: 18px; margin-top: 10px;">Total Employee</p>
+                                                            </div>
+                                                        </a>
+
+                                                        <a href="~/Master/Customer" style="text-decoration: none;">
+                                                            <div class="dashboard-box" style="background:linear-gradient(45deg, #757575, #A1A1A1); cursor: pointer;">
                                                                 <i class="fas fa-users" style="font-size:40px !important; color: #fff;"></i>
-                                                                <p id="totalcustomer" style="color: #fff;">0.0</p>
+                                                                <p id="totalcustomer" style="color: #fff;">0</p>
                                                                 <p style="color: #fff; font-size: 18px; margin-top: 10px;">Total Customer</p>
                                                             </div>
                                                         </a>
 
-                                                    @*     <div class="dashboard-box" style="background-color:#C62828; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#showid">
-                                                            <i class="fas fa-ticket-alt" style="font-size:40px !important; color: #fff;"></i>
-                                                            <p id="totalcustomer" style="color: #fff;">0.0</p>
-                                                            <p style="color: #fff; font-size: 18px; margin-top: 10px;">Total Customer</p>
-                                                        </div> *@
-
-
-                                                       @*  <div class="dashboard-box" style="background: linear-gradient(45deg,#757575,#A1A1A1); cursor: pointer;">
-                                                            <i class="fas fa-plus-circle"  style="font-size:40px !important; color: #fff;">
-                                                                </i>
-                                                            <p id="totalsite" style="color: #fff;">0.0</p>
-                                                            <p style="color: #ffffff; font-size: 18px; margin-top: 10px;">Total Site</p>
-                                                        </div> *@
 
                                                         <a href="~/Master/Site" style="text-decoration: none;">
-                                                            <div class="dashboard-box" style="background: linear-gradient(45deg, #757575, #A1A1A1); cursor: pointer;">
+                                                            <div class="dashboard-box" style="background: #C62828; cursor: pointer;">
                                                                 <i class="fas fa-building" style="font-size:40px !important; color: #fff;"></i>
                                                                 <p id="totalsite" style="color: #fff;">0.0</p>
                                                                 <p style="color: #fff; font-size: 18px; margin-top: 10px;">Total Site</p>
                                                             </div>
                                                         </a>
 
-                                                        @* <div class="dashboard-box" style="background-color:#C62828; cursor: pointer;">
-                                                            <i class="fas fa-spinner" style="font-size:40px !important"></i>
-                                                            <p id="totalpost">0.0</p>
-                                                            <p style="color: #ffffff; font-size: 18px; margin-top: 10px;">Total Post</p>
-                                                        </div> *@
 
                                                         <a href="~/Master/Post" style="text-decoration: none;">
-                                                            <div class="dashboard-box" style="background-color:#C62828; cursor: pointer;">
+                                                            <div class="dashboard-box" style="background:linear-gradient(45deg, #757575, #A1A1A1);">
                                                                 <i class="fas fa-thumbtack" style="font-size:40px !important; color: #fff;"></i>
                                                                 <p id="totalpost" style="color: #fff;">0.0</p>
                                                                 <p style="color: #fff; font-size: 18px; margin-top: 10px;">Total Post</p>
                                                             </div>
                                                         </a>
 
-                                                       @*  <div class="dashboard-box" style="background: linear-gradient(45deg, #757575, #A1A1A1); padding: 20px; border-radius: 8px; cursor: pointer;">
-                                                            <i class="fas fa-clipboard-list" style="font-size: 40px !important; color: #ffffff;"></i>
-                                                            <p id="totalroute" style="color: #ffffff;">0.0</p>
-                                                            <p style="color: #ffffff; font-size: 18px; margin-top: 10px;">Total Route</p>
-                                                        </div> *@
+                                                
                                                         <a href="~/Master/Route" style="text-decoration: none;">
                                                             <div class="dashboard-box" style="background: linear-gradient(45deg, #757575, #A1A1A1); cursor: pointer;">
                                                                 <i class="fas fa-route" style="font-size:40px !important; color: #fff;"></i>
@@ -167,7 +154,7 @@
 
 
                                                         <a href="~/Master/RoutList" style="text-decoration: none;">
-                                                            <div class="dashboard-box" style="background: linear-gradient(45deg, #757575, #A1A1A1); cursor: pointer;">
+                                                            <div class="dashboard-box" style="background-color: #C62828; cursor: pointer;">
                                                                 <i class="fas fa-map-signs" style="font-size:40px !important; color: #fff;"></i>
                                                                 <p id="totalroutelist" style="color: #fff;">0.0</p>
                                                                 <p style="color: #fff; font-size: 18px; margin-top: 10px;">Total Route List</p>
@@ -175,14 +162,8 @@
                                                         </a>
 
 
-
-                                                        @* <div class="dashboard-box"  style="background: linear-gradient(45deg, #757575, #A1A1A1); cursor: pointer;">
-                                                            <i class="fas fa-file-invoice" style="font-size:40px !important"></i>
-                                                            <p id="totalshift">0.0</p>
-                                                            <p style="color: #ffffff; font-size: 18px; margin-top: 10px;">Total Shift</p>
-                                                        </div> *@
                                                         <a href="~/Master/Shift" style="text-decoration: none;">
-                                                            <div class="dashboard-box" style="background-color:#C62828; cursor: pointer;">
+                                                            <div class="dashboard-box" style="background:linear-gradient(45deg, #757575, #A1A1A1);">
                                                                 <i class="fas fa-clock" style="font-size:40px !important; color: #fff;"></i>
                                                                 <p id="totalshift" style="color: #fff;">0.0</p>
                                                                 <p style="color: #fff; font-size: 18px; margin-top: 10px;">Total Shift</p>
@@ -190,13 +171,8 @@
                                                         </a>
 
 
-                                                       @*  <div class="dashboard-box"  style="background-color:#C62828; cursor: pointer;">
-                                                            <i class="fas fa-check-circle" style="font-size:40px !important"></i>
-                                                            <p id="totalbeat">0.0</p>
-                                                            <p style="color: #ffffff; font-size: 18px; margin-top: 10px;">Total Beat</p>
-                                                        </div> *@
                                                         <a href="~/Master/beat" style="text-decoration: none;">
-                                                            <div class="dashboard-box" style="background: linear-gradient(45deg, #757575, #A1A1A1); cursor: pointer;">
+                                                            <div class="dashboard-box" style="background-color: #C62828; cursor: pointer;">
                                                                 <i class="fas fa-map-marker-alt" style="font-size:40px !important; color: #fff;"></i>
                                                                 <p id="totalbeat" style="color: #fff;">0.0</p>
                                                                 <p style="color: #fff; font-size: 18px; margin-top: 10px;">Total Beat</p>
@@ -220,10 +196,24 @@
 
 
                                                         <a href="~/Admin/DashBoard" style="text-decoration: none;">
+                                                            <div class="dashboard-box" style="background:linear-gradient(45deg, #757575, #A1A1A1); cursor: pointer;">
+                                                                <i class="fas fa-map-location-dot" style="font-size:40px !important; color: #fff;"></i>
+                                                                <p id="totalbeatassign" style="color: #fff;">0</p>
+                                                                <p style="color: #fff; font-size: 18px; margin-top: 10px;">DashBoard</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="~/Master/EmployeeMaptoCustomerandSite" style="text-decoration: none;">
                                                             <div class="dashboard-box" style="background-color:#C62828; cursor: pointer;">
                                                                 <i class="fas fa-map-location-dot" style="font-size:40px !important; color: #fff;"></i>
-                                                                <p id="totalbeatassign" style="color: #fff;">0.0</p>
-                                                                <p style="color: #fff; font-size: 18px; margin-top: 10px;">DashBoard</p>
+                                                                <p id="EmployeesMapTocustomerSite" style="color: #fff;">0.0</p>
+                                                                <p style="color: #fff; font-size: 18px; margin-top: 10px;">Employee Map To Custoner & Site</p>
+                                                            </div>
+                                                        </a>
+                                                        <a href="~/Master/EmployeeMapToRoute" style="text-decoration: none;">
+                                                            <div class="dashboard-box" style="background-color:#C62828; cursor: pointer;">
+                                                                <i class="fas fa-map-location-dot" style="font-size:40px !important; color: #fff;"></i>
+                                                                <p id="EmployeeMapToRoute" style="color: #fff;">0.0</p>
+                                                                <p style="color: #fff; font-size: 18px; margin-top: 10px;">Employee Map To Route </p>
                                                             </div>
                                                         </a>
 

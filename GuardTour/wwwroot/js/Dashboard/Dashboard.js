@@ -16,46 +16,6 @@ $(document).ready(() => {
 })
 
 
-//function initializeMap() {
-//    if (map) {
-//        map.off();
-//        map.remove();
-//    }
-
-//     ✅ Map Initialize karein
-//    map = L.map('map').setView([28.6139, 77.209], 10);
-
-//     ✅ Google Terrain Layer Add karein
-//    let googleTerrain = L.tileLayer('http://{s}.google.com/vt?lyrs=p&x={x}&y={y}&z={z}', {
-//        maxZoom: 18,
-//        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-//    }).addTo(map);
-
-//     ✅ Check if Fullscreen Plugin is Loaded
-//    console.log(typeof L.Control.Fullscreen);  // Should print 'function'
-
-//     ✅ Fullscreen Button Add karein
-//    if (L.Control.Fullscreen) {
-//        map.addControl(new L.Control.Fullscreen({
-//            position: 'topright',
-//            title: {
-//                'false': 'View Fullscreen',
-//                'true': 'Exit Fullscreen'
-//            }
-//        }));
-
-//         📌 Fullscreen Event Handling
-//        map.on('enterFullscreen', function () {
-//            console.log('Map is now fullscreen');
-//        });
-
-//        map.on('exitFullscreen', function () {
-//            console.log('Exited fullscreen mode');
-//        });
-//    } else {
-//        console.error("Fullscreen plugin is not loaded.");
-//    }
-//}
 var baseLayers = {
     "OpenStreetMap": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors"
@@ -68,7 +28,7 @@ var baseLayers = {
     })
 };
 
-var map; // Declare map globally
+var map; 
 
 function initializeMap() {
     // Remove existing map if it exists
@@ -170,9 +130,9 @@ function mapAction() {
            
             if (latLngs.length > 0) {
                 var bounds = L.latLngBounds(latLngs);
-                map.fitBounds(bounds);
-                }
-            }
+               map.fitBounds(bounds);
+               }
+         }
         },
         error: function (error) {
             console.log('Error fetching data:', error);
@@ -185,8 +145,7 @@ function createCustomMarker(avatarUrl, name, company) {
     return L.divIcon({
         className: '',
         html: `
-        <style> 
- 
+        <style>  
     .status-card h4 {
         margin: 0;
         margin-bottom: 10px;
@@ -205,14 +164,13 @@ function createCustomMarker(avatarUrl, name, company) {
         height: 30px;
         display: flex;
         align-items: center;
-     
         border-radius: 50%;
     }
     .icon.success {
-        background-color: #4CAF50; /* Green */
+        background-color: #4CAF50;
     }
     .icon.failure {
-        background-color: #F44336; /* Red */
+        background-color: #F44336; 
     }
         </style>
     <div class="custom-marker">
