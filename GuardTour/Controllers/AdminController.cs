@@ -23,7 +23,8 @@ namespace GuardTour.Controllers
         [HttpPost]
         public IActionResult Login(Adm_User obj)
         {
-            var ds = util.Fill("exec LoginValidate @username='" + obj.email + "',@password='" + obj.password + "' ", util.strElect);
+            string cnpwd = EncryptionHelper.Encrypt(obj.password);
+            var ds = util.Fill("exec LoginValidate @username='" + obj.email + "',@password='" + cnpwd + "' ", util.strElect);
           
               //  var userid = ds.Tables[0].Rows[0][0];
                 string errmsg = ds.Tables[0].Rows[0][1].ToString();
@@ -287,7 +288,10 @@ namespace GuardTour.Controllers
         #region ForgetPassword
         public JsonResult ForgetPassword(string username,string oldpwd ,string confpwd)
         {
-            var ds = util.Fill("exec Udp_Forgetpassword @username='"+username+ "',@oldpwd='"+oldpwd+ "',@confpwd='"+confpwd+"'", util.strElect);
+
+            string cnoldpwd = EncryptionHelper.Encrypt(oldpwd);
+            string cnconfpwd = EncryptionHelper.Encrypt(confpwd);
+            var ds = util.Fill("exec Udp_Forgetpassword @username='"+username+ "',@oldpwd='"+cnoldpwd+ "',@confpwd='"+cnconfpwd+"'", util.strElect);
             string errmsg = ds.Tables[0].Rows[0][1].ToString();
             
             return Json(errmsg);

@@ -16,7 +16,7 @@ namespace GuardTour.Controllers
     public class ApiServicesController : ControllerBase
     {
         
-		//New_utility UtilOracle = new New_utility();
+		
 		db_Utility Util = new db_Utility();
 		ClsUtility ClsUtil = new ClsUtility();
 
@@ -113,8 +113,17 @@ namespace GuardTour.Controllers
             return Content(data, "application/json");
         }
 
-        
 
 
+
+
+		
 	}
+
+
+
+
+
+
+
 }

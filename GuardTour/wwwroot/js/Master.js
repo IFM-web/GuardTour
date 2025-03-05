@@ -1,5 +1,4 @@
-﻿//const { parseJSON } = require("jquery");
-
+﻿
 function Hidegrid() {
     $("#griddiv").hide()
     $("#hidshowhead").show()
@@ -380,48 +379,6 @@ function BindDropdownsingle(var_url, var_data, var_type, var_ct, var_dt, var_id)
         }
     });
 }
-function BindDropdown(var_url, var_data, UserData, var_type, var_ct, var_dt, var_id, ddl) {
-    if (var_type == "")
-        var_type = "POST";
-
-    if (var_ct == "")
-        var_ct = "application/json;charset=utf-8";
-
-    if (var_dt == "")
-        var_dt = "json";
-
-    $.ajax({
-        type: var_type,
-        url: var_url,
-        //data: var_data,
-        data: { jsonData: var_data, UserData: UserData },
-        async: false,
-        success: function (json, result) {
-
-            var data1 = JSON.parse(json[0].Data);
-            console.log(data1);
-
-            var ddlid = ddl.split(",");
-
-            //for (var i = 0; i < ddl.length; i++) { 
-
-            populateDropdown(ddlid[0], data1[0].Req);
-            populateDropdown(ddlid[1], data1[0].branch);
-            $("#ddlbranch").select2();
-            $("#ddlreqtype").select2();
-            //$(var_id).empty();
-            //json = json || {};
-            //$(var_id).append('<option value="0">Select</option>');
-            //for (var i = 0; i < json.length; i++) {
-            //    $(var_id).append('<option value="' + json[i].value + '">' + json[i].text + '</option>');
-            //}
-
-        },
-        error: function () {
-            alert("Data Not Found");
-        }
-    });
-}
 
 function populateDropdown(dropdownId, dataArray) {
     var $dropdown = $(dropdownId);
@@ -433,51 +390,6 @@ function populateDropdown(dropdownId, dataArray) {
 }
 
 
-
-function BindTextbox(var_url, var_data, var_type, var_ct, var_dt, var_id) {
-    if (var_type == "")
-        var_type = "POST";
-
-    if (var_ct == "")
-        var_ct = "application/json;charset=utf-8";
-
-    if (var_dt == "")
-        var_dt = "json";
-
-
-    $.ajax({
-        url: var_url,
-        data: var_data,
-        type: var_type,
-        //contentType: var_ct,
-        dataType: var_dt,
-        success: function (data) {
-            if (var_id != "") {
-                console.log(data);
-                var data1 = JSON.parse(data)
-                $(var_id).val(data1[0].SupplierID);
-            }
-            else {
-                var data1 = JSON.parse(data)
-                //console.log(data1[0].Challan_Number);
-                $("#txtnoofitem").val(data1[0].NofFItem);
-                $("#txtamount").val(data1[0].Amount);
-                $("#ddlsupplier").val(data1[0].Supplierid);
-            }
-
-
-
-        },
-        error: function (data) {
-            var data = {
-                status: "Error",
-                msg: "Error on server.",
-                data: [],
-            }
-
-        },
-    });
-}
 
 function CreateTableFromArray(arrItems, divid) {
     let col = [];

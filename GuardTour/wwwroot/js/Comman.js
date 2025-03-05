@@ -295,23 +295,7 @@ function Insert() {
     } else {
         jsonObj.push(item);
     }
-           
-        
- 
-    
 
-    //var data = {
-    //    profileid: $("#pid").val(),
-    //    UserId: $("#UserId").val(),
-    //    Url: pageurl,
-    //    branchid: branchid,
-    //    sessionId: sessionId,
-    //    tranid: gettranid(),
-    //    PageName: $("#txtpage").val(),
-    //    Type: $("#txttype").val(),
-
-    //}
-    //jsonObj.push(data);
 
     CommonAjax(url, JSON.stringify(jsonObj), "", "", "", JSON.stringify(data), "printdiv");
 
@@ -413,20 +397,6 @@ function Insertwithfile() {
     }
 
 
-
-
-    //var data = {
-    //    profileid: $("#pid").val(),
-    //    UserId: $("#UserId").val(),
-    //    Url: pageurl,
-    //    branchid: branchid,
-    //    sessionId: sessionId,
-    //    tranid: gettranid(),
-    //    PageName: $("#txtpage").val(),
-    //    Type: $("#txttype").val(),
-
-    //}
-    //jsonObj.push(data);
     var fdata = new FormData();
     var fileupload = $("#fileimg").get(0);
     //var filname = $("#fileimg").val();
@@ -523,8 +493,6 @@ function Delete() {
     item = {}
 
 
-
-
     $(".col").each(function () {
 
         var name = $(this).attr('name') == undefined ? $(this).attr('name') : $(this).attr('name').replace(/\s+/g, "").trim();
@@ -540,18 +508,9 @@ function Delete() {
             item[name] = $(this).val();
         }
     });
-
-   
-
-
-   
+    
         jsonObj.push(item);
     
-
-
-
-
-
     //var data = {
     //    profileid: $("#pid").val(),
     //    UserId: $("#UserId").val(),
