@@ -349,7 +349,7 @@ function GetData(var_url, var_data, var_type, var_ct, var_dt, UserData, divid) {
 
 
 
-function BindDropdownsingle(var_url, var_data, var_type, var_ct, var_dt, var_id) {
+function BindDropdownsingle(var_url, var_data, var_type, var_ct, var_dt, var_id,optname) {
     if (var_type == "")
         var_type = "POST";
 
@@ -366,11 +366,12 @@ function BindDropdownsingle(var_url, var_data, var_type, var_ct, var_dt, var_id)
         async: false,
         success: function (json, result) {
             $(var_id).empty();
+            json = JSON.parse(json);
             json = json || {};
 
-            $(var_id).append('<option value="0">Select</option>');
+            $(var_id).append('<option value="0">' + optname +'</option>');
             for (var i = 0; i < json.length; i++) {
-                $(var_id).append('<option value="' + json[i].value + '">' + json[i].text + '</option>');
+                $(var_id).append('<option value="' + json[i].Id + '">' + json[i].Name + '</option>');
             }
 
         },

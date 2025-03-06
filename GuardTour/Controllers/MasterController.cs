@@ -1,6 +1,7 @@
 ﻿using GuardTour;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Operations;
+using Newtonsoft.Json;
 using System.ComponentModel.Design;
 
 namespace GuardTour.Controllers
@@ -8,6 +9,8 @@ namespace GuardTour.Controllers
     public class MasterController : Controller
     {
         db_Utility util = new db_Utility();
+
+ 
         public IActionResult Index()
         {
 
@@ -154,9 +157,41 @@ namespace GuardTour.Controllers
 			
 			return View();
 		}
-		#endregion
+        #endregion
+
+        [HttpPost]
+        public JsonResult BindShifttoSide(string id)
+        {
+            var companyid = HttpContext.Session.GetString("companyid").ToString();
+            var branchid = HttpContext.Session.GetString("branchid").ToString();
+            var ds = util.Fill(@$"exec Dropdownlist 'BindShifttoSide', @id='{companyid}',@id2='{branchid}',@id3='{id}'", util.strElect);
+            var dt = ds.Tables[0];
+            return Json(JsonConvert.SerializeObject(dt));
+
+        }
+        [HttpPost]
+        public JsonResult BindbeattoShift(string id)
+        {
+            var companyid = HttpContext.Session.GetString("companyid").ToString();
+            var branchid = HttpContext.Session.GetString("branchid").ToString();
+            var ds = util.Fill(@$"exec Dropdownlist 'BindbeattoShift', @id='{companyid}',@id2='{branchid}',@id3='{id}'", util.strElect);
+            var dt = ds.Tables[0];
+            return Json(JsonConvert.SerializeObject(dt));
+
+        }
+
+        [HttpPost]
+        public JsonResult BindRoutetoBeat(string id)
+        {
+            var companyid = HttpContext.Session.GetString("companyid").ToString();
+            var branchid = HttpContext.Session.GetString("branchid").ToString();
+            var ds = util.Fill(@$"exec Dropdownlist 'BindRoutetoBeat', @id='{companyid}',@id2='{branchid}',@id3='{id}'", util.strElect);
+            var dt = ds.Tables[0];
+            return Json(JsonConvert.SerializeObject(dt));
+
+        }
 
 
-	}
+    }
 
 }

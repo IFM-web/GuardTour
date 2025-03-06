@@ -28,6 +28,16 @@ function bindsiteid(id,site) {
     })
 }
 
+
+function BindShifttoSide() {
+    let id = $("#siteid").val();
+    let data = { id: id };
+    let url = '/Master/BindShifttoSide';
+    let dropdown = $('#shiftid');
+    BindDropdownsingle(url, data, '', '', '', dropdown, 'Select')
+
+}
+
 function SAVEall() {
     var vali = Validation();
     if (vali == '') {

@@ -35,7 +35,7 @@
                                                         <div>
                                                             <h4 class="card-title card-title-dash">
                                                                 Master / <a href="#">
-                                                                    Beat Assign
+                                                                    Route Assignment
                                                                 </a>
                                                             </h4>
                                                             <a href="/Admin/DashboardLogin" class="btn btn-success">
@@ -67,7 +67,7 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Site Name</label>
-                                                                <select name="Site Name" onchange="bindsitet(this.value,0),bindroute(this.value,0)" @* onchange="bindsitet(this.value,0)" *@ class="form-control mandatory" id="siteid" style="border: 1px solid lightgray;">
+                                                                <select name="Site Name" onchange="BindShifttoSide(this.value,0);  BindRoutetoBeat(this.value, 0)" class="form-control mandatory" id="siteid" style="border: 1px solid lightgray;">
                                                                     <option value="0">Select</option>
                                                                     @if (ViewBag.site != null)
                                                                     {
@@ -81,7 +81,16 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Shift Name</label>
+                                                                <select name="Shift Name" class="form-control mandatory" onchange="BindbeattoShift(this.value,0)" style="border: 1px solid lightgray;" id="siftid">
+                                                                    <option value="0">Select</option>
+                                                                   
+                                                                </select>
 
+                                                            </div>
+                                                        </div>
 
 
                                                         <div class="col-md-4">
@@ -118,22 +127,7 @@
 
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label>Shift Name</label>
-                                                                <select name="Shift Name" class="form-control mandatory" style="border: 1px solid lightgray;" id="siftid" @* onchange="bindsitet(this.value)" *@>
-                                                                    <option value="0">Select</option>
-                                                                    @if (ViewBag.shift != null)
-                                                                    {
-                                                                        foreach (var item in ViewBag.shift as List<SelectListItem>)
-                                                                        {
-                                                                            <option value="@item.Value">@item.Text</option>
-                                                                        }
-                                                                    }
-                                                                </select>
-
-                                                            </div>
-                                                        </div>
+                                                        
 
                                                   
 

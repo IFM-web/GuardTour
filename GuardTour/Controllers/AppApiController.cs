@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Data;
 using System.Security.Cryptography.Xml;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -33,7 +34,7 @@ namespace GuardTour.Controllers
 				}
 				
 
-					DataSet ds = util.Fill("exec Usp_ApiProcedure N'" + data.Replace("'", "''") + "'", util.strElect);
+					DataSet ds = util.Fill("exec Usp_AppApiProcedure N'" + data.Replace("'", "''") + "'", util.strElect);
 					data = ds.Tables[0].Rows[0]["Data"].ToString();
 
 			
@@ -88,6 +89,57 @@ namespace GuardTour.Controllers
 				return BadRequest(ex.Message);
 			}
 		}
+		#endregion
+
+
+
+		#region Employee Login
+		[Route("Login")]
+		[HttpPost]
+		public IActionResult Login(string? Data)
+		{
+			
+			string EmpId = "";
+			string PassWord = "";
+			//JArray jArray = new JArray();
+
+			try
+			{
+			
+
+			var objdata= Request.Form["Data"].ToString();
+				if (objdata != null)
+				{
+					var objects = JObject.Parse(objdata);
+					EmpId = objects["EmpId"].ToString();
+					PassWord = objects["Password"].ToString();
+
+
+
+				}
+				else if (Data !=null)
+				{
+					var objects = JObject.Parse(Data);
+					EmpId = objects["EmpId"].ToString();
+					PassWord = objects["Password"].ToString();
+				}
+				else
+				{
+					EmpId = Request.Form["EmpId"].ToString();
+					PassWord = Request.Form["Password"].ToString();
+
+				}
+				var ds = util.Fill("exec EmployeeLogin @EmpId='" + EmpId.Trim() + "',@password='" + PassWord.Trim() + "'", util.strElect);
+				var data = ds.Tables[0];
+
+				return Ok(JsonConvert.SerializeObject(data));
+			}
+			catch(Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+
 		#endregion
 
 	}

@@ -9,7 +9,6 @@ using System.Security.Cryptography;
 namespace GuardTour
 {
 
-
     public class db_Utility
     {
         ClsUtility util = new ClsUtility();

@@ -2,29 +2,9 @@
    /* $("#siteid").trigger("change")*/
     Showdata();
     showgrid();
+    
 })
 
-
-
-
-
-
-
-
-
-
-// Initialize the map centered in India
-
-//function bindsitet() {
-//    $("#beatid").val(0);
-//    $("#beatid").trigger('change');
-
-//    var Controller_url = "/Admin/bindbeat";
-//    var data = { id: $("#beatid").val() }
-//    var ID = "#beatid";
-//    BindDropdownsingle(Controller_url, data, "", "", "", ID);
-
-//}
 
 function bindsiteid(id, SiteId) {
 
@@ -43,6 +23,7 @@ function bindsiteid(id, SiteId) {
                 dropdown.append($('<option></option>').attr('value', data[i].SiteId).text(data[i].SitName));
             }
             $("#siteid").val(SiteId);
+          
         },
         error: function (error) {
             alert(error.massage);
@@ -50,14 +31,38 @@ function bindsiteid(id, SiteId) {
     })
 }
 
-
-
-function bindsitet(id, BeatId) {
+function BindShifttoSide(id, shiftId) {
     //var routid = $("#routeid").val();
    // bindroute(id, 0);
     $.ajax({
-        url: '/Admin/bindbeat',
-        type: 'GET',
+        url: '/Master/BindShifttoSide',
+        type: 'post',
+        data: { id: id },
+        success: function (data) {
+            var data = JSON.parse(data);
+
+            var dropdown = $('#siftid');
+            dropdown.empty();
+            dropdown.append($('<option></option>').attr('value', 0).text('Select'));
+            for (var i = 0; i < data.length; i++) {
+
+                dropdown.append($('<option></option>').attr('value', data[i].Id).text(data[i].Name));
+            }
+
+            $("#siftid").val(shiftId);
+           
+        },
+        error: function (error) {
+            alert(error.massage);
+        }
+    })
+}
+function BindbeattoShift(id, beatId) {
+    //var routid = $("#routeid").val();
+   // bindroute(id, 0);
+    $.ajax({
+        url: '/Master/BindbeattoShift',
+        type: 'post',
         data: { id: id },
         success: function (data) {
             var data = JSON.parse(data);
@@ -67,9 +72,10 @@ function bindsitet(id, BeatId) {
             dropdown.append($('<option></option>').attr('value', 0).text('Select'));
             for (var i = 0; i < data.length; i++) {
 
-                dropdown.append($('<option></option>').attr('value', data[i].locid).text(data[i].BeatName));
+                dropdown.append($('<option></option>').attr('value', data[i].Id).text(data[i].Name));
             }
-            $("#beatid").val(BeatId);
+
+            $("#beatid").val(beatId);
            
         },
         error: function (error) {
@@ -79,11 +85,11 @@ function bindsitet(id, BeatId) {
 }
 
 
-function bindroute(id, RouteId) {
+function BindRoutetoBeat(id, RouteId) {
 
     $.ajax({
-        url: '/Admin/bindroute',
-        type: 'GET',
+        url: '/Master/BindRoutetoBeat',
+        type: 'Post',
         data: { id: id },
         success: function (data) {
             var data = JSON.parse(data);
@@ -93,7 +99,7 @@ function bindroute(id, RouteId) {
             dropdown.append($('<option></option>').attr('value', 0).text('Select'));
             for (var i = 0; i < data.length; i++) {
 
-                dropdown.append($('<option></option>').attr('value', data[i].RouteId).text(data[i].RouteName));
+                dropdown.append($('<option></option>').attr('value', data[i].Id).text(data[i].Name));
             }
             $("#routeid").val(RouteId);
         },
@@ -150,19 +156,19 @@ function Update() {
 function clear() {
     $("#txtHiddenId").val(''),
     $("#siftid").val(0);
-  //  $("#siftid").trigger("change");
-    //$("#siteid").val(0);
-    //$("#siteid").trigger("change");
-   // $("#beatid").val(0);
-    //  $("#beatid").trigger("change");
+ 
+   $("#siteid").val(0);
+  
     $("#custid").val(0);
-    bindsitet(0, 0);
+    BindbeattoShift(0, 0);
     bindsiteid(0, 0)
-    
-    bindroute(0, 0),
+    BindbeattoShift(0,0)
+    BindRoutetoBeat(0, 0),
     $("#routeid").val('')
     $("#routecode").val('');
-    $("#routecode").prop("disabled", false);
+
+    $("#custid").prop("disabled", false);
+    $("#siteid").prop("disabled", false);
     $("#submitbtn").html('Save');
     $("#flgmode").val('ADD')
     Showdata();
@@ -223,22 +229,29 @@ function EditbyId(id) {
     }
 
     $("#txtHiddenId").val(Hid_BeatRoute_Id),
-    $("#custid").val(Hid_Id),
-    $("#siftid").val(Hid_ShiftId);
-    //$("#siftid").trigger("change");
+        $("#custid").val(Hid_Id);
+        $("#custid").trigger("change");
+
     //$("#siteid").val(Hid_SiteId);
-    bindsiteid(Hid_Id, Hid_SiteId),
-    bindroute(Hid_SiteId, Hid_RoutId),
-    bindsitet(Hid_SiteId, Hid_BeatId);
-    
-    //$("#siteid").trigger("change");
     //$("#siteid").trigger("change");
 
-   /* $("#beatid").trigger("change");*/
-    //$("#routeid").val(Hid_RoutId);
+
     
-    /*$("#routecode").val(Hid_BeatRouteCode);*/
-    $("#routecode").prop("disabled", true);
+  
+
+ 
+    $("#beatid").val(Hid_BeatId);
+
+    $("#beatid").trigger("change");
+    //$("#siteid").val(Hid_SiteId);
+    bindsiteid(Hid_Id, Hid_SiteId),
+    BindShifttoSide(Hid_SiteId, Hid_ShiftId)
+    BindbeattoShift(Hid_ShiftId, Hid_BeatId)
+    BindRoutetoBeat(Hid_SiteId, Hid_RoutId)
+
+  
+    $("#custid").prop("disabled", true);
+    $("#siteid").prop("disabled", true);
   
     $("#flgmode").val('edit');
     $("#submitbtn").html('Update');

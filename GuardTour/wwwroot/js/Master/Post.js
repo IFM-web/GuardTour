@@ -29,13 +29,6 @@ function bindsiteid(id,SiteId) {
     })
 }
 
-
-
-
-
-
-
-
 function SAVEall() {
     var vali = Validation();
     if (vali == '') {

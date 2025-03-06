@@ -147,16 +147,6 @@ namespace GuardTour.Controllers
         }
 
 
-        [HttpGet]
-        public JsonResult bindbeat(int id)
-        {
-            var companyid = HttpContext.Session.GetString("companyid").ToString();
-            var branchid = HttpContext.Session.GetString("branchid").ToString();
-            var ds = util.Fill("exec drop_beats @Sitid='" + id + "',@companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
-            var dt = ds.Tables[0];
-            var data = JsonConvert.SerializeObject(dt);
-            return Json(data);
-        }
 
         [HttpGet]
         public JsonResult bindroute(int id)

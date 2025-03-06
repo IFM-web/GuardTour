@@ -155,18 +155,23 @@ function filterAndDeleteItems() {
         !delallitem.some(delItem => delItem.beatid === item.beatid)
     );
 
-    // Update the main list by removing the matched items
+    
     allitem1 = [...list3];
 
-    // Display the updated list
     showTable(allitem1);
 }
 
+function BindShifttoSide() {
+    let id = $("#siteid").val();
+    let data = { id: id };
+    let url = '/Master/BindShifttoSide';
+    let dropdown = $('#siftid');
+    BindDropdownsingle(url, data, '', '', '', dropdown, 'Select')
 
+}
 function SAVEall() {
     var vali = Validation();
     if (vali == '') {
-
         Data();
     } else {
         alert(vali);
@@ -206,9 +211,11 @@ function Data() {
              
             })
 
-
-            CommonAjax(url, JSON.stringify(Itemprod), "", "", "", "", "Printdiv")
-           // CommonAjax(url, JSON.stringify(Data), "", "", "", "", "PrintdivModal");
+    if (Itemprod.length !== 0)
+        CommonAjax(url, JSON.stringify(Itemprod), "", "", "", "", "Printdiv")
+    else
+        alert("No Post Selected");
+          
        
 
 
@@ -224,6 +231,7 @@ function clear() {
     $("#Selectedbody").empty();
     $("#submitbtn").html('Save');
     $("#flgmode").val('ADD')
+    $(".Availablebody").empty();
    
 
 };
