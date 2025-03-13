@@ -1,6 +1,7 @@
 ﻿
 function bindsiteid(id) {
-
+    $("#Selectedbody").empty();
+    $("#Availablebody").empty();
     $.ajax({
         url: '/Admin/bindsiteid',
         type: 'post',
@@ -100,116 +101,53 @@ var allitem = [];
 //}
 
 
-var allitem = [];
-var allitem1 = [];
+var routes = [];
+var shifts = [];
 
 
-function addselectedpost(row) {
-    var items = {
-        siteid: $("#siteid").val(),
-        beatid: $(row).find(".Hid_beatid").text(),
-        PostName: $(row).find(".PostName").text(),
-    };
-
-    console.log(items);
-
-    allitem.push(items);
-    allitem1.push(items);
-
-    console.log(allitem);
+function addroute(row) {
+   
     $(row).find("td").toggleClass("active");
 }
 
 
-
-
-var list = [];
-var list1 = [];
-function selectedpost() {
-    list1 = [...allitem1];
-    list = [...allitem];
-    showTable(list1);
-    //allitem1 = [];
-    getdata($("#siteid").val());
-
-}
-
-
-function showTable(allitemid) {
-    if (allitemid.length > 0) {
-        $("#Selectedbody").empty();
-        var row = '';
-        for (var i = 0; i < allitemid.length; i++) {
-            row += `
-                <tr id='row1${i + 1}' onclick='deleteselectedpost(this)' style='background-color: #f2f2f2; cursor: pointer;'>
-                    
-                    
-                    <td style='display:none;'><span class='beatid'>${allitemid[i].beatid}</span></td>
-                    <td><span class='PostName'>${allitemid[i].PostName}</span></td>
-                </tr>
-            `;
-        }
-        $("#Selectedbody").append(row);
-        $("#Selectedbody").removeClass('d-none');
-
-    } else {
-        $("#Selectedbody").addClass('d-none');
-    }
-}
-
-
-var delallitem = [];
-
-function deleteselectedpost(row) {
-
-    var items = {
-        siteid: $("#siteid").val(),
-
-        beatid: $(row).find(".beatid").text(),
-        PostName: $(row).find(".PostName").text(),
-    };
-
-    console.log(items);
-
-
-
-    delallitem.push(items);
-    $(row).find("td").toggleClass("active");
-
+function addshift(row) {
+   
+  var d=  $(row).find("td").toggleClass("active");
 }
 
 
 
-function filterAndDeleteItems() {
-
-    let list3 = list.filter(item =>
-        !delallitem.some(delItem => delItem.beatid === item.beatid)
-    );
-
-
-    allitem1 = [...list3];
-
-    showTable(allitem1);
-}
-
-function BindShifttoSide() {
-    let id = $("#siteid").val();
-    let data = { id: id };
-    let url = '/Master/BindShifttoSide';
-    let dropdown = $('#siftid');
-    BindDropdownsingle(url, data, '', '', '', dropdown, 'Select')
-
-}
 function SAVEall() {
-    var vali = Validation();
-    if (vali == '') {
-        Data();
-    } else {
-        alert(vali);
-    }
+    Data();
+    //var vali = Validation();
+    //if (vali == '') {
+      
+    //    Data();
+    //} else {
+    //    alert(vali);
+    //}
 }
 
+function getallshift() {
+    const arr = [];
+    $("#Selectedid TBODY TR").each(function (index, row) {
+        obj = {};
+        obj.shiftid = $(row).find('.active #shiftid').text().trim();
+        arr.push(obj);
+    })
+    return arr
+}
 
+function getallroute() {
+    const arr = [];
+    $("#Availablebody TR").each(function (index, row) {
+        obj = {};
+        obj.routecode1 = $(row).find('.active #Routecode').text().trim();
+        arr.push(obj);
+    })
+    return arr
+}
 function Data() {
     url_add = window.location.href;
     var data = url_add.split("://");
@@ -218,37 +156,38 @@ function Data() {
     var url = url_add + 'api/ApiServices/Save';
 
     var Itemprod = new Array();
+    $("#Selectedbody  TR").each(function (index, row) {
+        
+        const item = {};
+            item.custid= $("#custid").val(),
+            item.siteid= $("#siteid").val(),
+            item.routecode= $("#routecode").val(),
+            item.RouteName= $("#routename").val(),
+            item.CompanyId= $("#CompanyId").val(),
+            item.BranchId= $("#BranchId").val(),
+            item.UserId= $("#UserId").val(),
+            item.type= 52,
+            item.mode= $("#flgmode").val(),
+            item.status= $("#status").is(':checked') ? 1 : 0,
+            item.shiftid= $(row).find('.active #shiftid').text().trim(),
+        
+        $("#Availablebody TR").each(function (index, row) {
 
+            let item2 = { ...item };
+            item2.routename = $(row).find('.active #Routecode').text().trim();
+            Itemprod.push(item2);
+        })
+       
+    });
+    
+   
 
-    $("#Selectedid TBODY TR").each(function (index, row) {
-        var Items = {};
-
-        var row = $(this);
-        Items.siteid = $("#siteid").val();
-        Items.custid = $("#custid").val();
-        Items.postid = row.find('span.beatid').html();
-        Items.PostName = row.find('span.PostName').html();
-        Items.routeid = $("#txtHiddenId").val();
-        Items.routename = $("#routename").val();
-        Items.routecode = $("#routecode").val();
-        Items.CompanyId = $("#CompanyId").val(),
-            Items.BranchId = $("#BranchId").val(),
-            Items.status = $("#status").is(':checked') ? 1 : 0,
-            Items.mode = $("#flgmode").val();
-        Items.type = 20;
-        Items.index = index + 1;
-
-        Itemprod.push(Items);
-
-    })
+    console.log(Itemprod)
 
     if (Itemprod.length !== 0)
         CommonAjax(url, JSON.stringify(Itemprod), "", "", "", "", "Printdiv")
     else
-        alert("No Post Selected");
-
-
-
+       alert("No Post Selected");
 
 
 }
@@ -262,7 +201,7 @@ function clear() {
     $("#Selectedbody").empty();
     $("#submitbtn").html('Save');
     $("#flgmode").val('ADD')
-    $(".Availablebody").empty();
+    $("#Availablebody").empty();
 
 
 };

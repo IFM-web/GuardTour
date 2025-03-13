@@ -194,22 +194,25 @@ function Bindtrntable(var_url, var_data, var_type, var_ct, var_dt, UserData, div
 
                 }
 
-                var rowlen = parseInt($('.Availablebody tr').length);
+              
                 var array = data.Data;
-                if (array.length > 0) {
-                    $(".Availablebody").empty();
+                if (array != undefined) {
+                    $("#Availablebody").empty();
                     var row = ""
-                    for (let e of array) {
+                    for (let i in array) {
 
-                        row += "<tr id='row" + parseInt(i + 1) + "' onclick='addselectedpost(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span class='Hid_beatid'>" + e.Hid_beatid + "</span></td><td><span class='PostName'>" + e.Routename + "</span></td></tr > ";
+                        row += "<tr id='row" + parseInt(i + 1) + "' onclick='addroute(this)' style=' background - color: #f2f2f2;cursor: pointer; ' ><td><span class='Routename'>" + array[i].Routename + "</span></td><td class='d-none'><span  id='Routecode'>" + array[i].routecode + "</span> <span  class='RouteId'>" + array[i].RouteId + "</span></td></tr > ";
 
                     }
-                    $(".Availablebody").prepend(row);
+                    $("#Availablebody").prepend(row);
 
+                }
+                else {
+                    $("#Availablebody").empty();
                 }
 
             }
-            else if (divid == 3) {
+            else if (divid == '3') {
                 if (data.Status == "error") {
                     swal({
                         icon: "error",
@@ -221,16 +224,19 @@ function Bindtrntable(var_url, var_data, var_type, var_ct, var_dt, UserData, div
                 }
 
                 var array = data.Data;
-                if (array.length > 0) {
-                    $(".Selectedbody").empty();
+                if (array != undefined) {
+                    $("#Selectedbody").empty();
                     var row = ""
-                    for (var i = 0; i < array.length; i++) {
+                    for (let i in array) {
 
-                        row += "<tr id='row" + parseInt(i + 1) + "' onclick='addselectedpost(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span class='Hid_beatid'>" + array[i].Hid_beatid + "</span></td><td><span class='PostName'>" + array[i].Routename + "</span></td></tr > ";
+                        row += "<tr id='row" + parseInt(i + 1) + "' onclick='addshift(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span id='shiftid'>" + array[i].shift_id + "</span></td><td><span class='shift'>" + array[i].shift + "</span></td></tr > ";
 
                     }
-                    $(".Selectedbody").append(row);
+                    $("#Selectedbody").append(row);
 
+                }
+                else {
+                    $("#Selectedbody").empty();
                 }
 
             }

@@ -130,7 +130,7 @@ namespace GuardTour.Controllers
 
             var companyid = HttpContext.Session.GetString("companyid").ToString();
             var branchid = HttpContext.Session.GetString("branchid").ToString();
-            ViewBag.shift = util.PopulateDropDown("exec drop_Shift @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
+            ViewBag.shift = util.PopulateDropDown("exec Bindshift @id='" + companyid + "',@id2='" + branchid + "'", util.strElect);
             
             ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
             return View();
