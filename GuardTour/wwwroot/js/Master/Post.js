@@ -86,7 +86,7 @@ function Showdata() {
     var Data = {
         CompanyId: $("#CompanyId").val(),
         BranchId: $("#BranchId").val(),
-
+        id: $("#postid").val(),
         type: 4,
 
     }

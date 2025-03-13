@@ -38,18 +38,15 @@
                                                                     Route Assignment
                                                                 </a>
                                                             </h4>
-                                                            <a href="/Admin/DashboardLogin" class="btn btn-success">
-                                                                Back
-                                                            </a>
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <div class="row" id="hidshowhead">
+                                                    <div class="row">
 
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Customer Name</label>
-                                                                <select name="Customer Name" class="form-control mandatory" id="custid"   onchange="bindsiteid(this.value,0)" style="border: 1px solid lightgray;">
+                                                                <select name="Customer Name" class="form-control mandatory" id="custid" onchange="bindsiteid(this.value)" style="border: 1px solid lightgray;">
                                                                     <option value="0">Select</option>
                                                                     @if (ViewBag.cust != null)
                                                                     {
@@ -62,12 +59,22 @@
 
                                                             </div>
                                                         </div>
+                                                        @*      <div class="col-md-4">
+                                                        <div class="form-group">
+                                                        <label>Shift Name</label>
+                                                        <select name="Shift Name" class="form-control mandatory" style="border: 1px solid lightgray;" id="siftid">
+                                                        <option value="0">Select</option>
+
+                                                        </select>
+
+                                                        </div>
+                                                        </div> *@
 
 
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Site Name</label>
-                                                                <select name="Site Name" onchange="BindShifttoSide(this.value,0);  BindRoutetoBeat(this.value, 0)" class="form-control mandatory" id="siteid" style="border: 1px solid lightgray;">
+                                                                <select  name="Site Name" class="form-control mandatory"  id="siteid" style="border: 1px solid lightgray;">
                                                                     <option value="0">Select</option>
                                                                     @if (ViewBag.site != null)
                                                                     {
@@ -81,103 +88,132 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label>Shift Name</label>
-                                                                <select name="Shift Name" class="form-control mandatory" onchange="BindbeattoShift(this.value,0)" style="border: 1px solid lightgray;" id="siftid">
-                                                                    <option value="0">Select</option>
-                                                                   
-                                                                </select>
+                                                        @* <div class="col-md-4">
+                                                        <div class="form-group" style="    margin-top: 37px;">
+                                                        <label>Status</label>
+                                                        <input type="checkbox" id="status" checked aria-label="Checkbox for following text input">
 
+                                                        </div>
+                                                        </div> *@
+
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <!-- Available Posts Table -->
+                                                        <div class="col-md-4 d-flex" id="Availableid">
+                                                            <div class="card flex-grow-1 border-0 shadow">
+                                                                <div class="card-header text-white bg-primary">
+                                                                    <h6 class="mb-0">Available Routes</h6>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-striped">
+                                                                            @*  <thead>
+                                                                            <tr>
+                                                                            <th>Available Posts</th>
+
+                                                                            </tr>
+                                                                            </thead> *@
+                                                                            <tbody class="Availablebody">
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+
+
+
+                                                                </div>
                                                             </div>
+
+
+                                                        </div>
+
+                                                        <div class="col-md-3 my-auto">
+                                                            <!-- Double Greater Than Arrow Button -->
+                                                            
+                                                        </div>
+                                                        <div class="col-md-1 my-auto">
+                                                            
+                                                        </div>
+                                                        <!-- Selected Posts Table -->
+                                                        <div class="col-4 d-flex">
+                                                            <div class="card flex-grow-1 border-0 shadow">
+                                                                <div class="card-header text-white bg-primary">
+                                                                    <h6 class="mb-0">Available Shifts</h6>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-striped" id="Selectedid">
+                                                                            @*  <thead>
+                                                                            <tr>
+                                                                            <th>Available Posts</th>
+
+                                                                            </tr>
+                                                                            </thead> *@
+                                                                            <tbody id="Selectedbody">
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+
+
+
+                                                                </div>
+                                                            </div>
+
+
+
+
+
                                                         </div>
 
 
+                                                        @* <div class="col-md-12">
+                                                        <div class="table-data">
+                                                        <div id="printdiv"></div>
+                                                        </div>
+                                                        </div> *@
+
+                                                    </div>
+                                                    <br />
+                                                    <div class="row">
+
+
                                                         <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <label>Beat Name</label>
-                                                                <select name="Beat Name" class="form-control mandatory" style="border: 1px solid lightgray;" id="beatid">
-                                                                     <option value="0">Select</option>
-                                                                    @* @if (ViewBag.Emp != null)
-                                                                    {
-                                                                    foreach (var item in ViewBag.Emp as List<SelectListItem>)
-                                                                    {
-                                                                    <option value="@item.Value">@item.Text</option>
-                                                                    }
-                                                                    } *@
-                                                                </select>
+                                                                <label>Route Code</label>
+                                                                <input type="text" id="routecode" name="Route Code" class="form-control mandatory" />
 
                                                             </div>
                                                         </div>
-
 
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label>Route Name</label>
-                                                                <select name="Route Name" class="form-control mandatory" style="border: 1px solid lightgray;" id="routeid" @* onchange="bindsitet(this.value)" *@>
-                                                                    <option value="0">Select</option>
-                                                                    @* @if (ViewBag.shift != null)
-                                                                    {
-                                                                        foreach (var item in ViewBag.shift as List<SelectListItem>)
-                                                                        {
-                                                                            <option value="@item.Value">@item.Text</option>
-                                                                        }
-                                                                    } *@
-                                                                </select>
+                                                                <input type="text" id="routename" name="Route Name" class="form-control mandatory" />
 
                                                             </div>
                                                         </div>
-                                                        
-
-                                                  
-
-                                                        
-
-
-                                                        
-
-                                                     @*    <div class="col-md-4">
-                                                            <div class="form-group">
-                                                                <label>Beat Route Code</label>
-                                                                <input type="text" id="routecode" name="Beat Route Code" class="form-control mandatory" />
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4" >
-                                                            <div class="form-group">
-                                                                <label>Beat Route Name</label>
-                                                                <input type="text" id="routeid" name="Beat Route Name" class="form-control mandatory" />
-
-                                                            </div>
-                                                        </div> *@
-
-                                                        <div class="col-md-1" style="margin-top: 37px;">
-                                                            <div class="form-group">
+                                                        <div class="col-md-1">
+                                                            <div class="form-group" style="    margin-top: 37px;">
                                                                 <label>Status</label>
                                                                 <input type="checkbox" id="status" checked aria-label="Checkbox for following text input">
 
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3" style="margin-top: 37px;">
-                                                            <button onclick="Updateall()" id="submitbtn" class="btn btn-success">
-                                                                Save
-                                                            </button>
-                                                            <button class="btn btn-success" onclick="window.location.reload();">View List</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row" id="griddiv">
-                                                        <div class="d-flex justify-content-between">
-                                                            <input type="text" id="filterInput" style="height: 2.0rem !important" class="form-control typcn-input-checked-outline py-0 w-25" placeholder="Search here" /> 
-                                                            <div>
-                                                                <button class="btn btn-success float-end" onclick="Hidegrid()">Add New</button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="table-data">
-                                                                <div id="printdiv"></div>
-                                                            </div>
-                                                        </div>
 
+                                                        <div class="col-md-3">
+                                                            <div class="form-group" style="    margin-top: 36px;
+">
+                                                                <button onclick="SAVEall()" id="submitbtn" class="btn btn-success">
+                                                                    Save
+                                                                </button>
+
+                                                                <a href="/Admin/DashboardLogin">
+                                                                    <button id="backtbtn" class="btn btn-success">Back</button>
+                                                                </a>
+
+
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

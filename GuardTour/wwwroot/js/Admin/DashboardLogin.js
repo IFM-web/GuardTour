@@ -3,9 +3,6 @@ $(document).ready(function () {
     binddashboard()
 })
 
-
-
-
 function binddashboard() {
     var companyname = $("#Companyid").val();
     $.ajax({

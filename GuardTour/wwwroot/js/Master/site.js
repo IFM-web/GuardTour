@@ -59,7 +59,8 @@ function Showdata() {
     var Data = {
 
         CompanyId: $("#CompanyId").val(),
-        BranchId:  $("#BranchId").val(),
+        BranchId: $("#BranchId").val(),
+        id: $("#SiteId").val(),       
         type: 2,
         
     }

@@ -18,6 +18,7 @@ function Showdata() {
     var Data = {
         CompanyId: $("#CompanyId").val(),
         BranchId: $("#BranchId").val(),
+        id: $("#Routeid").val(),
 
         type: 23,
 

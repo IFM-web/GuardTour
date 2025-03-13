@@ -1,12 +1,5 @@
-﻿$(document).ready(() => {
-   /* $("#siteid").trigger("change")*/
-    Showdata();
-    showgrid();
-    
-})
-
-
-function bindsiteid(id, SiteId) {
+﻿
+function bindsiteid(id) {
 
     $.ajax({
         url: '/Admin/bindsiteid',
@@ -22,61 +15,7 @@ function bindsiteid(id, SiteId) {
 
                 dropdown.append($('<option></option>').attr('value', data[i].SiteId).text(data[i].SitName));
             }
-            $("#siteid").val(SiteId);
-          
-        },
-        error: function (error) {
-            alert(error.massage);
-        }
-    })
-}
 
-function BindShifttoSide(id, shiftId) {
-    //var routid = $("#routeid").val();
-   // bindroute(id, 0);
-    $.ajax({
-        url: '/Master/BindShifttoSide',
-        type: 'post',
-        data: { id: id },
-        success: function (data) {
-            var data = JSON.parse(data);
-
-            var dropdown = $('#siftid');
-            dropdown.empty();
-            dropdown.append($('<option></option>').attr('value', 0).text('Select'));
-            for (var i = 0; i < data.length; i++) {
-
-                dropdown.append($('<option></option>').attr('value', data[i].Id).text(data[i].Name));
-            }
-
-            $("#siftid").val(shiftId);
-           
-        },
-        error: function (error) {
-            alert(error.massage);
-        }
-    })
-}
-function BindbeattoShift(id, beatId) {
-    //var routid = $("#routeid").val();
-   // bindroute(id, 0);
-    $.ajax({
-        url: '/Master/BindbeattoShift',
-        type: 'post',
-        data: { id: id },
-        success: function (data) {
-            var data = JSON.parse(data);
-
-            var dropdown = $('#beatid');
-            dropdown.empty();
-            dropdown.append($('<option></option>').attr('value', 0).text('Select'));
-            for (var i = 0; i < data.length; i++) {
-
-                dropdown.append($('<option></option>').attr('value', data[i].Id).text(data[i].Name));
-            }
-
-            $("#beatid").val(beatId);
-           
         },
         error: function (error) {
             alert(error.massage);
@@ -85,174 +24,271 @@ function BindbeattoShift(id, beatId) {
 }
 
 
-function BindRoutetoBeat(id, RouteId) {
+$('#siteid').change(function () {
+    const customerId = $(this).val();
+    getdata(customerId);
+    getdataofshift(customerId);
+});
 
-    $.ajax({
-        url: '/Master/BindRoutetoBeat',
-        type: 'Post',
-        data: { id: id },
-        success: function (data) {
-            var data = JSON.parse(data);
+function getdata(id) {
 
-            var dropdown = $('#routeid');
-            dropdown.empty();
-            dropdown.append($('<option></option>').attr('value', 0).text('Select'));
-            for (var i = 0; i < data.length; i++) {
+    url_add = window.location.href;
+    var data = url_add.split("://");
+    var protocol = data[0];
+    data = data[1].split("/");
+    var domain = data[0];
+    var menuname = data[1] + "/" + data[2];
+    var encrp = "";
+    var url_add = window.location.protocol + "//" + window.location.host + "/";
+    var url = url_add + 'api/ApiServices/Save';
+    var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
 
-                dropdown.append($('<option></option>').attr('value', data[i].Id).text(data[i].Name));
-            }
-            $("#routeid").val(RouteId);
-        },
-        error: function (error) {
-            alert(error.massage);
-        }
-    })
+    var data = {
+
+        CompanyId: $("#CompanyId").val(),
+        BranchId: $("#BranchId").val(),
+        siteid: id,
+        type: 31,
+
+
+    }
+
+    Bindtrntable(url, JSON.stringify(data), "", "", "", "", "2");
+}
+
+function getdataofshift(id) {
+
+    url_add = window.location.href;
+    var data = url_add.split("://");
+    var protocol = data[0];
+    data = data[1].split("/");
+    var domain = data[0];
+    var menuname = data[1] + "/" + data[2];
+    var encrp = "";
+    var url_add = window.location.protocol + "//" + window.location.host + "/";
+    var url = url_add + 'api/ApiServices/Save';
+    var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
+
+    var data = {
+
+        CompanyId: $("#CompanyId").val(),
+        BranchId: $("#BranchId").val(),
+        siteid: id,
+        type: 32,
+
+
+    }
+
+    Bindtrntable(url, JSON.stringify(data), "", "", "", "", "3");
+}
+
+var allitem = [];
+
+
+//function addselectedpost(row) {
+//    var items = {
+//        siteid: $("#siteid").val(),
+//        beatid: $(row).find(".Hid_beatid").text(),
+//        PostName: $(row).find(".PostName").text(),
+//    };
+
+//    console.log(items);
+
+//    allitem.push(items);
+
+
+//}
+
+
+var allitem = [];
+var allitem1 = [];
+
+
+function addselectedpost(row) {
+    var items = {
+        siteid: $("#siteid").val(),
+        beatid: $(row).find(".Hid_beatid").text(),
+        PostName: $(row).find(".PostName").text(),
+    };
+
+    console.log(items);
+
+    allitem.push(items);
+    allitem1.push(items);
+
+    console.log(allitem);
+    $(row).find("td").toggleClass("active");
 }
 
 
-function Updateall() {
+
+
+var list = [];
+var list1 = [];
+function selectedpost() {
+    list1 = [...allitem1];
+    list = [...allitem];
+    showTable(list1);
+    //allitem1 = [];
+    getdata($("#siteid").val());
+
+}
+
+
+function showTable(allitemid) {
+    if (allitemid.length > 0) {
+        $("#Selectedbody").empty();
+        var row = '';
+        for (var i = 0; i < allitemid.length; i++) {
+            row += `
+                <tr id='row1${i + 1}' onclick='deleteselectedpost(this)' style='background-color: #f2f2f2; cursor: pointer;'>
+                    
+                    
+                    <td style='display:none;'><span class='beatid'>${allitemid[i].beatid}</span></td>
+                    <td><span class='PostName'>${allitemid[i].PostName}</span></td>
+                </tr>
+            `;
+        }
+        $("#Selectedbody").append(row);
+        $("#Selectedbody").removeClass('d-none');
+
+    } else {
+        $("#Selectedbody").addClass('d-none');
+    }
+}
+
+
+var delallitem = [];
+
+function deleteselectedpost(row) {
+
+    var items = {
+        siteid: $("#siteid").val(),
+
+        beatid: $(row).find(".beatid").text(),
+        PostName: $(row).find(".PostName").text(),
+    };
+
+    console.log(items);
+
+
+
+    delallitem.push(items);
+    $(row).find("td").toggleClass("active");
+
+}
+
+
+
+function filterAndDeleteItems() {
+
+    let list3 = list.filter(item =>
+        !delallitem.some(delItem => delItem.beatid === item.beatid)
+    );
+
+
+    allitem1 = [...list3];
+
+    showTable(allitem1);
+}
+
+function BindShifttoSide() {
+    let id = $("#siteid").val();
+    let data = { id: id };
+    let url = '/Master/BindShifttoSide';
+    let dropdown = $('#siftid');
+    BindDropdownsingle(url, data, '', '', '', dropdown, 'Select')
+
+}
+function SAVEall() {
     var vali = Validation();
     if (vali == '') {
-
-        Update();
-        showgrid();
+        Data();
     } else {
         alert(vali);
     }
 }
 
-function Update() {
 
+function Data() {
     url_add = window.location.href;
     var data = url_add.split("://");
     data = data[1].split("/");
-    var menuname = data[1] + "/" + data[2];
     var url_add = window.location.protocol + "//" + window.location.host + "/";
     var url = url_add + 'api/ApiServices/Save';
-   // var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
 
-    var Data = {
+    var Itemprod = new Array();
 
-        beatidd: $("#txtHiddenId").val(),
-        custid: $("#custid").val(),
-        shiftid: $("#siftid").val(),
-        siteid: $("#siteid").val(),
-        Beatid: $("#beatid").val(),
-        routecode: $("#routecode").val(),
-        routename: $("#routeid").val(),
-        CompanyId: $("#CompanyId").val(),
-        BranchId: $("#BranchId").val(),
-        UserId: $("#UserId").val(),
-        type: 15,
-        mode: $("#flgmode").val(),
-        status: $("#status").is(':checked') ? 1 : 0,
-    }
 
-    CommonAjax(url, JSON.stringify(Data), "", "", "", "", "PrintdivModal");
+    $("#Selectedid TBODY TR").each(function (index, row) {
+        var Items = {};
+
+        var row = $(this);
+        Items.siteid = $("#siteid").val();
+        Items.custid = $("#custid").val();
+        Items.postid = row.find('span.beatid').html();
+        Items.PostName = row.find('span.PostName').html();
+        Items.routeid = $("#txtHiddenId").val();
+        Items.routename = $("#routename").val();
+        Items.routecode = $("#routecode").val();
+        Items.CompanyId = $("#CompanyId").val(),
+            Items.BranchId = $("#BranchId").val(),
+            Items.status = $("#status").is(':checked') ? 1 : 0,
+            Items.mode = $("#flgmode").val();
+        Items.type = 20;
+        Items.index = index + 1;
+
+        Itemprod.push(Items);
+
+    })
+
+    if (Itemprod.length !== 0)
+        CommonAjax(url, JSON.stringify(Itemprod), "", "", "", "", "Printdiv")
+    else
+        alert("No Post Selected");
+
+
+
+
 
 }
 
-
 function clear() {
-    $("#txtHiddenId").val(''),
-    $("#siftid").val(0);
- 
-   $("#siteid").val(0);
-  
-    $("#custid").val(0);
-    BindbeattoShift(0, 0);
-    bindsiteid(0, 0)
-    BindbeattoShift(0,0)
-    BindRoutetoBeat(0, 0),
-    $("#routeid").val('')
-    $("#routecode").val('');
-
-    $("#custid").prop("disabled", false);
-    $("#siteid").prop("disabled", false);
+    $("#txtHiddenId").val(0)
+    $("#siteid").val(0)
+    $("#custid").val(0)
+    $("#routename").val('')
+    $("#routecode").val('')
+    $("#Selectedbody").empty();
     $("#submitbtn").html('Save');
     $("#flgmode").val('ADD')
-    Showdata();
- 
+    $(".Availablebody").empty();
+
+
 };
 
 
-function DeletebyId(Id) {
-    var checkstr = confirm('Are You Sure You Want To Delete This?');
-    if (checkstr == true) {
-
-        $("#txtHiddenId").val(Id);
-        $("#flgmode").val("Del");
-        Update();
-
-    }
-}
+//function filterAndDeleteItems() {
+//    let remainingItems = [];
 
 
-function Showdata() {
+//    for (let i = 0; i < allitem.length; i++) {
+//        let found = false;
 
-    url_add = window.location.href;
-    var data = url_add.split("://");
-    data = data[1].split("/");
-    var menuname = data[1] + "/" + data[2];
-    var url_add = window.location.protocol + "//" + window.location.host + "/";
-    var url = url_add + 'api/ApiServices/Save';
-    var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
+//        for (let j = 0; j < delallitem.length; j++) {
+//            if (allitem[i].beatid === delallitem[j].beatid) {
+//                found = true;
+//                break;
+//            }
+//        }
 
-    var Data = {
-        CompanyId: $("#CompanyId").val(),
-        BranchId: $("#BranchId").val(),
+//        if (!found) {
+//            remainingItems.push(allitem[i]);
+//            showTable(remainingItems);
+//        }
+//    }
 
-
-        type: 16,
-
-    }
-
-    CommonAjax(url, JSON.stringify(Data), "", "", "", "", "printdiv");
-
-}
+//   // allitem = remainingItems;
 
 
-function EditbyId(id) {
-    Hidegrid();
-    var Hid_BeatRoute_Id = $("#Hid_BeatRoute_Id" + id + "").html();
-    var Hid_ShiftId = $("#Hid_ShiftId" + id + "").html();
-    var Hid_SiteId = $("#Hid_SiteId" + id + "").html();
-    var Hid_BeatId = $("#Hid_BeatId" + id + "").html();
-    var Hid_RoutId = $("#Hid_RoutId" + id + "").html();
-    var Hid_Id = $("#Hid_Id" + id + "").html();
-    var status = $("#Status" + id + "").html();
-
-    if (status == 'Active') {
-        $("#status").prop("checked", true);
-    } else {
-        $("#status").prop("checked", false);
-    }
-
-    $("#txtHiddenId").val(Hid_BeatRoute_Id),
-        $("#custid").val(Hid_Id);
-        $("#custid").trigger("change");
-
-    //$("#siteid").val(Hid_SiteId);
-    //$("#siteid").trigger("change");
-
-
-    
-  
-
- 
-    $("#beatid").val(Hid_BeatId);
-
-    $("#beatid").trigger("change");
-    //$("#siteid").val(Hid_SiteId);
-    bindsiteid(Hid_Id, Hid_SiteId),
-    BindShifttoSide(Hid_SiteId, Hid_ShiftId)
-    BindbeattoShift(Hid_ShiftId, Hid_BeatId)
-    BindRoutetoBeat(Hid_SiteId, Hid_RoutId)
-
-  
-    $("#custid").prop("disabled", true);
-    $("#siteid").prop("disabled", true);
-  
-    $("#flgmode").val('edit');
-    $("#submitbtn").html('Update');
-}
+//}

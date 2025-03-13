@@ -3,8 +3,8 @@ $(document).ready(() => {
     Showdata();
     showgrid()
     let nowdate = new Date();
-    $("#DOB").val(nowdate.toISOString().split("T")[0])
-    $("#join").val(nowdate.toISOString().split("T")[0])
+   // $("#DOB").val(nowdate.toISOString().split("T")[0])
+    //$("#join").val(nowdate.toISOString().split("T")[0])
 
 })
 
@@ -16,14 +16,19 @@ function SAVEall() {
         save();
         showgrid()
     } else {
-        alert(vali);
+       
+  
+        swal("Message", vali, "error");
     }
 }
 
 
 
 function save() {
+    let age = isAgeGreaterThan18($("#DOB").val())
+    if (age == true) {
 
+    
     url_add = window.location.href;
     var data = url_add.split("://");
     data = data[1].split("/");
@@ -52,7 +57,9 @@ function save() {
     }
 
     CommonAjax(url, JSON.stringify(Data), "", "", "", "", "PrintdivModal");
-
+    }else {
+        swal("Massage", 'Data Of birth Must be Grater than 18',"error");
+    }
 }
 
 const Showdata =()=> {
@@ -76,6 +83,34 @@ const Showdata =()=> {
     CommonAjax(url, JSON.stringify(Data), "", "", "", "", "printdiv");
 
 }
+
+function isAgeGreaterThan18(dobStr) {
+    
+    const dob = new Date(dobStr);
+
+
+    if (isNaN(dob)) {
+        return false;
+    }
+
+    const today = new Date();
+
+
+    let age = today.getFullYear() - dob.getFullYear();
+
+
+    const hasBirthdayPassed =
+        today.getMonth() > dob.getMonth() ||
+        (today.getMonth() === dob.getMonth() && today.getDate() >= dob.getDate());
+
+    if (!hasBirthdayPassed) {
+        age--;
+    }
+
+    return age > 18;
+}
+
+
 
 function EditbyId(id) {
     Hidegrid()

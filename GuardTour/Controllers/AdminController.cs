@@ -8,68 +8,35 @@ using System.Speech.Synthesis;
 using System.IO;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Data;
+using GuardTour.AuthFilter;
 namespace GuardTour.Controllers
 {
-
+    [AuthenticationFilter]
     public class AdminController : Controller
     {
         db_Utility util = new db_Utility();
-        public IActionResult Login()
-        {
-           
-            return View();
-        }
+        
 
-        [HttpPost]
-        public IActionResult Login(Adm_User obj)
-        {
-            string cnpwd = EncryptionHelper.Encrypt(obj.password);
-            var ds = util.Fill("exec LoginValidate @username='" + obj.email + "',@password='" + cnpwd + "' ", util.strElect);
-          
-              //  var userid = ds.Tables[0].Rows[0][0];
-                string errmsg = ds.Tables[0].Rows[0][1].ToString();
-                if(errmsg != "Incorrect Password")
-                {
-                    if (errmsg != "Invalid Username")
-                    {
-                    HttpContext.Session.SetString("UserId", ds.Tables[0].Rows[0]["UserId"].ToString());
-                    HttpContext.Session.SetString("UserName", ds.Tables[0].Rows[0]["UserName"].ToString());
-                        return RedirectToAction("BranchLogin", "Admin");
-                    }
-                    else
-                        ViewBag.msg = errmsg;
-
-                }
-                else if(errmsg == "Incorrect Password")
-                {
-                    ViewBag.msg = errmsg;
-                }
-              
-
-            return View();
-        }
-
-
+       
         public IActionResult BranchLogin()
         {
             
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
-            {
+            //if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
+            //{
                 ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
                 return View();
 
-            }
-            else
-            {
-                return RedirectToAction("Login", "Admin");
-            }
+          //  }
+           // else
+           // {
+           //     return RedirectToAction("Login", "Admin");
+          //  }
            
        
         }
 
         [HttpPost]
-          
-
+      
         public IActionResult BranchLogin(branch_login obj)
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
@@ -102,6 +69,7 @@ namespace GuardTour.Controllers
             return View();
         }
         #region Dashboard
+       
         public IActionResult Dashboard()
 
         {
@@ -123,6 +91,7 @@ namespace GuardTour.Controllers
 
         #region LogintoDashborad
         [Route("LogintoDashboard")]
+     
         public IActionResult LogintoDashborad(Adm_User obj)
         {
             if (obj.gencap != obj.Captcha)
@@ -135,6 +104,7 @@ namespace GuardTour.Controllers
 
 
         [HttpGet]
+   
         public JsonResult bindbeatwithroute(int id)
         {
             var companyid = HttpContext.Session.GetString("companyid").ToString();
@@ -253,6 +223,7 @@ namespace GuardTour.Controllers
         #endregion
 
         #region Company
+     
         public IActionResult Company()
         {
             return View();
@@ -267,6 +238,7 @@ namespace GuardTour.Controllers
         #endregion
 
         #region Branch
+     
         public IActionResult Branch()
         {
 
@@ -288,13 +260,14 @@ namespace GuardTour.Controllers
         }
         #endregion
 
-
+ 
         public IActionResult DashboardLogin()
         {
            
             return View();
         }
 
+      
         public JsonResult binddashboard()
         {
 			var companyid = HttpContext.Session.GetString("companyid").ToString();

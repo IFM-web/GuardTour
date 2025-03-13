@@ -29,22 +29,40 @@ namespace GuardTour.Controllers
         {
             return View();
         }
-        [HttpGet("login")]
         public IActionResult Login()
         {
-            return Challenge(new AuthenticationProperties
-            {
-                RedirectUri = "/"
-            }, GoogleDefaults.AuthenticationScheme);
+            HttpContext.Session.Clear();
+            return View();
         }
 
-        [HttpGet("logout")]
-        public IActionResult Logout()
+        [HttpPost]
+        public IActionResult Login(Adm_User obj)
         {
-            return SignOut(new AuthenticationProperties
+            HttpContext.Session.Clear();
+            string cnpwd = EncryptionHelper.Encrypt(obj.password);
+            var ds = util.Fill("exec LoginValidate @username='" + obj.email + "',@password='" + cnpwd + "' ", util.strElect);
+
+            //  var userid = ds.Tables[0].Rows[0][0];
+            string errmsg = ds.Tables[0].Rows[0][1].ToString();
+            if (errmsg != "Incorrect Password")
             {
-                RedirectUri = "/"
-            }, CookieAuthenticationDefaults.AuthenticationScheme);
+                if (errmsg != "Invalid Username")
+                {
+                    HttpContext.Session.SetString("UserId", ds.Tables[0].Rows[0]["UserId"].ToString());
+                    HttpContext.Session.SetString("UserName", ds.Tables[0].Rows[0]["UserName"].ToString());
+                    return RedirectToAction("BranchLogin", "Admin");
+                }
+                else
+                    ViewBag.msg = errmsg;
+
+            }
+            else if (errmsg == "Incorrect Password")
+            {
+                ViewBag.msg = errmsg;
+            }
+
+
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

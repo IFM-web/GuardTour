@@ -1,4 +1,5 @@
 ﻿using GuardTour;
+using GuardTour.AuthFilter;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Operations;
 using Newtonsoft.Json;
@@ -6,9 +7,11 @@ using System.ComponentModel.Design;
 
 namespace GuardTour.Controllers
 {
+    [AuthenticationFilter]
     public class MasterController : Controller
     {
         db_Utility util = new db_Utility();
+
 
  
         public IActionResult Index()
@@ -18,7 +21,7 @@ namespace GuardTour.Controllers
         }
 
         #region Post Master
-        public IActionResult Post()
+        public IActionResult Post(string? Id)
         {
              
              var companyid = HttpContext.Session.GetString("companyid").ToString();
@@ -26,31 +29,33 @@ namespace GuardTour.Controllers
 
             ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
             //ViewBag.site = util.PopulateDropDown("exec drop_site @companyid='" + companyid + "',@branchid='"+ branchid + "'", util.strElect);
+            ViewBag.Id = Id;
             return View();
         }
         #endregion
 
         #region Site Master
-        public IActionResult Site()
+        public IActionResult Site(string? Id)
         {
             var companyid = HttpContext.Session.GetString("companyid").ToString();
             var branchid = HttpContext.Session.GetString("branchid").ToString();
 
             ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
+            ViewBag.Id = Id;
             return View();
         }
         #endregion
 
 
         #region Shift Master
-        public IActionResult Shift()
+        public IActionResult Shift(string? Id)
         {
             var companyid = HttpContext.Session.GetString("companyid").ToString();
             var branchid = HttpContext.Session.GetString("branchid").ToString();
 
             ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
 
-
+            ViewBag.Id = Id;
 
             return View();
         }
@@ -152,10 +157,10 @@ namespace GuardTour.Controllers
 
 
 		#region RoutList Master
-		public IActionResult RoutList()
+		public IActionResult RoutList(string? Id)
 		{
-			
-			return View();
+            ViewBag.Id = Id;
+            return View();
 		}
         #endregion
 

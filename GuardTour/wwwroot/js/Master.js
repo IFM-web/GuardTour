@@ -199,18 +199,39 @@ function Bindtrntable(var_url, var_data, var_type, var_ct, var_dt, UserData, div
                 if (array.length > 0) {
                     $(".Availablebody").empty();
                     var row = ""
-                    for (var i = 0; i < array.length; i++) {
+                    for (let e of array) {
 
-                        row += "<tr id='row" + parseInt(i + 1) + "' onclick='addselectedpost(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span class='Hid_beatid'>" + array[i].Hid_beatid + "</span></td><td><span class='PostName'>" + array[i].PostName + "</span></td></tr > ";
+                        row += "<tr id='row" + parseInt(i + 1) + "' onclick='addselectedpost(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span class='Hid_beatid'>" + e.Hid_beatid + "</span></td><td><span class='PostName'>" + e.Routename + "</span></td></tr > ";
 
                     }
                     $(".Availablebody").prepend(row);
 
                 }
-               
-           
 
-               
+            }
+            else if (divid == 3) {
+                if (data.Status == "error") {
+                    swal({
+                        icon: "error",
+                        title: data.Message,
+                        text: "error",
+                        timer: 2000
+                    });
+
+                }
+
+                var array = data.Data;
+                if (array.length > 0) {
+                    $(".Selectedbody").empty();
+                    var row = ""
+                    for (var i = 0; i < array.length; i++) {
+
+                        row += "<tr id='row" + parseInt(i + 1) + "' onclick='addselectedpost(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span class='Hid_beatid'>" + array[i].Hid_beatid + "</span></td><td><span class='PostName'>" + array[i].Routename + "</span></td></tr > ";
+
+                    }
+                    $(".Selectedbody").append(row);
+
+                }
 
             }
 
