@@ -1,4 +1,8 @@
 ﻿
+$(document).ready(() => {
+    $("#custid").trigger("change");
+
+})
 function bindsiteid(id) {
 
     $.ajax({
@@ -48,7 +52,7 @@ function getdata(id) {
 
     }
 
-    Bindtrntable(url, JSON.stringify(data), "", "", "", "", "2");
+    Bindtrntable(url, JSON.stringify(data), "", "", "", "", "1");
 }
 
 var allitem = [];

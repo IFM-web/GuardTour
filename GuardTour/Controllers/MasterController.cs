@@ -1,6 +1,7 @@
 ﻿using GuardTour;
 using GuardTour.AuthFilter;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.CodeAnalysis.Operations;
 using Newtonsoft.Json;
 using System.ComponentModel.Design;
@@ -12,8 +13,23 @@ namespace GuardTour.Controllers
     {
         db_Utility util = new db_Utility();
 
+        protected string companyId;
+        protected string branchId;
 
- 
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            base.OnActionExecuting(context);
+
+            companyId = HttpContext.Session.GetString("companyid");
+            branchId = HttpContext.Session.GetString("branchid");
+
+            // Optionally, redirect if not found
+            if (string.IsNullOrEmpty(companyId))
+            {
+                context.Result = RedirectToAction("Login");
+            }
+        }
+
         public IActionResult Index()
         {
 
@@ -21,15 +37,15 @@ namespace GuardTour.Controllers
         }
 
         #region Post Master
-        public IActionResult Post(string? Id)
+        public IActionResult Post(string? site, string? custid)
         {
              
-             var companyid = HttpContext.Session.GetString("companyid").ToString();
-             var branchid = HttpContext.Session.GetString("branchid").ToString();
+            
 
-            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
+            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyId + "',@branchid='" + branchId + "', @id='"+custid+"'", util.strElect);
             //ViewBag.site = util.PopulateDropDown("exec drop_site @companyid='" + companyid + "',@branchid='"+ branchid + "'", util.strElect);
-            ViewBag.Id = Id;
+            ViewBag.Id = site;
+            ViewBag.custid = custid;
             return View();
         }
         #endregion
@@ -37,10 +53,9 @@ namespace GuardTour.Controllers
         #region Site Master
         public IActionResult Site(string? Id)
         {
-            var companyid = HttpContext.Session.GetString("companyid").ToString();
-            var branchid = HttpContext.Session.GetString("branchid").ToString();
+            
 
-            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
+            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyId + "',@branchid='" + branchId + "',@id='"+Id+"'", util.strElect);
             ViewBag.Id = Id;
             return View();
         }
@@ -50,10 +65,9 @@ namespace GuardTour.Controllers
         #region Shift Master
         public IActionResult Shift(string? Id)
         {
-            var companyid = HttpContext.Session.GetString("companyid").ToString();
-            var branchid = HttpContext.Session.GetString("branchid").ToString();
+         
 
-            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
+            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyId + "',@branchid='" + branchId + "'", util.strElect);
 
             ViewBag.Id = Id;
 
@@ -62,11 +76,10 @@ namespace GuardTour.Controllers
         #endregion
 
         #region Route Master
-        public IActionResult Route()
+        public IActionResult Route(string? Id)
         {
-            var companyid = HttpContext.Session.GetString("companyid").ToString();
-            var branchid = HttpContext.Session.GetString("branchid").ToString();
-            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
+           
+            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyId + "',@branchid='" + branchId + "',@id='"+Id+"'", util.strElect);
             //ViewBag.site = util.PopulateDropDown("exec drop_site @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
             return View();
         }

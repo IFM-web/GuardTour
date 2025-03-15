@@ -33,6 +33,7 @@
                                                     <input type="hidden" id="txtHiddenId" value="0" />
                                                     <input type="hidden" id="Hid_BeatId" value="0" />
                                                     <input type="hidden" id="postid" value="@ViewBag.Id" />
+                                                    <input type="hidden" id="custid" value="@ViewBag.custid" />
                                                     <div class="d-sm-flex justify-content-between align-items-start">
                                                         <div>
                                                             <h4 class="card-title card-title-dash">
@@ -40,9 +41,7 @@
                                                                     Post Master
                                                                 </a>
                                                             </h4>
-                                                            <a href="/Admin/DashboardLogin">
-                                                                <button id="backtbtn" class="btn btn-success">Back</button>
-                                                            </a>
+                                                            <button id="" onclick="window.history.back();" class="btn btn-success">Back</button>
                                                         </div>
                                                     </div>
                                                     <br>
@@ -53,7 +52,7 @@
                                                             <div class="form-group">
                                                                 <label>Customer Name</label>
                                                                 <select name="Customer Name" class="form-control mandatory" id="custid" onchange="bindsiteid(this.value,0)" style="border: 1px solid lightgray;">
-                                                                    <option value="0">Select</option>
+                                                                    @* <option value="0">Select</option> *@
                                                                     @if (ViewBag.cust != null)
                                                                     {
                                                                         foreach (var item in ViewBag.cust as List<SelectListItem>)

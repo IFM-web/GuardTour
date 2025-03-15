@@ -175,14 +175,38 @@ function Bindtrntable(var_url, var_data, var_type, var_ct, var_dt, UserData, div
             console.log(data);
             console.log(data.Data);
             //var data1 = JSON.parse(data[0].Data);
-            if (divid == "1") {
+         
+             if (divid == 1) {
+                if (data.Status == "error") {
+                    swal({
+                        icon: "error",
+                        title: data.Message,
+                        text: "error",
+                        timer: 2000
+                    });
 
-                $("#PrintOrder").val(data[0].Data)
+                }
 
 
-                // $(".tbl").append(row);
+             
+                 var array = data.Data;
+                 if (array.length > 0) {
+                     $(".Availablebody").empty();
+                     var row = ""
+                     for (var i = 0; i < array.length; i++) {
+
+                         row += "<tr id='row" + parseInt(i + 1) + "' onclick='addselectedpost(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span class='Hid_beatid'>" + array[i].Hid_beatid + "</span></td><td><span class='PostName'>" + array[i].PostName + "</span></td></tr > ";
+
+                     }
+                     $(".Availablebody").prepend(row);
+
+                 }
+
+                else {
+                    $(".Availablebody").empty();
+                }
+
             }
-
             else if (divid == 2) {
                 if (data.Status == "error") {
                     swal({

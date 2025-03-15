@@ -1,5 +1,6 @@
 ﻿
 $(document).ready(() => {
+    $("#custid").trigger("change");
     Showdata();
     showgrid();
 })
@@ -87,6 +88,7 @@ function Showdata() {
         CompanyId: $("#CompanyId").val(),
         BranchId: $("#BranchId").val(),
         id: $("#postid").val(),
+        custid: $("#custid").val(),
         type: 4,
 
     }

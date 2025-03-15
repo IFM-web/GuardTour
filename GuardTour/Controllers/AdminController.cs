@@ -21,18 +21,9 @@ namespace GuardTour.Controllers
         public IActionResult BranchLogin()
         {
             
-            //if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
-            //{
-                ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
-                return View();
+           ViewBag.com = util.PopulateDropDown("exec Dropdownlist 'bindCompany'", util.strElect);
+           return View();
 
-          //  }
-           // else
-           // {
-           //     return RedirectToAction("Login", "Admin");
-          //  }
-           
-       
         }
 
         [HttpPost]
@@ -42,7 +33,7 @@ namespace GuardTour.Controllers
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
             {
 
-                ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
+                ViewBag.com = util.PopulateDropDown("exec Dropdownlist 'bindCompany'", util.strElect);
                 if (obj.companyid != null && obj.branch_id != null)
                 {
 
@@ -147,7 +138,7 @@ namespace GuardTour.Controllers
         [HttpPost]
         public JsonResult bindBranch(int id)
         {
-            var ds = util.Fill("exec drop_Branch @companyid='" + id + "'", util.strElect);
+            var ds = util.Fill("exec Dropdownlist 'bindBranch', @id='" + id + "'", util.strElect);
             var dt = ds.Tables[0];
             var data = JsonConvert.SerializeObject(dt);
             return Json(data);
@@ -242,7 +233,7 @@ namespace GuardTour.Controllers
         public IActionResult Branch()
         {
 
-            ViewBag.com = util.PopulateDropDown("exec drop_company", util.strElect);
+            ViewBag.com = util.PopulateDropDown("exec Dropdownlist 'bindCompany'", util.strElect);
             return View();
         }
         #endregion

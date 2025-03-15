@@ -119,35 +119,19 @@ function addshift(row) {
 
 
 function SAVEall() {
-    Data();
-    //var vali = Validation();
-    //if (vali == '') {
+
+    var vali = Validation();
+    if (vali == '') {
       
-    //    Data();
-    //} else {
-    //    alert(vali);
-    //}
+        Data();
+    } else {
+        swal("Message", vali, "error");
+     
+    }
 }
 
-function getallshift() {
-    const arr = [];
-    $("#Selectedid TBODY TR").each(function (index, row) {
-        obj = {};
-        obj.shiftid = $(row).find('.active #shiftid').text().trim();
-        arr.push(obj);
-    })
-    return arr
-}
 
-function getallroute() {
-    const arr = [];
-    $("#Availablebody TR").each(function (index, row) {
-        obj = {};
-        obj.routecode1 = $(row).find('.active #Routecode').text().trim();
-        arr.push(obj);
-    })
-    return arr
-}
+
 function Data() {
     url_add = window.location.href;
     var data = url_add.split("://");
@@ -161,12 +145,12 @@ function Data() {
         const item = {};
             item.custid= $("#custid").val(),
             item.siteid= $("#siteid").val(),
-            item.routecode= $("#routecode").val(),
-            item.RouteName= $("#routename").val(),
+                item.RouteAssgincode = $("#routecode").val(),
+            item.RouteAssginName= $("#routename").val(),
             item.CompanyId= $("#CompanyId").val(),
             item.BranchId= $("#BranchId").val(),
             item.UserId= $("#UserId").val(),
-            item.type= 52,
+            item.type= 33,
             item.mode= $("#flgmode").val(),
             item.status= $("#status").is(':checked') ? 1 : 0,
             item.shiftid= $(row).find('.active #shiftid').text().trim(),
@@ -174,7 +158,7 @@ function Data() {
         $("#Availablebody TR").each(function (index, row) {
 
             let item2 = { ...item };
-            item2.routename = $(row).find('.active #Routecode').text().trim();
+            item2.routecode = $(row).find('.active #Routecode').text().trim();
             Itemprod.push(item2);
         })
        
@@ -184,10 +168,10 @@ function Data() {
 
     console.log(Itemprod)
 
-    if (Itemprod.length !== 0)
+    if (Itemprod[0].routecode !=='' || Itemprod[0].shiftid !=='')
         CommonAjax(url, JSON.stringify(Itemprod), "", "", "", "", "Printdiv")
     else
-       alert("No Post Selected");
+        swal("Message", 'No Selection', "error");
 
 
 }

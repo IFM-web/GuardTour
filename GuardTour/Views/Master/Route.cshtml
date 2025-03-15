@@ -60,7 +60,7 @@
                                                             <div class="form-group">
                                                                 <label>Customer Name</label>
                                                                 <select name="Customer Name" class="form-control mandatory" id="custid" onchange="bindsiteid(this.value)" style="border: 1px solid lightgray;">
-                                                                    <option value="0">Select</option>
+                                                                    @* <option value="0">Select</option> *@
                                                                     @if (ViewBag.cust != null)
                                                                     {
                                                                         foreach (var item in ViewBag.cust as List<SelectListItem>)
@@ -239,9 +239,7 @@
                                                                     Save
                                                                 </button>
 
-                                                                <a href="/Admin/DashboardLogin">
-                                                                    <button id="backtbtn" class="btn btn-success">Back</button>
-                                                                </a>
+                                                                <button id="" onclick="window.history.back();" class="btn btn-success">Back</button>
 
 
                                                             </div>

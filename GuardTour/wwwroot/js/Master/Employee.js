@@ -16,8 +16,7 @@ function SAVEall() {
         save();
         showgrid()
     } else {
-       
-  
+
         swal("Message", vali, "error");
     }
 }
