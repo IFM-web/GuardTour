@@ -5,26 +5,27 @@ using System.Net;
 using System.Text;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Cryptography;
+using GuardTour.Models;
 
 namespace GuardTour
 {
 
+    
     public class db_Utility
     {
         ClsUtility util = new ClsUtility();
 
 
-        //public string strElect = @"Data Source =.\SQLEXPRESS; Initial Catalog =GurdTour; Persist Security Info=True;Integrated Security=true;";
+  
 
-
-        public string strElect = @"Data Source=180.179.213.214,1533;Initial Catalog=GARUDTOUR;Persist Security Info=True;User ID=GARUDTOUR;Password=Bu3^p5t51";
-
-
+        public readonly string strElect = DbConnect.ConnectionString;
 
 
 
 
-        public string execQuery(string query, string constring = "")
+
+
+		public string execQuery(string query, string constring = "")
         {
             using (SqlConnection sqcon = new SqlConnection(constring))
             {
@@ -378,8 +379,6 @@ namespace GuardTour
         //    throw new NotImplementedException();
         //}
 
-
-
         //internal DataSet TableBind(string sql)
         //{
         //    throw new NotImplementedException();
@@ -413,9 +412,6 @@ namespace GuardTour
             sb.Append("</table>");
             return (sb.ToString());
         }
-
-
-
 
         public void WriteLogFile(string LogPath, string Query, string Button, string Page, string IP, string BrowserName, string BrowerVersion, string javascript, string function)
         {
@@ -555,9 +551,6 @@ namespace GuardTour
 
 
     }
-
-
-
 
     public class EncryptionHelper
     {

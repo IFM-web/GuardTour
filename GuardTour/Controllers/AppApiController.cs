@@ -15,7 +15,9 @@ namespace GuardTour.Controllers
 
 		db_Utility util = new db_Utility();
 		ClsUtility csutil = new ClsUtility();
-		[Route("fetchData")]
+
+        #region fetchData
+        [Route("fetchData")]
 		public IActionResult fetchData(string? Data)
 		{
 			string? data = ""; int flag = 0;
@@ -32,8 +34,6 @@ namespace GuardTour.Controllers
 				{
 					data = Data;
 				}
-				
-
 					DataSet ds = util.Fill("exec Usp_AppApiProcedure N'" + data.Replace("'", "''") + "'", util.strElect);
 					data = ds.Tables[0].Rows[0]["Data"].ToString();
 
@@ -61,9 +61,10 @@ namespace GuardTour.Controllers
 
 			return Content(data, "application/json");
 		}
+        #endregion
 
-		#region ForgetPassword
-		[Route("ForgetPassword")]
+        #region ForgetPassword
+        [Route("ForgetPassword")]
 		[HttpPost]	
 		
 		public  IActionResult ForgetPassword()
@@ -90,8 +91,6 @@ namespace GuardTour.Controllers
 			}
 		}
 		#endregion
-
-
 
 		#region Employee Login
 		[Route("Login")]
@@ -132,7 +131,8 @@ namespace GuardTour.Controllers
 				var ds = util.Fill("exec EmployeeLogin @EmpId='" + EmpId.Trim() + "',@password='" + PassWord.Trim() + "'", util.strElect);
 				var data = ds.Tables[0];
 
-				return Ok(JsonConvert.SerializeObject(data));
+                return Content(JsonConvert.SerializeObject(data), "application/json");
+                
 			}
 			catch(Exception ex)
 			{

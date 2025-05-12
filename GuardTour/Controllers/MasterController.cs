@@ -16,6 +16,7 @@ namespace GuardTour.Controllers
         protected string companyId;
         protected string branchId;
 
+        #region  Auth Filter
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
@@ -23,18 +24,13 @@ namespace GuardTour.Controllers
             companyId = HttpContext.Session.GetString("companyid");
             branchId = HttpContext.Session.GetString("branchid");
 
-            // Optionally, redirect if not found
+            
             if (string.IsNullOrEmpty(companyId))
             {
                 context.Result = RedirectToAction("Login");
             }
         }
-
-        public IActionResult Index()
-        {
-
-            return View();
-        }
+        #endregion
 
         #region Post Master
         public IActionResult Post(string? site, string? custid)
@@ -61,15 +57,12 @@ namespace GuardTour.Controllers
         }
         #endregion
 
-
         #region Shift Master
-        public IActionResult Shift(string? Id)
+        public IActionResult Shift()
         {
          
 
-            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyId + "',@branchid='" + branchId + "'", util.strElect);
-
-            ViewBag.Id = Id;
+            ViewBag.cust = util.PopulateDropDown(@$"exec Dropdownlist 'BindCustomer',  @id='{companyId}',@id2='{branchId}'", util.strElect); ;
 
             return View();
         }
@@ -85,7 +78,6 @@ namespace GuardTour.Controllers
         }
         #endregion
 
-
         #region Employee 
 
         public IActionResult Employee()
@@ -94,7 +86,6 @@ namespace GuardTour.Controllers
         }
 
         #endregion
-
 
         #region EmployeeMaptocustomerandsite
 
@@ -111,7 +102,6 @@ namespace GuardTour.Controllers
         }
 
         #endregion
-
 
         #region Employee Map To Route
         public IActionResult EmployeeMapToRoute()
@@ -135,39 +125,31 @@ namespace GuardTour.Controllers
         }
         #endregion
 
-
-
         #region Beat master
-        public IActionResult Beat()
+        public IActionResult Beat(string id)
         {
 
             var companyid = HttpContext.Session.GetString("companyid").ToString();
             var branchid = HttpContext.Session.GetString("branchid").ToString();
             ViewBag.shift = util.PopulateDropDown("exec Bindshift @id='" + companyid + "',@id2='" + branchid + "'", util.strElect);
             
-            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
+            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "',@id='"+ id+ "'", util.strElect);
             return View();
         }
         #endregion
         
-
-
         #region Beat Assign
         public IActionResult Assign()
         {
 
-            var companyid = HttpContext.Session.GetString("companyid").ToString();
-            var branchid = HttpContext.Session.GetString("branchid").ToString();
             //ViewBag.route = util.PopulateDropDown("exec drop_Route @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
           
-            ViewBag.cust = util.PopulateDropDown("exec drop_Customer @companyid='" + companyid + "',@branchid='" + branchid + "'", util.strElect);
-            ViewBag.shift = util.PopulateDropDown("exec drop_Shift @companyid='" + companyid + "',@branchid='" + branchid + "'" , util.strElect);
+            ViewBag.cust = util.PopulateDropDown("exec Dropdownlist @action='Customer', @id='" + companyId + "',@id2='" + branchId + "'", util.strElect);
+            ViewBag.shift = util.PopulateDropDown("exec drop_Shift @companyid='" + companyId + "',@branchid='" + branchId + "'" , util.strElect);
            
             return View();
         }
 		#endregion
-
-
 
 		#region RoutList Master
 		public IActionResult RoutList(string? Id)
@@ -177,6 +159,7 @@ namespace GuardTour.Controllers
 		}
         #endregion
 
+        #region BindShifttoSide
         [HttpPost]
         public JsonResult BindShifttoSide(string id)
         {
@@ -187,6 +170,12 @@ namespace GuardTour.Controllers
             return Json(JsonConvert.SerializeObject(dt));
 
         }
+
+        #endregion
+
+
+        #region BindbeattoShift
+
         [HttpPost]
         public JsonResult BindbeattoShift(string id)
         {
@@ -198,6 +187,9 @@ namespace GuardTour.Controllers
 
         }
 
+        #endregion
+
+        #region  BindRoutetoBeat
         [HttpPost]
         public JsonResult BindRoutetoBeat(string id)
         {
@@ -208,7 +200,10 @@ namespace GuardTour.Controllers
             return Json(JsonConvert.SerializeObject(dt));
 
         }
+        #endregion
 
+
+     
 
     }
 

@@ -15,9 +15,9 @@ namespace GuardTour.Controllers
     public class AdminController : Controller
     {
         db_Utility util = new db_Utility();
-        
 
-       
+        #region BranchLogin
+
         public IActionResult BranchLogin()
         {
             
@@ -59,8 +59,11 @@ namespace GuardTour.Controllers
 
             return View();
         }
+        #endregion
+
+
         #region Dashboard
-       
+
         public IActionResult Dashboard()
 
         {

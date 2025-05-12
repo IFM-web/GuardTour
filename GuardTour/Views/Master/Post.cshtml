@@ -52,7 +52,7 @@
                                                             <div class="form-group">
                                                                 <label>Customer Name</label>
                                                                 <select name="Customer Name" class="form-control mandatory" id="custid" onchange="bindsiteid(this.value,0)" style="border: 1px solid lightgray;">
-                                                                    @* <option value="0">Select</option> *@
+                                                                   <option value="0">Select</option>
                                                                     @if (ViewBag.cust != null)
                                                                     {
                                                                         foreach (var item in ViewBag.cust as List<SelectListItem>)
@@ -157,21 +157,14 @@
 
 </div>
 <!-- main-panel ends -->
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 <script src="~/js/Master/Post.js"></script>
 <script src="~/js/InsAjax.js"></script>
 <script src="~/js/Master.js"></script>
 
-<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@* <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-<script>
-    $("#siteid").select2();
-    $("#custid").select2();
 
 
-</script> *@
 
 
 

@@ -2,6 +2,7 @@
 
 $(document).ready(() => {
     Showdata();
+    $("#setrul").attr("href", '/Master/Route/' + localStorage.getItem("custid"));
 })
 
 

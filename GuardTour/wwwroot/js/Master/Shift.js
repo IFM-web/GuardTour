@@ -40,72 +40,6 @@ $('#intime').on('input', function () {
 
 
 
-
-//$('#intime').on('input', function () {
-//    var timeFormat = /^(?:[01]\d|2[0-3]):[0-5]\d$/; // For HH:mm format
-//    // var timeFormat = /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/; // For HH:mm:ss
-//    var inputVal = $(this).val();
-
-
-//    if ($('#timeMessage').length === 0) {
-//        $(this).after('<span id="timeMessage" style="display:none;"></span>');
-//    }
-
-//    if (timeFormat.test(inputVal)) {
-//        $(this).css('border-color', 'green');
-//        $('#timeMessage')
-//            .text('Valid time format!')
-//            .css('color', 'green')
-//            .show();
-//    } else {
-//        $(this).css('border-color', 'red');
-//        $('#timeMessage')
-//            .text('Invalid time format. Please use HH:mm.')
-//            .css('color', 'red')
-//            .show();
-//    }
-//});
-
-
-/*$('#outtime').on('input', function () {
-    var intime = $('#intime').val(); // Get the intime value
-    var outtime = $(this).val().replace(/[^0-9:]/g, ''); // Remove invalid characters
-    var timeFormat = /^([01]\d|2[0-3]):([0-5]\d)$/; // HH:mm format
-
-    if ($('#timeMessage1').length === 0) {
-        $(this).after('<span id="timeMessage1" style="display:none;"></span>');
-    }
-
-    // Auto-insert ":" if needed
-    if (outtime.length === 2 && outtime.indexOf(':') === -1) {
-        outtime = outtime + ':';
-    }
-
-    // Ensure input length does not exceed HH:mm format
-    if (outtime.length > 5) {
-        outtime = outtime.substring(0, 5);
-    }
-
-    $(this).val(outtime); // Set formatted value back
-
-    if (timeFormat.test(outtime)) {
-        var intimeMinutes = convertToMinutes(intime);
-        var outtimeMinutes = convertToMinutes(outtime);
-
-        if (outtimeMinutes <= intimeMinutes) {
-            $(this).css('border-color', 'red');
-            $('#timeMessage1').text('Out time must be greater than In time.').css('color', 'red').show();
-        } else {
-            $(this).css('border-color', 'green');
-            $('#timeMessage1').text('Valid time format!').css('color', 'green').show();
-        }
-    } else {
-        $(this).css('border-color', 'red');
-        $('#timeMessage1').text('Invalid time format. Please use HH:mm.').css('color', 'red').show();
-    }
-}); */
-
-// Function to convert HH:mm to total minutes for comparison
 function convertToMinutes(time) {
     if (!time || !/^([01]\d|2[0-3]):([0-5]\d)$/.test(time)) {
         return -1; // Return invalid time
@@ -116,36 +50,7 @@ function convertToMinutes(time) {
 
 
 
-//$('#outtime').on('input', function () {
-//    var inputVal = $(this).val().replace(/[^0-9:]/g, ''); 
-//    var timeFormat = /^([01]\d|2[0-3]):([0-5]\d)$/; 
 
-//    if ($('#timeMessage1').length === 0) {
-//        $(this).after('<span id="timeMessage1" style="display:none;"></span>');
-//    }
-
-    
-//    if (inputVal.length === 2 && inputVal.indexOf(':') === -1) {
-//        inputVal = inputVal + ':';
-//    }
-
-   
-//    if (inputVal.length > 5) {
-//        inputVal = inputVal.substring(0, 5);
-//    }
-
-   
-//    $(this).val(inputVal);
-
-   
-//    if (timeFormat.test(inputVal)) {
-//        $(this).css('border-color', 'green');
-//        $('#timeMessage1').text('Valid time format!').css('color', 'green').show();
-//    } else {
-//        $(this).css('border-color', 'red');
-//        $('#timeMessage1').text('Invalid time format. Please use HH:mm.').css('color', 'red').show();
-//    }
-//});
 
 var checktime = '';
 $('#outtime').on('input', function () {

@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
+using GuardTour.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+DbConnect.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession(options =>

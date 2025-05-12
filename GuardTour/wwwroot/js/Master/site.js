@@ -2,6 +2,10 @@
 $(document).ready(() => {
     Showdata();
     showgrid()
+    let params = new URLSearchParams(window.location.search);
+    let id = params.get('id');
+    localStorage.setItem('custid', id);
+
 })
 
 

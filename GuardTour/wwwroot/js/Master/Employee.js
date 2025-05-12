@@ -3,7 +3,7 @@ $(document).ready(() => {
     Showdata();
     showgrid()
     let nowdate = new Date();
-   // $("#DOB").val(nowdate.toISOString().split("T")[0])
+    // $("#DOB").val(nowdate.toISOString().split("T")[0])
     //$("#join").val(nowdate.toISOString().split("T")[0])
 
 })
@@ -11,23 +11,37 @@ $(document).ready(() => {
 
 function SAVEall() {
     var vali = Validation();
-    if (vali == '') {
+    let age = isAgeGreaterThan18($("#DOB").val())
+    if (age == true) {
+        if (vali == '') {
 
-        save();
-        showgrid()
-    } else {
+            save();
+            showgrid()
+        }
 
-        swal("Message", vali, "error");
+        else {
+            Hidegrid()
+            swal("Message", vali, "error");
+            
+        }
     }
+    else {
+        Hidegrid()
+        swal("Massage", 'Age Must be Grater than 18', "error");
+    }
+
+
+
+
+
 }
 
 
 
 function save() {
-    let age = isAgeGreaterThan18($("#DOB").val())
-    if (age == true) {
 
-    
+
+
     url_add = window.location.href;
     var data = url_add.split("://");
     data = data[1].split("/");
@@ -56,12 +70,10 @@ function save() {
     }
 
     CommonAjax(url, JSON.stringify(Data), "", "", "", "", "PrintdivModal");
-    }else {
-        swal("Massage", 'Data Of birth Must be Grater than 18',"error");
-    }
+
 }
 
-const Showdata =()=> {
+const Showdata = () => {
 
     url_add = window.location.href;
     var data = url_add.split("://");
@@ -84,7 +96,7 @@ const Showdata =()=> {
 }
 
 function isAgeGreaterThan18(dobStr) {
-    
+
     const dob = new Date(dobStr);
 
 
@@ -160,16 +172,16 @@ function DeletebyId(Id) {
 
 function clear() {
     $("#txtHiddenId").val(0)
-  
+
     $("#EmployeeCode").val('');
     $("#Employee").val('');
     $("#DOB").val('');
     $("#join").val('');
     $("#Dept").val('');
     $("#Gender").val(''),
-    $("#Designation").val(''),
-    $("#Password").val(''),
-    $("#EmployeeCode").prop("disabled", false);
+        $("#Designation").val(''),
+        $("#Password").val(''),
+        $("#EmployeeCode").prop("disabled", false);
     $("#submitbtn").html('Save');
     $("#flgmode").val('ADD')
     Showdata();

@@ -2,6 +2,7 @@
 $(document).ready(() => {
     Showdata();
     showgrid();
+    $("#custid").trigger("change");
 })
 
 function bindsiteid(id,site) {

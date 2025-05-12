@@ -1,13 +1,14 @@
 ﻿
-$(document).ready(() => {
-    $("#custid").trigger("change");
+$(document).ready(function (){
+  
     Showdata();
     showgrid();
+    $("#custid").trigger("change");
 })
 
 
-function bindsiteid(id,SiteId) {
-
+function bindsiteid(id, SiteId) {
+   // let id = $('#custid').val();
     $.ajax({
         url: '/Admin/bindsiteid',
         type: 'post',
@@ -117,10 +118,7 @@ function Showdata() {
 
 
 
-$(document).ready(() => {
-    $("#siteid").trigger("change")
-    //Showdata();
-})
+
 function EditbyId(id) {
     Hidegrid();
     var beatid = $("#Hid_beatid" + id + "").html();
@@ -178,8 +176,7 @@ function DeletebyId(Id) {
 function clear() {
     $("#Hid_BeatId").val('')
     $("#custid").val(0);
-    //$("#custid").trigger("change");
-    //$("#siteid").val(sitename);
+
     bindsiteid(0, 0);
    /* $("#siteid").val(0)*/
     $("#beatcode").val('')

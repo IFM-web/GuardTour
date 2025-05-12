@@ -29,6 +29,8 @@ namespace GuardTour.Controllers
         {
             return View();
         }
+
+        #region Login
         public IActionResult Login()
         {
             HttpContext.Session.Clear();
@@ -64,6 +66,15 @@ namespace GuardTour.Controllers
 
             return View();
         }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login", "Home");
+
+        }
+
+        #endregion
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
