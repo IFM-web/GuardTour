@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewData["Title"] = "ApiDocMaster";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+<style>
+	.select2-container--default .select2-selection--single {
+		padding: 0rem 0rem !important;
+	}
+
+		.select2-container--default .select2-selection--single .select2-selection__arrow {
+			top: -8px !important;
+		}
+</style>
+
+
+<!-- partial -->
+<div class="main-panel main-panel-one" style="width:100% !important">
+	<div class="content-wrapper pt-0">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="home-tab">
+					<div class="tab-content tab-content-basic pt-0">
+						<div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+							<div class="row">
+								<div class="col-lg-12 d-flex flex-column">
+									<div class="row flex-grow">
+										<div class="col-12 grid-margin stretch-card">
+											<div class="card card-rounded">
+												<div class="card-body">
+
+													<input type="hidden" id="flgmode" value="Add" />
+													<input type="hidden" id="txtHiddenId" value="0" />
+													<div class="d-sm-flex justify-content-between align-items-start">
+														<div>
+															<h4 class="card-title card-title-dash">
+																<a href="#">
+																	API DOCs Master
+																</a>
+															</h4>
+															<a href="~/Admin/BranchLogin" class="btn btn-success">
+																Back
+															</a>
+														</div>
+													</div>
+													<br>
+													<div class="row">
+
+														<div class="col-md-4 mb-2">
+															<div class="form-group">
+																<label>Type</label>
+																<input type="text" class="form-control" id="Type" />
+
+															</div>
+														</div>
+														<div class="col-md-4 mb-2">
+															<div class="form-group">
+																<label>Url</label>
+																<input type="text" class="form-control" id="url" />
+
+															</div>
+														</div>
+
+
+														<div class="col-md-4">
+															<div class="form-group">
+																<label>Api Name</label>
+																<input type="text" id="ApiName" name="Branch Code" class="form-control mandatory" />
+
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label>Description</label>
+																<input type="text" name="Branch Name" id="Description" class="form-control mandatory" />
+
+															</div>
+														</div>
+
+
+														<div class="col-md-4">
+															<div class="form-group">
+																<label>Parameter</label>
+																<input type="text" id="Parameter" class="form-control mandatory">
+
+															</div>
+														</div>
+														<div class="col-md-3">
+															<button onclick="save()" id="submitbtn" class="btn btn-success">
+																Save
+															</button>
+														</div>
+													</div> 
+														
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- main-panel ends -->
+
+
+
+<script src="~/js/InsAjax.js"></script>
+<script src="~/js/Master.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+	function save() {
+
+		url_add = window.location.href;
+		var data = url_add.split("://");
+		data = data[1].split("/");
+		var menuname = data[1] + "/" + data[2];
+		var url_add = window.location.protocol + "//" + window.location.host + "/";
+		var url = url_add + 'api/ApiServices/Save';
+		var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
+
+		var Data = {
+
+			
+			APIType: $("#Type").val(),
+			url: $("#url").val(),
+			ApiName: $("#ApiName").val(),
+			Description: $("#Description").val(),
+			Parameter: $("#Parameter").val(),
+			type: 34,
+		
+		}
+
+		CommonAjax(url, JSON.stringify(Data), "", "", "", "", "PrintdivModal");
+
+	}
+
+	function clear(){
+		window.location.reload();
+	}
+
+</script>
+
+
+

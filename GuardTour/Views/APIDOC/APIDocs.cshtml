@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "ApiDocMaster";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+
+<h3 class="text-center">API Documents</h3>
+<div class="col-md-12">
+    <div class="table-data">
+        <div id="printdiv"></div>
+    </div>
+</div>
+
+<script src="~/js/InsAjax.js"></script>
+<script src="~/js/Master.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+<script>
+
+
+    const Showdata = () => {
+
+        url_add = window.location.href;
+        var data = url_add.split("://");
+        data = data[1].split("/");
+        var menuname = data[1] + "/" + data[2];
+        var url_add = window.location.protocol + "//" + window.location.host + "/";
+        var url = url_add + 'api/ApiServices/Save';
+     
+
+        var Data = {
+
+
+            type: 35
+
+        }
+
+        CommonAjax(url, JSON.stringify(Data), "", "", "", "", "printdiv");
+
+    }
+    $(document).ready(()=>{
+        Showdata()
+    })
+   
+</script>
