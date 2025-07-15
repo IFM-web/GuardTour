@@ -1,0 +1,443 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Map Dashboard ";
+    Layout = null;
+}
+
+<style>
+    #map {
+        height: 600px;
+        width: 100%;
+
+    }
+
+  
+
+    /* Avatar styling */
+    .avatar {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Popup styling for marker info */
+    .custom-popup {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Name and company below the marker */
+    .marker-label {
+        background-color: #fff;
+        padding: 5px 10px;
+    width: max-content;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        /* margin-top: 5px; */
+        font-weight: bold;
+        /* font-size: 14px; */
+        color: #333;
+    }
+
+  
+    .qr-status {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+        .qr-status .checked, .qr-status .unchecked {
+            margin: 0 2px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+
+    .checked {
+        background-color: green;
+    }
+
+    .unchecked {
+        background-color: red;
+    }
+</style>
+
+
+ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/css/Dashboard.css" asp-append-version="true">
+    <title>IFM360 Guard Tour</title>
+    <style>
+        /* Reset */
+     
+
+    </style>
+   
+</head>
+<body>
+
+
+@* 
+
+    <div class="row myContainer">
+        
+            <div class="col-md-2">
+        <div class="date-picker">
+            <label for="date-range"></label>
+                <input type="date" id="date-range" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" placeholder="Select date">
+        </div>
+            </div>
+
+        <div class="col-md-2">
+
+
+            <select id="customer" class="form-control" onchange="BindSite()">
+
+                <option value="0">Select Customer</option>
+                @if (ViewBag.cust != null)
+                {
+                    foreach (var item in ViewBag.cust as List<SelectListItem>)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                }
+            </select>
+
+
+        </div>
+        <div class="col-md-2">
+       
+     
+            <select id="site" class="form-control" onchange="BindShift()">
+                
+                <option value="0">Select Site</option>
+                
+            </select>
+            
+        
+        </div>
+        <div class="col-md-2">
+       
+     
+            <select id="shift-dropdown" class="form-control" onchange="BindBeat(this.value)">
+                
+                <option value="0">Select Shift</option>
+                @if (ViewBag.shift != null)
+                {
+                    foreach (var item in ViewBag.shift as List<SelectListItem>)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                }
+            </select>
+            
+        
+        </div>
+      
+            
+           
+           <div class="col-md-2">
+            <div class="refresh">
+                <i class="fas fa-sync-alt mr-2 d-flex p-1"></i>
+                @* <i class="bi bi-arrow-clockwise mr-2 d-flex"></i> 
+                <span class="refresh-icon">⟳</span> 
+                <label>Refresh: <span id="status">OFF</span></label>
+             
+                <label class="switch">
+
+
+                    <input type="checkbox" id="togglecheck">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            </div>
+        </div>
+
+
+
+
+  @*   <div class="navbar2">
+
+
+
+        <button class="prev-btn" aria-label="Previous" title="Back to Dashboard Page">
+            <a href="~/Admin/DashboardLogin">
+            <svg viewBox="0 0 100 100">
+                <path d="M10,50 L60,100 L70,90 L30,50 L70,10 L60,0 Z" ></path>
+                </svg>
+            </a>
+        </button>
+
+
+        <div class="container1">
+            <div class="card">
+                <p class="title">User</p>
+                <p class="count"><span>0</span> / 5</p>
+            </div>
+            <div class="card">
+                <p class="title">@HttpContextAccessor.HttpContext.Session.GetString("companyname")</p>
+                <p class="count"><span>0</span> / 14</p>
+            </div>
+        </div> 
+
+
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+           
+            <div class="col-12 panel" >
+                <div class="row">
+                    <div class="col-md-4 my-1">
+                     
+
+                        <select name="Route Name" class="form-control mandatory" style="border: 1px solid lightgray;" id="routeid">
+                            <option value="0">Select Route</option>
+                         
+                        </select>
+                    </div>
+                 
+                     <div class="col-md-4 my-1">
+                        <button class="btn-custom w-100" onclick="mapAction()">Show Report</button>
+                    </div> 
+                </div>
+                <!-- Map Display -->
+                <div class="position-relative w-100" style="background-color: white; border-radius: 5px;">
+                    <div id="map"></div>
+                  
+                </div>
+              
+                   
+
+               
+            </div>
+
+           
+            </div>
+        </div>
+    </div> *@
+
+
+
+   
+
+
+
+
+    <!-- Content -->
+
+    @* <div class="container">
+        <div class="selector-container">
+           <div>
+                <label for="site">Select Site</label><br>
+                <select class="form-control" id="siteid" onchange="bindsite(this.value)">
+                    <option value="0">Select Site</option>
+                    @if (ViewBag.site != null)
+                    {
+                        @foreach (var item in ViewBag.site as List<SelectListItem>)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+
+                    }
+
+                </select>
+            </div> 
+            <div>
+                <label for="beats">Select Beats</label><br>
+                <select class="form-control" id="beatid" >
+                    <option value="0">Select Beats</option>
+                    @if (ViewBag.beat != null)
+                    {
+                        @foreach (var item in ViewBag.beat as List<SelectListItem>)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+
+                    }
+
+                </select>
+            </div>
+            <button type="button" onclick="mapAction()">View Reports</button>
+        </div>
+    </div> *@
+   
+    <div class="dashboard">
+    <div class="sidebar">
+      <div class="logo">Guard Tour</div>
+      <ul>
+        <li><a href="~/Admin/DashboardLogin">🏠</a></li>
+        <li>🚶‍♂️</li>
+        <li>📋</li>
+        <li>🗺️</li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="vehicle-panel">
+        <div class="vehicle-header">
+         <img src="~/img/Logo.png"/> @* <h5>Guards</h5> *@
+          @* <input type="text" class="form-control" placeholder="Search..." /> *@
+        </div>
+        <ul class="vehicle-list">
+        @*   <li><span class="dot green"></span> Guard 1 - Active</li>
+          <li><span class="dot green"></span> Guard 2 - Patrolling</li>
+          <li><span class="dot blue"></span> Guard 3 - Idle</li>
+          <li><span class="dot grey"></span> Guard 4 - Offline</li> *@
+                    <div class="col-12 mb-2">
+                        <div class="date-picker">
+                            <label for="date-range"></label>
+                            <input type="date" id="date-range" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" placeholder="Select date">
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+
+
+                        <select id="customer" class="form-control" onchange="BindSite()">
+
+                            <option value="0">Select Customer</option>
+                            @if (ViewBag.cust != null)
+                            {
+                                foreach (var item in ViewBag.cust as List<SelectListItem>)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            }
+                        </select>
+
+
+                    </div>
+                    <div class="col-12 mb-2">
+
+
+                        <select id="site" class="form-control" onchange="BindShift()">
+
+                            <option value="0">Select Site</option>
+
+                        </select>
+
+
+                    </div>
+                    <div class="col-12 mb-2">
+
+
+                        <select id="shift-dropdown" class="form-control" onchange="BindRoute(this.value)">
+
+                            <option value="0">Select Shift</option>
+                            @if (ViewBag.shift != null)
+                            {
+                                foreach (var item in ViewBag.shift as List<SelectListItem>)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            }
+                        </select>
+
+
+                    </div>
+
+
+                    <div class="col-12 mb-2">
+
+
+                        <select onchange="BindFrequency()"  name="Route Name" class="form-control mandatory" style="border: 1px solid lightgray;" id="routeid">
+                            <option value="0">Select Route</option>
+
+                        </select>
+                    </div>
+
+                    <div class="col-12 mb-2">
+
+
+                        <select name="Frequency" class="form-control mandatory" style="border: 1px solid lightgray;" id="Frequency">
+                            <option value="0">Select Frequency</option>
+
+                        </select>
+                    </div>
+
+
+                </ul>
+      </div>
+      <div class="map-area">
+       <div id="map"></div>
+        @* <div class="info-float">
+          <ul>
+            <li>Guard 1 - 12:10 PM - Entry Gate</li>
+            <li>Guard 2 - 12:15 PM - Block B</li>
+            <li>Guard 3 - 12:20 PM - Control Room</li>
+          </ul>
+        </div> *@
+      </div>
+    </div>
+  </div>
+       
+       @*  <div id="map" style="width:100%; height:500px;"></div> *@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+ 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Control.FullScreen.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Control.FullScreen.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+ 
+    <script src="~/js/Dashboard/Dashboard.js" asp-append-version="true"></script>
+    <script src="~/js/Master.js" asp-append-version="true"></script>
+
+
+</body>
+</html>
+
+<script>
+    const xValues = ["No Observation for today"];
+    const yValues = [55];
+    const barColors = [
+        "#b91d47",
+
+    ];
+
+    new Chart("myChart", {
+        type: "doughnut",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        // options: {
+        //     title: {
+        //         display: true,
+        //         text: "World Wide Wine Production 2018"
+        //     }
+        // }
+    });
+</script>
+@* <script>
+    document.getElementById("toggle").addEventListener("change", function () {
+        document.getElementById("status").textContent = this.checked ? "ON" : "OFF";
+    });
+    
+
+
+
+</script> *@

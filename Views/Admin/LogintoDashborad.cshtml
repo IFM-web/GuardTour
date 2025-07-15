@@ -1,0 +1,231 @@
+﻿@model GuardTour.Models.Adm_User;
+@{
+    ViewData["Title"] = "Login TO Dashboard";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin2 </title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/assets/vendors/feather/feather.css">
+    <link rel="stylesheet" href="~/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/assets/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="~/assets/vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="~/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+
+
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/assets/images/favicon.png" />
+    <style>
+        #captchaAlert{
+            position: absolute;
+            top: 10px;
+            right: 40px;
+        }
+        
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        .container-scroller {
+            background-image: url(./img/Rectangle-922.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content-wrapper {
+            background: transparent;
+        }
+
+        .auth .auth-form-light {
+            background: #ffffff;
+            border-radius: 23px;
+        }
+
+        .form_text {
+            h4
+
+        {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        h6 {
+            font-size: 19px;
+            color: #858F99;
+            margin-bottom: 25px;
+        }
+
+        }
+
+        .auth-form-light {
+            padding: 30px;
+            height: 495px;
+            text-align: center;
+        }
+
+
+        input {
+            background-color: rgba(236, 236, 236, 1) !important;
+            border-radius: 8px !important;
+            border: none !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            font-weight: 600 !important;
+        }
+
+        a.auth-link.text-black {
+            text-align: end;
+            width: 100%;
+            font-size: 15px;
+            font-weight: 500 !important;
+        }
+
+        .auth form .auth-form-btn {
+            background-color: #003666;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .auth .auth-form-light img {
+            margin-top: -73px;
+            width: 85px;
+            height: 85px;
+            margin-bottom: 25px;
+            background-image: url(./img/logo-login.png);
+            border-radius: 50%;
+            padding: 7px;
+            background-size: contain;
+        }
+
+        .form-group {
+            text-align: left !important;
+            p
+
+        {
+            font-size: 15px;
+            color: black;
+            font-weight: 500;
+        }
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-4 mx-auto login-size">
+                        <div class="auth-form-light text-left">
+                            <img src="~/img/Logo-Icon.png">
+                            <div class="form_text text-center">
+                            
+                                <h5 class="fw-light">Login your Dashboard</h5>
+                            </div>
+                         @if (ViewBag.msg != null)
+                            { 
+                                <div id="captchaAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    @ViewBag.msg
+                                    @* <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> *@
+                                </div>
+                      } 
+                          
+                            
+                            <form class="pt-3" method="post">
+                                <div class="form-group mb-0">
+                                    <p>Login Id</p>
+                                    <input type="text" asp-for="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+                                </div>
+                                <div class="form-group mb-0">
+                                    <p>Password</p>
+                                    <input type="password" asp-for="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                                </div>
+                                <div class="form-group mb-0 " style="background-color: rgba(236, 236, 236, 1) !important;
+    border-radius: 10px;
+    margin-top: 10px;">
+                                    <i onclick="speakText()" style="position: relative;
+    top: -18px;     padding: 5px;
+    border-radius: 50%;
+    background: white;
+    margin: 5px;" class="fa-solid fa-volume-high">
+                                        <audio style="display:none" controls id="audioPlayer">
+                                        </audio>
+                                    </i>
+                                    <canvas id="captchaCanvas" width="250" height="50"></canvas>
+                                    <i onclick="generateCaptcha()" style="position: relative;
+    top: -18px;     padding: 5px;
+    border-radius: 50%;
+    background: white;
+    margin: 5px;" class="fa-solid fa-rotate-right"></i>
+
+                                </div>
+                                <input type="hidden" asp-for="gencap" id="hidgendcode" value="" />
+                                <div class="form-group mb-0">
+                                    <p>Captcha</p>
+                                    <input type="text" asp-for="Captcha" class="form-control form-control-lg" id="Captcha" placeholder="Enter Captcha">
+                                </div>
+
+
+                              @*   <div class="d-flex justify-content-between align-items-center mb-5 mt-1">
+                                    <a href="#" class="auth-link text-black">Forgot password?</a>
+                                </div> *@
+                                <div class="mt-2 d-grid gap-2">
+                                    <button type="submit" class="btn btn-block btn-primary btn-lg fw-medium auth-form-btn">Login</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/assets/js/off-canvas.js"></script>
+    <script src="~/assets/js/template.js"></script>
+    <script src="~/assets/js/settings.js"></script>
+    <script src="~/assets/js/hoverable-collapse.js"></script>
+    <script src="~/assets/js/todolist.js"></script>
+    <script src="~/js/Admin/Login.js"></script>
+    <!-- endinject -->
+
+    <script>
+   
+        setTimeout(function () {
+            $('#captchaAlert').alert('close');
+        }, 2000);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewData["Title"] = "Employee Map To Route";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+<!-- partial -->
+<div class="main-panel main-panel-one" style="width:100% !important">
+    <div class="content-wrapper pt-0">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="home-tab">
+                    <div class="tab-content tab-content-basic pt-0">
+                        <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+                            <div class="row">
+                                <div class="col-lg-12 d-flex flex-column">
+                                    <div class="row flex-grow">
+                                        <div class="col-12 grid-margin stretch-card">
+                                            <div class="card card-rounded">
+                                                <div class="card-body">
+                                                    <input type="hidden" id="flgmode" value="Add" />
+                                                    <input type="hidden" id="txtHiddenId" value="0" />
+                                                    <div class="d-sm-flex justify-content-between align-items-start">
+                                                        <div>
+                                                            <h4 class="card-title card-title-dash">
+                                                                <a href="~/Admin/DashboardLogin">Home</a> / <a href="#">
+                                                                    Employee Map To Route
+                                                                </a>
+                                                            </h4>
+                                                            <a href="~/Admin/DashboardLogin" class="btn btn-success">
+                                                                Back
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row" id="hidshowhead">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Employee Name</label>
+
+                                                                <select name="Employee Name" class="form-control mandatory" id="Employee" style="border: 1px solid lightgray;" onchange="BindRoute(this.value)">
+                                                                    <option value="0">Select</option>
+                                                                    @if (ViewBag.Employee != null)
+                                                                    {
+                                                                        foreach (var item in ViewBag.Employee as List<SelectListItem>)
+                                                                        {
+                                                                            <option value="@item.Value">@item.Text</option>
+                                                                        }
+                                                                    }
+                                                                </select>
+
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Route Name</label>
+                                                                <select name="Route Name" class="form-control mandatory" id="route" style="border: 1px solid lightgray;">
+                                                                    <option value="0">Select</option>
+                                                                    @*  @if (ViewBag.Route != null)
+                                                                    {
+                                                                        foreach (var item in ViewBag.Route as List<SelectListItem>)
+                                                                        {
+                                                                            <option value="@item.Value">@item.Text</option>
+                                                                        }
+                                                                    }  *@
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        
+
+                                                        <div class="col-md-1" style="    margin-top: 37px;">
+                                                            <div class="form-group">
+                                                                <label>Status</label>
+                                                                <input type="checkbox" id="status" checked aria-label="Checkbox for following text input">
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3" style="    margin-top: 37px;">
+                                                            <button onclick="SAVEall()" id="submitbtn" class="btn btn-success">
+                                                                Save
+                                                            </button>
+                                                            <button class="btn btn-success" onclick="window.location.reload();">View List</button>
+
+
+
+                                                        </div>
+                                                    </div> <div class="row" id="griddiv">
+                                                        <div class="d-flex justify-content-between">
+                                                            <input type="text" id="filterInput" style="height: 2.0rem !important" class="form-control typcn-input-checked-outline py-0 w-25" placeholder="Search here" />
+                                                            <button class="btn btn-success float-end" id="addbutton"  onclick="Hidegrid()">Add New</button>
+
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="table-data">
+                                                                <div id="printdiv"></div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- main-panel ends -->
+
+<script src="~/js/Master/EmployeeMapToRoute.js" asp-append-version="true"></script>
+<script src="~/js/InsAjax.js" asp-append-version="true"></script>
+<script src="~/js/Master.js" asp-append-version="true"></script>
+

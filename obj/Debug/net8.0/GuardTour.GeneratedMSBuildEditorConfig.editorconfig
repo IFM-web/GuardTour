@@ -1,0 +1,199 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GuardTour
+build_property.RootNamespace = GuardTour
+build_property.ProjectDir = d:\Nadeem Ali\Tour Gaurd\GuardTour\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = d:\Nadeem Ali\Tour Gaurd\GuardTour
+build_property._RazorSourceGeneratorDebug = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/AttendanceSuper.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQXR0ZW5kYW5jZVN1cGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/Branch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQnJhbmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/BranchLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQnJhbmNoTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/Company.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ29tcGFueS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/DailyAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFpbHlBdHRlbmRhbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/DashboardLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/LogintoDashborad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTG9naW50b0Rhc2hib3JhZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/PhotoAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGhvdG9BdHRlbmRhbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/Region.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVnaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Assign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEFzc2lnbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Beat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEJlYXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Customer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Employee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/EmployeeMaptoCustomerandSite.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEVtcGxveWVlTWFwdG9DdXN0b21lcmFuZFNpdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/EmployeeMapToRoute.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEVtcGxveWVlTWFwVG9Sb3V0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Post.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXFBvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Route.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXFJvdXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/RouteandBeatAssignList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXFJvdXRlYW5kQmVhdEFzc2lnbkxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/RouteandsiftAssignList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXFJvdXRlYW5kc2lmdEFzc2lnbkxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/RouteBeatAssign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXFJvdXRlQmVhdEFzc2lnbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/RoutList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXFJvdXRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Shift.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXFNoaWZ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Site.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXFNpdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Menu/Grid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxHcmlkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Menu/MapUsertoCompanyandBranch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxNYXBVc2VydG9Db21wYW55YW5kQnJhbmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Menu/MenuRights.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxNZW51UmlnaHRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Menu/RightsofProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxSaWdodHNvZlByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Menu/UserRights.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxVc2VyUmlnaHRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Profile/CreateUserType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxDcmVhdGVVc2VyVHlwZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Profile/UserCreation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxVc2VyQ3JlYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Report/SOSReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XFNPU1JlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Report/TourReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XFRvdXJSZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Shared/_LayoutDashboard1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREYXNoYm9hcmQxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-sxx1analmg
+
+[d:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Shared/_LayoutDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-muswhp2dps

@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewData["Title"] = "PostMaster";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+    .select2-container--default .select2-selection--single {
+        padding: 0rem 0rem !important;
+    }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            top: -8px !important;
+        }
+</style>
+<!-- partial -->
+<div class="main-panel main-panel-one" style="width:100% !important">
+    <div class="content-wrapper pt-0">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="home-tab">
+                    <div class="tab-content tab-content-basic pt-0">
+                        <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+                            <div class="row">
+                                <div class="col-lg-12 d-flex flex-column">
+                                    <div class="row flex-grow">
+                                        <div class="col-12 grid-margin stretch-card">
+                                            <div class="card card-rounded">
+                                                <div class="card-body">
+
+                                                    <input type="hidden" id="flgmode" value="Add" />
+                                                    <input type="hidden" id="txtHiddenId" value="0" />
+                                                    <input type="hidden" id="Hid_BeatId" value="0" />
+                                                    <input type="hidden" id="postid" value="@ViewBag.Id" />
+                                                    <input type="hidden" id="custid" value="@ViewBag.custid" />
+                                                    <div class="d-sm-flex justify-content-between align-items-start">
+                                                        <div>
+                                                            <h4 class="card-title card-title-dash">
+                                                                <a href="~/Admin/DashboardLogin">Home</a> / <a href="#">
+                                                                    Post Master
+                                                                </a>
+                                                            </h4>
+                                                            <a id="" href="~/Master/Site/?id=@ViewBag.custid" class="btn btn-success">Back</a>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row" id="hidshowhead">
+
+
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Customer Name</label>
+                                                                <select name="Customer Name" class="form-control mandatory" id="custid"  style="border: 1px solid lightgray;">
+                                                        @*            <option value="0">Select</option> *@
+                                                                    @if (ViewBag.cust != null)
+                                                                    {
+                                                                        foreach (var item in ViewBag.cust as List<SelectListItem>)
+                                                                        {
+                                                                            <option value="@item.Value">@item.Text</option>
+                                                                        }
+                                                                    }
+                                                                </select>
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Site Name</label>
+                                                                <select name="Site Name" class="form-control mandatory" id="siteid" style="border: 1px solid lightgray;">
+                                                                  
+                                                                    @if (ViewBag.Site != null)
+                                                                    {
+                                                                        foreach (var item in ViewBag.Site as List<SelectListItem>)
+                                                                        {
+                                                                            <option value="@item.Value">@item.Text</option>
+                                                                        }
+                                                                    }
+                                                                </select>
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Post Code</label>
+                                                                <input type="text" id="beatcode" oninput="validateInput(this)" name="Post Code" class="form-control mandatory" />
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Post Name</label>
+                                                                <input type="text" id="beatname" name="Post Name" class="form-control mandatory" />
+
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Latitude</label>
+                                                                <input type="text" id="latitude" name="Latitude" class="form-control mandatory" />
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Longitude</label>
+                                                                <input type="text" id="longtitude" name="Longitude" class="form-control mandatory" />
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <div class="form-group" >
+                                                                <label>Status</label>
+                                                                <input type="checkbox" id="status" checked aria-label="Checkbox for following text input">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <button onclick="SAVEall()" id="submitbtn" class="btn btn-success">
+                                                                Save
+                                                            </button>
+
+                                                            <button class="btn btn-success" onclick="window.location.reload();">View List</button>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" id="griddiv">
+                                                        <div class="d-flex justify-content-between">
+                                                            <input type="text" id="filterInput" style="height: 2.0rem !important" class="form-control typcn-input-checked-outline py-0 w-25" placeholder="Search here" />
+                                                            <button class="btn btn-success float-end" id="addbutton"  onclick="Hidegrid()">Add New</button>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="table-data">
+                                                                <div id="printdiv"></div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- main-panel ends -->
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script src="~/js/Master/Post.js" asp-append-version="true"></script>
+<script src="~/js/InsAjax.js" asp-append-version="true"></script>
+<script src="~/js/Master.js" asp-append-version="true"></script>
+
+
+
+
+
+

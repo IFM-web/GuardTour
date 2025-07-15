@@ -1,0 +1,137 @@
+﻿@{
+	ViewData["Title"] = "Branch Master - IFM360 Guard Tour App ";
+	Layout = "~/Views/Shared/_LayoutDashboard1.cshtml";
+}
+
+<style>
+	.select2-container--default .select2-selection--single {
+		padding: 0rem 0rem !important;
+	}
+
+		.select2-container--default .select2-selection--single .select2-selection__arrow {
+			top: -8px !important;
+		}
+</style>
+
+
+<!-- partial -->
+<div class="main-panel main-panel-one" style="width:100% !important">
+	<div class="content-wrapper pt-0">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="home-tab">
+					<div class="tab-content tab-content-basic pt-0">
+						<div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+							<div class="row">
+								<div class="col-lg-12 d-flex flex-column">
+									<div class="row flex-grow">
+										<div class="col-12 grid-margin stretch-card">
+											<div class="card card-rounded">
+												<div class="card-body">
+
+													<input type="hidden" id="flgmode" value="Add" />
+													<input type="hidden" id="txtHiddenId" value="0" />
+													<div class="d-sm-flex justify-content-between align-items-start">
+														<div>
+															<h4 class="card-title card-title-dash">
+																 <a href="#">
+																	Branch Master
+																</a>
+															</h4>
+															<a href="~/Admin/BranchLogin" class="btn btn-success">
+																Back
+															</a>
+														</div>
+													</div>
+													<br>
+													<div class="row" id="hidshowhead">
+
+														<div class="col-md-4 mb-2">
+															<div class="form-group">
+																<label>Company Name</label>
+																<select name="Company Name" class="form-control mandatory" id="Companyid" style="border: 1px solid lightgray;">
+																	<option value="0">Select</option>
+																	@if (ViewBag.com != null)
+																	{
+																		foreach (var item in ViewBag.com as List<SelectListItem>)
+																		{
+																			<option value="@item.Value">@item.Text</option>
+																		}
+																	}
+																</select>
+
+															</div>
+														</div>
+
+
+
+
+
+
+														<div class="col-md-4">
+															<div class="form-group">
+																<label>Branch Code</label>
+																<input type="text" pattern="^\S*$" title="Spaces are not allowed" id="Branchcode" name="Branch Code" class="form-control mandatory" oninput="validateInput(this)" />
+
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label>Branch Name</label>
+																<input type="text"  name="Branch Name" id="Branchname" class="form-control mandatory" />
+
+															</div>
+														</div>
+
+
+														<div class="col-md-1">
+															<div class="form-group">
+																<label>Status</label>
+																<input type="checkbox" id="status" checked aria-label="Checkbox for following text input">
+
+															</div>
+														</div>
+														<div class="col-md-3">
+															<button onclick="SAVEall()" id="submitbtn" class="btn btn-success">
+																Save
+															</button> <button class="btn btn-success" onclick="window.location.reload();">View List</button>
+														</div>
+													</div> <div class="row" id="griddiv">
+														<div>
+															<button class="btn btn-success float-end" onclick="Hidegrid()">Add New</button>
+														</div>
+														<div class="col-md-12">
+															<div class="table-data">
+																<div id="printdiv"></div>
+															</div>
+														</div>
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- main-panel ends -->
+
+
+<script src="~/js/Admin/Branch.js" asp-append-version="true"></script>
+<script src="~/js/InsAjax.js" asp-append-version="true"></script>
+<script src="~/js/Master.js" asp-append-version="true"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+@* <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+<script type="text/javascript">
+	$("#Companyid").select2();
+</script> *@
