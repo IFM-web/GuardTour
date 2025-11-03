@@ -1,0 +1,38 @@
+[
+  {
+    "ContainingType": "GuardTour.Controllers.ApiServicesController",
+    "Method": "ManuRight",
+    "RelativePath": "api/ApiServices/ManuRight",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GuardTour.Controllers.ApiServicesController",
+    "Method": "SaveData",
+    "RelativePath": "api/ApiServices/Save",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GuardTour.Controllers.ApiServicesController",
+    "Method": "saveDataWithFile",
+    "RelativePath": "api/ApiServices/saveDataWithFile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

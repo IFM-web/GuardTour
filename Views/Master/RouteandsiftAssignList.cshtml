@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "RouteandsiftAssignList";
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+    @using Microsoft.AspNetCore.Http;
+
+    @inject IHttpContextAccessor HttpContextAccessor;
 }
 
 
@@ -39,11 +42,11 @@
                                                     <div class="d-sm-flex justify-content-between align-items-start">
                                                         <div>
                                                             <h4 class="card-title card-title-dash">
-                                                                <a href="~/Admin/DashboardLogin">Home</a> / <a href="#">
+<a href="~/Admin/DashboardLogin?id=@HttpContextAccessor.HttpContext.Session.GetString("MainUrl")">Home</a> /<a href="#">
                                                                     Route and Shift Assign List
                                                                 </a>
                                                             </h4>
-                                                            <a id="" href="~/Admin/DashboardLogin" class="btn btn-success">Back</a>
+                                                            <a id="" href="~/Admin/DashboardLogin?id=@HttpContextAccessor.HttpContext.Session.GetString("MainUrl")" class="btn btn-success">Back</a>
                                                         </div>
                                                     </div>
 

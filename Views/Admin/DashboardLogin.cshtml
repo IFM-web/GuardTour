@@ -9,8 +9,8 @@
 <style>
   
 
-  .dashboard a:nth-of-type(odd) {
-        background: linear-gradient(45deg, #757575, #A1A1A1);
+  /* .dashboard a:nth-of-type(odd) {
+        background: #132d44;
         cursor: pointer;
         border-radius: 10px;
     }
@@ -18,23 +18,40 @@
     .dashboard a:nth-of-type(even) {
         background-color: #dc133f !important;
         border-radius:10px;
-    }
-
-
-  
-    /* .dashboard a:nth-child(n):nth-child(-n+2), 
-    .dashboard a:nth-child(n+5):nth-child(-n+7) { 
-        background: linear-gradient(45deg, #757575, #A1A1A1);
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
- 
-    .dashboard a:nth-child(n+3):nth-child(-n+5) { 
-        background-color: #dc133f !important;
-        border-radius: 10px;
-        cursor: pointer;
     } */
+
+
+    .dashboard a:nth-child(8n+1),
+    .dashboard a:nth-child(8n+3) {
+        background: #132d44; /* gray */
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .dashboard a:nth-child(8n+2),
+    .dashboard a:nth-child(8n+4) {
+        background-color: #dc133f !important; /* red */
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    /* Even rows (2, 4, 6, ...) - Red, Gray, Red, Gray */
+
+    .dashboard a:nth-child(8n+5),
+    .dashboard a:nth-child(8n+7) {
+        background-color: #dc133f !important; /* red */
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .dashboard a:nth-child(8n+6),
+    .dashboard a:nth-child(8n+8) {
+        background: #132d44; /* gray */
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+
 
 
     .col-md-4 {
@@ -125,14 +142,17 @@
                                                     <input type="hidden" id="flgmode" value="Add" />
                                                     <input type="hidden" id="txtHiddenId" value="0" />
                                                     <input type="hidden" id="Hid_BeatId" value="0" />
-                                                    <div class="d-sm-flex justify-content-between align-items-start">
-                                                        <div>
-                                                        @*     <h4 class="card-title card-title-dash">
-                                                                Master / <a href="#">
-                                                                    Dashboard Login
+                                                    <input type="hidden" id="HIdTYpe" value="@ViewBag.Type" />
+
+                                                    <div class="d-flex">
+                                                      
+                                                                 <a class="btn btn-success"  href="~/Admin/Dashboard">
+                                                                    <i class="fa-solid fa-house-user text-white"></i>
                                                                 </a>
-                                                            </h4> *@
-                                                        </div>
+                                                        <p class="m-auto fa-2x " style="font-weight:bold">@(ViewBag.Type == "Mapping" ? "User" : ViewBag.Type == "Dashboard"?"Reports":"Master")</p>
+                                                           
+                                                         
+                                                        
                                                     </div>
                                                     <br>
                                                   

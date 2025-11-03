@@ -27,6 +27,7 @@ function show() {
         Id: $("#txtHiddenId").val(),
         ProfileId: $("#ProfileIdd").val(),
         UserId: $("#UserId").val(),
+        UrlLink: $("#HIdTYpe").val(),
 
         type: 6
 

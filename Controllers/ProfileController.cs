@@ -18,9 +18,9 @@ namespace GuardTour.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult InsertUser(string Id,string UserType, string UserName, string Password,int status)
+        public JsonResult InsertUser(string Id,string UserType, string UserName, string Password,int status,int BranchId,int CompanyId)
         {
-            var ds=util.Fill(@$"exec Usp_UserCreation 'Insert',@id='{Id}' ,@UserName='{UserName}',@UserType='{UserType}',@status='{status}',@password='{EncryptionHelper.Encrypt(Password)}'", util.strElect);
+            var ds=util.Fill(@$"exec Usp_UserCreation 'Insert',@id='{Id}',@BranchId='{BranchId}',@CompanyId='{CompanyId}' ,@UserName='{UserName}',@UserType='{UserType}',@status='{status}',@password='{EncryptionHelper.Encrypt(Password)}'", util.strElect);
             return Json(JsonConvert.SerializeObject(ds.Tables[0]));
            
         }
@@ -34,10 +34,10 @@ namespace GuardTour.Controllers
         }
 
 
-        public JsonResult ShowUser()
+        public JsonResult ShowUser(int BranchId, int CompanyId,int id)
         {
             DataTable dt = new DataTable();
-            var ds = util.Fill(@"exec Usp_UserCreation 'Show'", util.strElect);
+            var ds = util.Fill(@$"exec Usp_UserCreation 'Show' ,@BranchId='{BranchId}',@CompanyId='{CompanyId}',@id='{id}'", util.strElect);
 
             if (ds != null && ds.Tables.Count > 0)
             {

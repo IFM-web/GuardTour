@@ -64,6 +64,18 @@ namespace GuardTour.Controllers
 
         }
 
+        public IActionResult Incident()
+        {
+            ViewBag.cust = util.PopulateDropDown("exec Dropdownlist 'BindCustomerMap', @id='" + companyId + "',@id2='" + branchId + "',@id3='" + ProfileId + "',@id4='" + UserId + "' ", util.strElect);
+            return View();
+        }
+
+        public IActionResult SOS()
+        {
+            ViewBag.cust = util.PopulateDropDown("exec Dropdownlist 'BindCustomerMap', @id='" + companyId + "',@id2='" + branchId + "',@id3='" + ProfileId + "',@id4='" + UserId + "' ", util.strElect);
+            return View();
+        }
+
 
     }
 }

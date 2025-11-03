@@ -20,3 +20,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+select {
+    border: 1px solid #dee2e6;
+    font-weight: 400;
+    border-radius: 4px;
+    height: 2.75rem;
+}

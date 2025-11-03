@@ -120,20 +120,20 @@ function CommonAjax(var_url, var_data, var_type, var_ct, var_dt, UserData, divid
         //contentType: var_ct,
         dataType: var_dt,
         success: function (data) {
-
-         
-            if (data.Message != "" && data.Message != " " && data.Message !="Show Data") {
+            $("#loader").addClass("d-none");
+            console.log(data);
+            if (data.Message != "" && data.Message != " " && data.Message != "Show Data") {
                 swal("Message", data.Message, data.Status == "Success" ? "success" : "error").then(() => {
                     if (data.Status != "Failed") {
-                        showgrid(); 
+                        showgrid();
                         window.location.reload();
                     }
-                     
-                }) 
-               
+
+                })
+
             }
             if (data.Message == "Success") {
-               
+
                 clear();
             }
             $('#' + divid).empty();
@@ -141,26 +141,58 @@ function CommonAjax(var_url, var_data, var_type, var_ct, var_dt, UserData, divid
                 swal("Message", "No Data Available..!", "error");
             }
             console.log(data.Message);
-            if (data.Data != undefined && data.Data != '[]') {
-                if (divid == "printdivReport") {
-                    $("#loader").addClass("d-none");
-                }
-                CreateTableFromArray(data.Data, divid);
-               // dtable();
-            }
-            if (divid == "printdivReport") {
-                if (data.Data == undefined && data.Message == "") {
-                    var Arr = [{ "Message":"No Data Available..!"}]
-                    CreateTableFromArray(Arr, divid);
-                    $("#loader").addClass("d-none");
-                }
-            }
 
-            
+
+
+            if (data.Data != undefined && data.Message == "") {
+                if (divid == "printdivReport") {
+
+                    const newarr = data.Data.map((e) => {
+                        return {
+                            SNo: e.SNo,
+                            CustomerName: e["Customer Name"],
+                            SiteName: e["Site Name"],
+                            EmpName: e["Emp Name"],
+                            RouteName: e["Route Name"],
+                            PostName: e["Post Name"],
+                            Shift: e["Shift"],
+                            FrequencyTime: e["Frequency Time"],
+                            Remark: e["Remark"],
+                            Date: e["Date"],
+                            Time: e["Time"],
+                            ["Post GeoLocation"]: e.AssignLocation,
+                            ["Capture GeoLocation"]: e.GeoLocation,           
+                            ["Difference GeoLocation"]: getDistanceFromLatLonInMeters(
+                                e.AssignLocation, e.GeoLocation) > 30 ? `<span style="color:red;    font-weight: bold;">${getDistanceFromLatLonInMeters(
+                                    e.AssignLocation, e.GeoLocation)}  meters </span>` : `<span style="color:green;    font-weight: bold;">${getDistanceFromLatLonInMeters(
+                                        e.AssignLocation, e.GeoLocation)} meters</span>`,
+
+                            LocationName: e["Location Name"],
+                            Selfie: e.Image,
+                            ["Check Post"]: e.Image2,
+                            Audio: e.Audio,
+
+                        };
+                    });
+                    CreateTableFromArray(newarr, divid);
+
+                }
+
+
+
+
+            }
+            else if (data.Data != undefined && data.Message == "Show Data") {
+                if (divid == "printdiv") {
+                    CreateTableFromArray(data.Data, divid);
+                }
+            }
+          
+
             if (divid == 'grid') {
                 if (data.Data != undefined) {
 
-                
+
                     for (var e of data.Data) {
 
                         let geturl = localStorage.getItem("Url");
@@ -169,7 +201,7 @@ function CommonAjax(var_url, var_data, var_type, var_ct, var_dt, UserData, divid
                 <a href="${geturl}${e.UrlLink}" style="text-decoration: none; ">
                                                             <div class="dashboard-box" >
                                                                 <i class="${e.IconClass}" style="font-size:40px !important; color: #fff;"></i>
-                                                                <p style='color: #fff; font-size: 18px;' id="${e.CountId}" style="color: #fff;">0</p>
+                                                                <p style='color: #fff; font-size: 18px;' id="${e.CountId}" style="color: #fff;">${e.CountId=="-"?'View':0}</p>
                                                                 <p style="color: #fff; font-size: 18px; margin-top: 10px;">${e.TitleName} </p>
                                                             </div>
                                                         </a>
@@ -181,26 +213,30 @@ function CommonAjax(var_url, var_data, var_type, var_ct, var_dt, UserData, divid
                     }
                 }
                 else {
-                    $(".dashboard").css("display","block")
+                    $(".dashboard").css("display", "block")
                     $(".dashboard").append('<div class="alert alert-danger text-center" role="alert">You Have No Rights</div >');
                 }
-
+                
             }
-            //if (data.Data == undefined && data.Message != "Success") {
 
-            //    $("#" + divid).append('<table class="table "><tr><td colspan="3" style="text-align:center; color:red; font-size:20px;">You Have No Rights</td></tr><table>');
+            else if (data.Data != undefined && data.Message == "") {
+                if (divid == "printdiv") {
+                    CreateTableFromArray(data.Data, divid);
+                }
+                if (divid == "UserPRint") {
 
-            //}
+                    CreateTableFromArray(data.Data, divid);
+                }
+            
+            }
+
+
 
         },
         error: function (data) {
             $("#loader").addClass("d-none");
             console.log(data);
-            var data = {
-                status: "Error",
-                msg: "Error on server.",
-                data: [],
-            }
+
 
         },
     });
@@ -227,8 +263,8 @@ function Bindtrntable(var_url, var_data, var_type, var_ct, var_dt, UserData, div
             console.log(data);
             console.log(data.Data);
             //var data1 = JSON.parse(data[0].Data);
-         
-             if (divid == 1) {
+
+            if (divid == 1) {
                 if (data.Status == "error") {
                     swal({
                         icon: "error",
@@ -240,19 +276,19 @@ function Bindtrntable(var_url, var_data, var_type, var_ct, var_dt, UserData, div
                 }
 
 
-             
-                 var array = data.Data;
-                 if (array.length > 0) {
-                     $(".Availablebody").empty();
-                     var row = ""
-                     for (var i = 0; i < array.length; i++) {
 
-                         row += "<tr id='row" + parseInt(i + 1) + "' onclick='addselectedpost(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span class='Hid_beatid'>" + array[i].Hid_beatid + "</span></td><td><span class='PostName'>" + array[i].PostName + "</span></td></tr > ";
+                var array = data.Data;
+                if (array.length > 0) {
+                    $(".Availablebody").empty();
+                    var row = ""
+                    for (var i = 0; i < array.length; i++) {
 
-                     }
-                     $(".Availablebody").prepend(row);
+                        row += "<tr id='row" + parseInt(i + 1) + "' onclick='addselectedpost(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span class='Hid_beatid'>" + array[i].Hid_beatid + "</span></td><td><span class='PostName'>" + array[i].PostName + "</span></td></tr > ";
 
-                 }
+                    }
+                    $(".Availablebody").prepend(row);
+
+                }
 
                 else {
                     $(".Availablebody").empty();
@@ -270,7 +306,7 @@ function Bindtrntable(var_url, var_data, var_type, var_ct, var_dt, UserData, div
 
                 }
 
-              
+
                 var array = data.Data;
                 if (array != undefined) {
                     $("#Availablebody").empty();
@@ -317,34 +353,34 @@ function Bindtrntable(var_url, var_data, var_type, var_ct, var_dt, UserData, div
 
             }
 
-             else if (divid == '4') {
-                 if (data.Status == "error") {
-                     swal({
-                         icon: "error",
-                         title: data.Message,
-                         text: "error",
-                         timer: 2000
-                     });
+            else if (divid == '4') {
+                if (data.Status == "error") {
+                    swal({
+                        icon: "error",
+                        title: data.Message,
+                        text: "error",
+                        timer: 2000
+                    });
 
-                 }
+                }
 
-                 var array = data.Data;
-                 if (array != undefined) {
-                     $("#Selectedbody").empty();
-                     var row = ""
-                     for (let i in array) {
+                var array = data.Data;
+                if (array != undefined) {
+                    $("#Selectedbody").empty();
+                    var row = ""
+                    for (let i in array) {
 
-                         row += "<tr id='row" + parseInt(i + 1) + "' onclick='addshift(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span id='beatid'>" + array[i].BeatShift_Id + "</span></td><td><span class='Beat'>" + array[i].Beat + "</span></td></tr > ";
+                        row += "<tr id='row" + parseInt(i + 1) + "' onclick='addshift(this)' style=' background - color: #f2f2f2;cursor: pointer; ' class='active' ><td style='display:none;'><span id='beatid'>" + array[i].BeatShift_Id + "</span></td><td><span class='Beat'>" + array[i].Beat + "</span></td></tr > ";
 
-                     }
-                     $("#Selectedbody").append(row);
+                    }
+                    $("#Selectedbody").append(row);
 
-                 }
-                 else {
-                     $("#Selectedbody").empty();
-                 }
+                }
+                else {
+                    $("#Selectedbody").empty();
+                }
 
-             }
+            }
 
         },
 
@@ -481,7 +517,7 @@ function GetData(var_url, var_data, var_type, var_ct, var_dt, UserData, divid) {
 
 
 
-function BindDropdownsingle(var_url, var_data, var_type, var_ct, var_dt, var_id,optname) {
+function BindDropdownsingle(var_url, var_data, var_type, var_ct, var_dt, var_id, optname) {
     if (var_type == "")
         var_type = "POST";
 
@@ -500,8 +536,9 @@ function BindDropdownsingle(var_url, var_data, var_type, var_ct, var_dt, var_id,
             $(var_id).empty();
             json = JSON.parse(json);
             json = json || {};
-
-            $(var_id).append('<option value="0">' + optname +'</option>');
+            if (optname != "") {
+                $(var_id).append('<option value="0">' + optname + '</option>');
+            }
             for (var i = 0; i < json.length; i++) {
                 $(var_id).append('<option value="' + json[i].Id + '">' + json[i].Name + '</option>');
             }
@@ -528,10 +565,9 @@ function isValidInput(input) {
 }
 
 function validateInput(element) {
- 
-      element.value = element.value.replace(/\s+/g, '');
-      
-    
+
+    element.value = element.value.replace(/\s+/g, '');
+
 }
 
 function CreateTableFromArray(arrItems, divid) {
@@ -580,7 +616,7 @@ function CreateTableFromArray(arrItems, divid) {
                 'padding: 2px 3px; text-align: center;' +
                 'display:' + result + ';'
             );
-            tabCell.setAttribute('class', "" + col[j].replace(" ", "").replace(" ","") + "");
+            tabCell.setAttribute('class', "" + col[j].replace(" ", "").replace(" ", "") + "");
             tabCell.setAttribute('id', "" + col[j].replace(" ", "").replace(" ", "") + "" + z + "");
 
         }
@@ -591,7 +627,7 @@ function CreateTableFromArray(arrItems, divid) {
     if (container != null) {
         container.appendChild(table);
     }
-   
+
 
     $('#filterInput').on('keyup', function () {
         let filter = $(this).val().toUpperCase();
@@ -639,30 +675,6 @@ function getFileUrl(fileId, folder) {
     return { url: urlimd, fname: dataimg[2] + currdate + "." + extension };
 }
 
-function fnLoadVotesForm() {
-
-    var STATE_code = $("#trntype").val();;
-
-
-    var URL = '/Transcation/_UploadPartialView?id=' + STATE_code + '';
-    $.ajax({
-        type: "GET",
-        //contentType: "application/json; charset=utf-8",
-        url: URL,
-        data: "{}",
-        dataType: 'html',
-        success: function (data) {
-            //console.log(data);
-            $("#Printdivfile").html(data)
-        },
-        error: function (result) {
-
-        }
-    });
-
-
-
-}
 
 function getfile() {
     url_add = window.location.href;
@@ -757,5 +769,32 @@ function exportexcel(fileName) {
     XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
     XLSX.writeFile(wb, fileName + ".xlsx");
 }
+
+
+function getDistanceFromLatLonInMeters(location1, location2) {
+    var lat1 = parseFloat(location1.split(',')[0]);
+    var lon1 = parseFloat(location1.split(',')[1]);
+
+    var lat2 = parseFloat(location2.split(',')[0]);
+    var lon2 = parseFloat(location2.split(',')[1]);
+
+    const R = 6371000;
+    const toRad = angle => angle * Math.PI / 180;
+
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const d = R * c;
+
+    return d.toFixed(2);
+}
+
+
 
 

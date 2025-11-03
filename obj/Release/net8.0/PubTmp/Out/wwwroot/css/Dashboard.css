@@ -54,16 +54,24 @@
     margin-left: 70px;
     width: calc(100% - 70px);
     display: flex;
+    transition: all 0.3s ease;
 }
 
 .vehicle-panel {
-    width: 300px;
+    width: 0;
+    padding: 0;
+    overflow: hidden;
     background: #fff;
     border-right: 1px solid #ddd;
-    padding: 1rem;
-    overflow-y: auto;
     box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
 }
+    .vehicle-panel.hidden {
+       
+        width: 300px;
+        padding: 1rem;
+        overflow-y: auto;
+    }
 
 .vehicle-header {
     display: flex;
@@ -104,10 +112,19 @@
     background-color: #6c757d;
 }
 
-.map-area {
+/*.map-area {
     flex: 1;
     position: relative;
     height: 100%;
+}*/
+.map-area {
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+#map {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 #liveMap {

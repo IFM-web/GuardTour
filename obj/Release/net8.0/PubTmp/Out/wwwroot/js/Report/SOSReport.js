@@ -6,19 +6,12 @@ $(document).ready(() => {
     $("#Todate").val(new Date().toISOString().split('T')[0]);
     $("#Fromdate").val(new Date().toISOString().split('T')[0]);
  
-    
-    ShowdataSOS();
-    
+    ShowdataSOS();   
  
 })
 
-
-
-
 function bindsiteid(id) {
 
-
-  
     $.ajax({
         url: localStorage.getItem("Url") + '/DropDownList/bindsiteid',
         type: 'post',
@@ -41,10 +34,7 @@ function bindsiteid(id) {
     })
 }
 
-
-
 function BindRoute(id) {
-    
 
     $.ajax({
         url: localStorage.getItem("Url") + '/DropDownList/bindroute',
@@ -96,10 +86,6 @@ function BindShift(id) {
 function exportexcele() {
     exportexcel('Tour Report')
 }
-
-
-
-
   
 function ShowdataSOS() {
     $("#loader").removeClass("d-none");
@@ -189,10 +175,6 @@ function ShowdataSOS() {
     //            $(divid).empty();
     //            $(divid).append(th+tr);
     CommonAjax(url, JSON.stringify(Data), "", "", "", "", "printdivReport");
-
-
-
-
 
     //$("#loader").addClass("d-none");
 
@@ -296,8 +278,6 @@ function ShowdataSOS() {
 function image(id) {
     $("#img01").attr("src", 'data:image/jpeg;base64,'+id);
     //$(".modal-body").css("backgroundImage", "url(" + id + ")"); 
-
-
 }
 
 var angle = 0;

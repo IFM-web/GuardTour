@@ -7,20 +7,6 @@ $(document).ready(function () {
             firstChild.append('<span style="color:red">*</span>');
         }
     });
-
-    //$("#tranid").val(currdate);
-    /*
-        url_add = window.location.href;
-        var data = url_add.split("://")
-        var protocol = data[0];
-        data = data[1].split("/");
-        var domain = data[0];
-        var menuname = data[1] + "/" + data[2];
-        var encrp = "";
-        var url_add = window.location.protocol + "//" + window.location.host + "/";
-        var url = url_add + 'api/ApiServices/PostData';
-        $("#Menuurl").val(menuname);
-        */
     if ($("#txtjsondata").val() != "" && $("#txtjsondata").val() != undefined) {
         FillTextBoxes($("#txtjsondata").val());
     }

@@ -303,7 +303,12 @@ namespace GuardTour.Controllers
         }
 
 
+        public IActionResult ActionFlgOfCustomer()
+        {
 
+            ViewBag.cust = util.PopulateDropDown("exec Dropdownlist 'BindCustomerMap', @id='" + companyId + "',@id2='" + branchId + "', @id3='"+ ProfileId + "'", util.strElect);
+            return View();
+        }
 
     }
 

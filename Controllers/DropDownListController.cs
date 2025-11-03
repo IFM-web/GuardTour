@@ -121,12 +121,22 @@ namespace GuardTour.Controllers
             }
 
         #region BindShifttoSide
-        [HttpPost]
+        [HttpPost] 
         public JsonResult BindShifttoSide(string id)
         {
             var companyid = HttpContext.Session.GetString("companyid").ToString();
             var branchid = HttpContext.Session.GetString("branchid").ToString();
             var ds = util.Fill(@$"exec Dropdownlist 'BindShifttoSide', @id='{companyid}',@id2='{branchid}',@id3='{id}'", util.strElect);
+            var dt = ds.Tables[0];
+            return Json(JsonConvert.SerializeObject(dt));
+
+        }
+        [HttpPost] 
+        public JsonResult BindShifttoSide2(string id)
+        {
+            var companyid = HttpContext.Session.GetString("companyid").ToString();
+            var branchid = HttpContext.Session.GetString("branchid").ToString();
+            var ds = util.Fill(@$"exec Dropdownlist 'BindShifttoSide2', @id='{companyid}',@id2='{branchid}',@id3='{id}'", util.strElect);
             var dt = ds.Tables[0];
             return Json(JsonConvert.SerializeObject(dt));
 

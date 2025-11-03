@@ -528,11 +528,6 @@ D:\Nadeem Ali\Tour Gaurd\GuardTour\bin\Debug\net8.0\runtimes\win\lib\net8.0\Syst
 D:\Nadeem Ali\Tour Gaurd\GuardTour\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\staticwebassets.build.json
 D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\staticwebassets.development.json
-D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\staticwebassets\msbuild.GuardTour.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\staticwebassets\msbuild.build.GuardTour.props
-D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GuardTour.props
-D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GuardTour.props
-D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\staticwebassets.pack.json
 D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\scopedcss\Views\Shared\_LayoutDashboard.cshtml.rz.scp.css
 D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\scopedcss\bundle\GuardTour.styles.css
@@ -543,3 +538,11 @@ D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\refint\GuardTour.dll
 D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\GuardTour.pdb
 D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\GuardTour.genruntimeconfig.cache
 D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\ref\GuardTour.dll
+D:\Nadeem Ali\Tour Gaurd\GuardTour\bin\Debug\net8.0\GuardTour.staticwebassets.endpoints.json
+D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Nadeem Ali\Tour Gaurd\GuardTour\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

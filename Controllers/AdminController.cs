@@ -90,7 +90,7 @@ namespace GuardTour.Controllers
                     HttpContext.Session.SetString("companyname", comname.ToString());
                     HttpContext.Session.SetString("branchname", brnname.ToString());
 
-                    return RedirectToAction("DashboardLogin", "Admin");
+                    return RedirectToAction("Dashboard", "Admin");
                 }
                 else
                 {
@@ -111,7 +111,7 @@ namespace GuardTour.Controllers
 
         {
                 ViewBag.cust = util.PopulateDropDown("exec Dropdownlist 'BindCustomerMap', @id='" + companyId + "',@id2='" + branchId + "',@id3='" + ProfileId + "',@id4='" + UserId + "' ", util.strElect);
-
+        
             return View();
         }
         #endregion
@@ -275,9 +275,10 @@ namespace GuardTour.Controllers
 
 
 
-        public IActionResult DashboardLogin()
+        public IActionResult DashboardLogin(string? Id)
         {
-
+            HttpContext.Session.SetString("MainUrl", Id);
+            ViewBag.Type = Id;
             return View();
         }
 

@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "UserCreation";
         Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+    @using Microsoft.AspNetCore.Http;
+
+    @inject IHttpContextAccessor HttpContextAccessor;
 }
 
 <style>
@@ -36,7 +39,7 @@
                                                                     User Creation
                                                                 </a>
                                                             </h4>
-                                                            <a href="~/Admin/DashboardLogin" class="btn btn-success">
+                                                            <a href="~/Admin/DashboardLogin?id=@HttpContextAccessor.HttpContext.Session.GetString("MainUrl")" class="btn btn-success">
                                                                 Back
                                                             </a>
                                                         </div>

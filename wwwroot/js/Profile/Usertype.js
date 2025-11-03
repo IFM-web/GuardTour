@@ -34,6 +34,8 @@ function save() {
         type: 43,
         mode: $("#flgmode").val(),
         status: $("#status").is(':checked') ? 1 : 0,
+        CompanyId: $("#CompanyId").val(),
+        BranchId: $("#BranchId").val(),
     }
 
     CommonAjax(url, JSON.stringify(Data), "", "", "", "", "printdiv");
@@ -51,7 +53,8 @@ function Showdata() {
     var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
 
     var Data = {
-
+        CompanyId: $("#CompanyId").val(),
+        BranchId: $("#BranchId").val(),
         UserId: $("#UserId").val(),
         type: 42,
 

@@ -21,7 +21,8 @@ function Save() {
                     UserName: $("#UserName").val().trim(),
                     Password: $("#password").val().trim(),
                     status: $("#status").is(":checked") ? 1 : 0,
-
+                    CompanyId: $("#Company").val(),
+                    BranchId: $("#branch").val(),
 
                 },
                 success: function (data) {
@@ -66,7 +67,9 @@ function ShowUser() {
         type: 'Get',
         data: {
             
-
+            CompanyId: $("#CompanyId").val(),
+            BranchId: $("#BranchId").val(),
+            id: $("#ProfileIdd").val(),
 
         },
         success: function (data) {

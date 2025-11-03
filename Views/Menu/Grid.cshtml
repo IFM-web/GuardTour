@@ -4,18 +4,13 @@
 }
 
 
-@{
-    ViewData["Title"] = "RightsofProfile";
-}
+
 
 
 @{
-    ViewData["Title"] = "UserRights";
-}
+    @using Microsoft.AspNetCore.Http;
 
-
-@{
-    ViewData["Title"] = "UserCreation";
+    @inject IHttpContextAccessor HttpContextAccessor;
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
 
@@ -24,7 +19,13 @@
     #massaage li {
         color: red;
     }
+
+    select.form-control {
+        background: white;
+        outline: 1px solid #dee2e6;
+    }
 </style>
+
 
 
 <!-- partial -->
@@ -51,7 +52,7 @@
                                                                   Grid
                                                                 </a>
                                                             </h4>
-                                                            <a href="~/Admin/DashboardLogin" class="btn btn-success">
+                                                            <a href="~/Admin/DashboardLogin?id=@HttpContextAccessor.HttpContext.Session.GetString("MainUrl")" class="btn btn-success">
                                                                 Back
                                                             </a>
                                                         </div>
@@ -88,6 +89,26 @@
                                                             <div class="form-group">
                                                                 <label>Count Id</label>
                                                                 <input type="text" class="form-control" name="Count Id" id="Countid" />
+
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Print Order</label>
+                                                                <input type="text" class="form-control" name="Print Order" id="PrintOrder" />
+
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label>Category</label>
+                                                                <select id="Category" name="Category" class="form-control">
+                                                                   <option value="Master">Master</option>
+                                                                    <option value="Mapping">Users</option>
+                                                                    <option value="DashBoard">Dashboard</option>
+                                                               </select>
 
 
                                                             </div>

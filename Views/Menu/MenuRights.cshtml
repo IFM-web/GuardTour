@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "MenuRights";
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+    @using Microsoft.AspNetCore.Http;
+
+    @inject IHttpContextAccessor HttpContextAccessor;
 }
 
 
@@ -40,7 +43,7 @@
                                                                     User Rights
                                                                 </a>
                                                             </h4>
-                                                            <a href="~/Admin/DashboardLogin" class="btn btn-success">
+                                                            <a href="~/Admin/DashboardLogin?id=@HttpContextAccessor.HttpContext.Session.GetString("MainUrl")" class="btn btn-success">
                                                                 Back
                                                             </a>
                                                         </div>
@@ -90,6 +93,7 @@
 <!-- main-panel ends -->
 
 <script src="~/js/Menu/MenuRights.js" asp-append-version="true"></script>
+
 <script src="~/js/InsAjax.js" asp-append-version="true"></script>
 <script src="~/js/Master.js" asp-append-version="true"></script>
 

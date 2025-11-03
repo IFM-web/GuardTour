@@ -3,6 +3,90 @@
   "WorkspaceRootPath": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\master\\post.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\master\\post.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\master\\post.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master\\post.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\master.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\report\\sosreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\report\\sosreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\menu\\grid.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\menu\\grid.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\authfilter\\authenticationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:authfilter\\authenticationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\master\\actionflgofcustomer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\master\\actionflgofcustomer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\master\\customerflg.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master\\customerflg.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\menu\\menurights.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\menu\\menurights.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\controllers\\apiservicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:controllers\\apiservicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\controllers\\mastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:controllers\\mastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\admin\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\admin\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\comman.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\comman.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\master\\employeemaptocustomerandsite.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master\\employeemaptocustomerandsite.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\master\\customer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master\\customer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\report\\tourreport.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\report\\tourreport.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\report\\sosreport.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\report\\sosreport.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -11,28 +95,12 @@
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master\\shift.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\report\\sosreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\report\\sosreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\report\\tourreport.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\report\\tourreport.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\admin\\dashboardlogin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\admin\\dashboardlogin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\dashboard\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\dashboard\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\controllers\\apiservicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:controllers\\apiservicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\report\\tourreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -63,36 +131,12 @@
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\menu\\userrights.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\menu\\menurights.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\menu\\menurights.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\master\\employeemaptocustomerandsite.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master\\employeemaptocustomerandsite.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\master\\employeemaptocustomerandsite.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\master\\employeemaptocustomerandsite.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\master.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\menu\\menurights.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\menu\\menurights.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\menu\\grid.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\menu\\grid.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\guardtour.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -105,10 +149,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\admin\\branchlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -129,18 +169,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\controllers\\mastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:controllers\\mastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\master\\routebeatassign.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -211,20 +239,8 @@
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master\\employee.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\master\\post.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master\\post.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\master\\customer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\master\\customer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\admin\\branchlogin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\admin\\branchlogin.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\insajax.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\insajax.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\admin\\branch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -243,20 +259,12 @@
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\master\\site.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\master\\post.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\master\\post.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\menu\\usermaptocomandbr.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\menu\\usermaptocomandbr.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\views\\menu\\mapusertocompanyandbranch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:views\\menu\\mapusertocompanyandbranch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\admin\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|solutionrelative:wwwroot\\js\\admin\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B16BD2E6-F44E-C3C9-90AA-EA0135A034B4}|GuardTour.csproj|d:\\nadeem ali\\tour gaurd\\guardtour\\wwwroot\\js\\admin\\region.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -277,7 +285,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -285,68 +293,238 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SOSReport.js",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Report\\SOSReport.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\Report\\SOSReport.js",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Report\\SOSReport.js",
-              "RelativeToolTip": "wwwroot\\js\\Report\\SOSReport.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-07-15T05:06:38.127Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "SOSReport.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Report\\SOSReport.cshtml",
               "RelativeDocumentMoniker": "Views\\Report\\SOSReport.cshtml",
               "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Report\\SOSReport.cshtml",
               "RelativeToolTip": "Views\\Report\\SOSReport.cshtml",
-              "ViewState": "AQIAAMkAAAAAAAAAAAAAANUAAAAcAAAA",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAAEwAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-14T07:32:19.657Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ApiServicesController.cs",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\ApiServicesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ApiServicesController.cs",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\ApiServicesController.cs",
-              "RelativeToolTip": "Controllers\\ApiServicesController.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAcwE4AAAAIAAAA",
+              "DocumentIndex": 5,
+              "Title": "Grid.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Menu\\Grid.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Menu\\Grid.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Menu\\Grid.js",
+              "RelativeToolTip": "wwwroot\\js\\Menu\\Grid.js",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-08T06:29:09.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Post.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Post.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Master\\Post.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Post.js",
+              "RelativeToolTip": "wwwroot\\js\\Master\\Post.js",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAAAMsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-04T06:30:11.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Customerflg.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Customerflg.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Master\\Customerflg.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Customerflg.js",
+              "RelativeToolTip": "wwwroot\\js\\Master\\Customerflg.js",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAADQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-04T08:58:41.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-11T11:56:00.603Z"
+              "WhenOpened": "2025-06-03T10:36:56.13Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "AuthenticationFilter.cs",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\AuthFilter\\AuthenticationFilter.cs",
+              "RelativeDocumentMoniker": "AuthFilter\\AuthenticationFilter.cs",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\AuthFilter\\AuthenticationFilter.cs",
+              "RelativeToolTip": "AuthFilter\\AuthenticationFilter.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T04:39:10.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Master.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Master.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master.js",
+              "RelativeToolTip": "wwwroot\\js\\Master.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-25T16:41:02.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Post.cshtml",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\Post.cshtml",
+              "RelativeDocumentMoniker": "Views\\Master\\Post.cshtml",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\Post.cshtml",
+              "RelativeToolTip": "Views\\Master\\Post.cshtml",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAQwKMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-04T06:28:15.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ActionFlgOfCustomer.cshtml",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\ActionFlgOfCustomer.cshtml",
+              "RelativeDocumentMoniker": "Views\\Master\\ActionFlgOfCustomer.cshtml",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\ActionFlgOfCustomer.cshtml",
+              "RelativeToolTip": "Views\\Master\\ActionFlgOfCustomer.cshtml",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAAEcAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-04T08:54:02.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MenuRights.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Menu\\MenuRights.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Menu\\MenuRights.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Menu\\MenuRights.js",
+              "RelativeToolTip": "wwwroot\\js\\Menu\\MenuRights.js",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwDUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-02T04:56:51.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MasterController.cs",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\MasterController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MasterController.cs",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\MasterController.cs",
+              "RelativeToolTip": "Controllers\\MasterController.cs",
+              "ViewState": "AgIAACYBAAAAAAAAAAAUwDQBAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T09:47:33.348Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-06-02T11:33:47.566Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TourReport.js",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Report\\TourReport.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\Report\\TourReport.js",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Report\\TourReport.js",
-              "RelativeToolTip": "wwwroot\\js\\Report\\TourReport.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-03T08:00:44.773Z"
+              "DocumentIndex": 13,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T06:13:05.334Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
+              "Title": "ApiServicesController.cs",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\ApiServicesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ApiServicesController.cs",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\ApiServicesController.cs",
+              "RelativeToolTip": "Controllers\\ApiServicesController.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAuwH0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T11:56:00.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Utility.cs",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Utility.cs",
+              "RelativeDocumentMoniker": "Utility.cs",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Utility.cs",
+              "RelativeToolTip": "Utility.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAYwEoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T09:47:37.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MenuController.cs",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\MenuController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MenuController.cs",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\MenuController.cs",
+              "RelativeToolTip": "Controllers\\MenuController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwCEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T11:37:23.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Login.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Admin\\Login.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Admin\\Login.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Admin\\Login.js",
+              "RelativeToolTip": "wwwroot\\js\\Admin\\Login.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-02T06:08:56.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Customer.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Customer.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Master\\Customer.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Customer.js",
+              "RelativeToolTip": "wwwroot\\js\\Master\\Customer.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-10T05:08:56.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SOSReport.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Report\\SOSReport.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Report\\SOSReport.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Report\\SOSReport.js",
+              "RelativeToolTip": "wwwroot\\js\\Report\\SOSReport.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFkAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-15T05:06:38.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "Dashboard.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Dashboard\\Dashboard.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Dashboard\\Dashboard.js",
@@ -358,7 +536,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 20,
+              "Title": "TourReport.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Report\\TourReport.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Report\\TourReport.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Report\\TourReport.js",
+              "RelativeToolTip": "wwwroot\\js\\Report\\TourReport.js",
+              "ViewState": "AQIAABwAAAAAAAAAAAAQwCIAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-03T08:00:44.773Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Comman.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Comman.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Comman.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Comman.js",
+              "RelativeToolTip": "wwwroot\\js\\Comman.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-21T11:17:51.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "EmployeeMaptoCustomerandSite.js",
+              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\EmployeeMaptoCustomerandSite.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\Master\\EmployeeMaptoCustomerandSite.js",
+              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\EmployeeMaptoCustomerandSite.js",
+              "RelativeToolTip": "wwwroot\\js\\Master\\EmployeeMaptoCustomerandSite.js",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAmwFAAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-21T07:36:29.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "Shift.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Shift.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Master\\Shift.js",
@@ -370,7 +584,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 23,
               "Title": "DashboardLogin.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Admin\\DashboardLogin.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Admin\\DashboardLogin.js",
@@ -382,7 +596,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 26,
               "Title": "ReportController.cs",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\ReportController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
@@ -394,7 +608,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 27,
               "Title": "Login.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Home\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Login.cshtml",
@@ -406,7 +620,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 33,
               "Title": "EmployeeMaptoCustomerandSite.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\EmployeeMaptoCustomerandSite.cshtml",
               "RelativeDocumentMoniker": "Views\\Master\\EmployeeMaptoCustomerandSite.cshtml",
@@ -418,7 +632,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 32,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
@@ -430,19 +644,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "MenuRights.cshtml",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Menu\\MenuRights.cshtml",
-              "RelativeDocumentMoniker": "Views\\Menu\\MenuRights.cshtml",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Menu\\MenuRights.cshtml",
-              "RelativeToolTip": "Views\\Menu\\MenuRights.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T06:37:30.936Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 25,
               "Title": "TourReport.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Report\\TourReport.cshtml",
               "RelativeDocumentMoniker": "Views\\Report\\TourReport.cshtml",
@@ -454,7 +656,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 31,
               "Title": "UserRights.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Menu\\UserRights.cshtml",
               "RelativeDocumentMoniker": "Views\\Menu\\UserRights.cshtml",
@@ -466,7 +668,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 28,
               "Title": "Adm_User.cs",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Models\\Adm_User.cs",
               "RelativeDocumentMoniker": "Models\\Adm_User.cs",
@@ -478,7 +680,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 29,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -490,7 +692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 30,
               "Title": "_LayoutDashboard.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Shared\\_LayoutDashboard.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_LayoutDashboard.cshtml",
@@ -502,55 +704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "EmployeeMaptoCustomerandSite.js",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\EmployeeMaptoCustomerandSite.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\Master\\EmployeeMaptoCustomerandSite.js",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\EmployeeMaptoCustomerandSite.js",
-              "RelativeToolTip": "wwwroot\\js\\Master\\EmployeeMaptoCustomerandSite.js",
-              "ViewState": "AQIAAGYAAAAAAAAAAAAuwPIAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-21T07:36:29.005Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Master.js",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\Master.js",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master.js",
-              "RelativeToolTip": "wwwroot\\js\\Master.js",
-              "ViewState": "AQIAAGkAAAAAAAAAAAArwHgAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-25T16:41:02.759Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABoAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T06:13:05.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "MenuRights.js",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Menu\\MenuRights.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\Menu\\MenuRights.js",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Menu\\MenuRights.js",
-              "RelativeToolTip": "wwwroot\\js\\Menu\\MenuRights.js",
-              "ViewState": "AQIAADQAAAAAAAAAAAAQwEAAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-02T04:56:51.081Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 34,
               "Title": "GuardTour.csproj",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\GuardTour.csproj",
               "RelativeDocumentMoniker": "GuardTour.csproj",
@@ -562,7 +716,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 36,
               "Title": "ProfileController.cs",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\ProfileController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProfileController.cs",
@@ -574,19 +728,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Grid.js",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Menu\\Grid.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\Menu\\Grid.js",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Menu\\Grid.js",
-              "RelativeToolTip": "wwwroot\\js\\Menu\\Grid.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-07-08T06:29:09.852Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 35,
               "Title": "DropDownListController.cs",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\DropDownListController.cs",
               "RelativeDocumentMoniker": "Controllers\\DropDownListController.cs",
@@ -598,19 +740,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T10:36:56.13Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 37,
               "Title": "BranchLogin.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Admin\\BranchLogin.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\BranchLogin.cshtml",
@@ -622,7 +752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 38,
               "Title": "_LayoutDashboard1.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Shared\\_LayoutDashboard1.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_LayoutDashboard1.cshtml",
@@ -634,7 +764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 39,
               "Title": "RouteandBeatAssignList.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\RouteandBeatAssignList.cshtml",
               "RelativeDocumentMoniker": "Views\\Master\\RouteandBeatAssignList.cshtml",
@@ -646,7 +776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 40,
               "Title": "RouteandbeatAssignList.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\RouteandbeatAssignList.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Master\\RouteandbeatAssignList.js",
@@ -658,7 +788,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 41,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Admin\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\Dashboard.cshtml",
@@ -670,43 +800,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "MenuController.cs",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\MenuController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MenuController.cs",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\MenuController.cs",
-              "RelativeToolTip": "Controllers\\MenuController.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAAACgAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T11:37:23.5Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "MasterController.cs",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\MasterController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MasterController.cs",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\MasterController.cs",
-              "RelativeToolTip": "Controllers\\MasterController.cs",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAwwG8AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T09:47:33.348Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Utility.cs",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Utility.cs",
-              "RelativeDocumentMoniker": "Utility.cs",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Utility.cs",
-              "RelativeToolTip": "Utility.cs",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAhwEoAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T09:47:37.433Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 42,
               "Title": "RouteBeatAssign.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\RouteBeatAssign.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Master\\RouteBeatAssign.js",
@@ -718,7 +812,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 43,
               "Title": "RouteBeatAssign.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\RouteBeatAssign.cshtml",
               "RelativeDocumentMoniker": "Views\\Master\\RouteBeatAssign.cshtml",
@@ -730,7 +824,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 44,
               "Title": "RoutList.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\RoutList.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Master\\RoutList.js",
@@ -742,7 +836,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 45,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
@@ -754,7 +848,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 46,
               "Title": "Dashboard.css",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\css\\Dashboard.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\Dashboard.css",
@@ -766,7 +860,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 48,
               "Title": "site.css",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
@@ -778,7 +872,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 47,
               "Title": "style.css",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\assets\\css\\style.css",
               "RelativeDocumentMoniker": "wwwroot\\assets\\css\\style.css",
@@ -790,7 +884,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 49,
               "Title": "RoutList.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\RoutList.cshtml",
               "RelativeDocumentMoniker": "Views\\Master\\RoutList.cshtml",
@@ -802,7 +896,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 51,
               "Title": "Route.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Route.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Master\\Route.js",
@@ -814,7 +908,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 50,
               "Title": "Shift.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\Shift.cshtml",
               "RelativeDocumentMoniker": "Views\\Master\\Shift.cshtml",
@@ -826,7 +920,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 52,
               "Title": "site.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\site.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Master\\site.js",
@@ -838,7 +932,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 53,
               "Title": "Beat.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Beat.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Master\\Beat.js",
@@ -850,7 +944,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 54,
               "Title": "DashboardLogin.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Admin\\DashboardLogin.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\DashboardLogin.cshtml",
@@ -862,7 +956,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 55,
               "Title": "EmployeeMapToRoute.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\EmployeeMapToRoute.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Master\\EmployeeMapToRoute.js",
@@ -874,7 +968,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 56,
               "Title": "RouteandsiftAssignList.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\RouteandsiftAssignList.cshtml",
               "RelativeDocumentMoniker": "Views\\Master\\RouteandsiftAssignList.cshtml",
@@ -886,7 +980,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 57,
               "Title": "Assign.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\Assign.cshtml",
               "RelativeDocumentMoniker": "Views\\Master\\Assign.cshtml",
@@ -898,19 +992,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "Customer.js",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Customer.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\Master\\Customer.js",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Customer.js",
-              "RelativeToolTip": "wwwroot\\js\\Master\\Customer.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-10T05:08:56.171Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 58,
               "Title": "Employee.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Employee.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Master\\Employee.js",
@@ -922,19 +1004,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "InsAjax.js",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\InsAjax.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\InsAjax.js",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\InsAjax.js",
-              "RelativeToolTip": "wwwroot\\js\\InsAjax.js",
-              "ViewState": "AQIAAGECAAAAAAAAAAAAwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-06T07:19:50.845Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 59,
               "Title": "BranchLogin.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Admin\\BranchLogin.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Admin\\BranchLogin.js",
@@ -946,31 +1016,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "Post.js",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Post.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\Master\\Post.js",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Master\\Post.js",
-              "RelativeToolTip": "wwwroot\\js\\Master\\Post.js",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAwwDIAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-04T06:30:11.288Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 60,
-              "Title": "Post.cshtml",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\Post.cshtml",
-              "RelativeDocumentMoniker": "Views\\Master\\Post.cshtml",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\Post.cshtml",
-              "RelativeToolTip": "Views\\Master\\Post.cshtml",
-              "ViewState": "AQIAACAAAAAAAAAAAAAAACoAAABEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-04T06:28:15.25Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
               "Title": "Branch.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Admin\\Branch.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\Branch.cshtml",
@@ -982,7 +1028,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 62,
               "Title": "Route.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\Route.cshtml",
               "RelativeDocumentMoniker": "Views\\Master\\Route.cshtml",
@@ -994,7 +1040,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 63,
               "Title": "Site.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\Site.cshtml",
               "RelativeDocumentMoniker": "Views\\Master\\Site.cshtml",
@@ -1006,7 +1052,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 61,
               "Title": "Beat.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Master\\Beat.cshtml",
               "RelativeDocumentMoniker": "Views\\Master\\Beat.cshtml",
@@ -1018,7 +1064,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 65,
               "Title": "MapUsertoCompanyandBranch.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Menu\\MapUsertoCompanyandBranch.cshtml",
               "RelativeDocumentMoniker": "Views\\Menu\\MapUsertoCompanyandBranch.cshtml",
@@ -1030,7 +1076,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 64,
               "Title": "UsermapToComAndBr.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Menu\\UsermapToComAndBr.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Menu\\UsermapToComAndBr.js",
@@ -1042,7 +1088,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 66,
               "Title": "Region.js",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Admin\\Region.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Admin\\Region.js",
@@ -1054,7 +1100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 67,
               "Title": "LogintoDashborad.cshtml",
               "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\Views\\Admin\\LogintoDashborad.cshtml",
               "RelativeDocumentMoniker": "Views\\Admin\\LogintoDashborad.cshtml",
@@ -1066,19 +1112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "Login.js",
-              "DocumentMoniker": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Admin\\Login.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\Admin\\Login.js",
-              "ToolTip": "D:\\Nadeem Ali\\Tour Gaurd\\GuardTour\\wwwroot\\js\\Admin\\Login.js",
-              "RelativeToolTip": "wwwroot\\js\\Admin\\Login.js",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAUwHEAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-02T06:08:56.119Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 68,
               "Title": "readme.txt",
               "DocumentMoniker": "C:\\Users\\Elite BooK\\.nuget\\packages\\select.htmltopdf\\25.1.0\\readme.txt",
               "ToolTip": "C:\\Users\\Elite BooK\\.nuget\\packages\\select.htmltopdf\\25.1.0\\readme.txt",

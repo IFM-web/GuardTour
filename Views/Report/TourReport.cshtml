@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Tour Reports";
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+    @using Microsoft.AspNetCore.Http;
+    @inject IHttpContextAccessor HttpContextAccessor;
 }
 
 <style>
@@ -72,7 +74,7 @@
                                                     <div class="d-sm-flex justify-content-between align-items-start">
                                                         <div>
                                                             <h4 class="card-title card-title-dash">
-                                                                <a href="~/Admin/DashboardLogin">Home</a> / <a href="#">
+<a href="~/Admin/DashboardLogin?id=@HttpContextAccessor.HttpContext.Session.GetString("MainUrl")">Home</a> /<a href="#">
                                                               Tour Reports
                                                                 </a>
                                                             </h4>

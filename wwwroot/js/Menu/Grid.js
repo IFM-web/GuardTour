@@ -20,7 +20,9 @@ function Save() {
             Id: $("#txtHiddenId").val(),
                 iconclass: $("#iconclass").val(),
                     titleName: $("#titleName").val(),
-                        Countid: $("#Countid").val().trim(),
+            Countid: $("#Countid").val().trim(),
+            PrintOrder: $("#PrintOrder").val().trim(),
+            Category: $("#Category").val().trim(),
                         
             UrlLink: $("#UrlLink").val().trim(),
                                 status: $("#status").is(":checked") ? 1 : 0,
@@ -103,6 +105,8 @@ function EditbyId(id) {
     var backcolor = $("#backcolor" + id + "").html();
     var UrlLink = $("#UrlLink" + id + "").html();
     var status = $("#Status" + id + "").html();
+    var PrintOrder = $("#PrnOrder" + id + "").html();
+    var Category = $("#Category" + id + "").html();
 
     if (status == 'Active') {
         $("#status").prop("checked", true);
@@ -112,6 +116,8 @@ function EditbyId(id) {
 
     $("#txtHiddenId").val(HidId);
     $("#iconclass").val(IconClass);
+    $("#PrintOrder").val(PrintOrder);
+    $("#Category").val(Category);
     $("#titleName").val(TitleName)
     $("#Countid").val(CountId);
     $("#BackColor").val(backcolor);

@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "Branch Login - IFM360 Guard Tour";
     Layout = null;
+    @using Microsoft.AspNetCore.Http;
+
+    @inject IHttpContextAccessor HttpContextAccessor
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -56,18 +59,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="~/Admin/Company" class="nav-item nav-link">
-                    <div class="d-flex align-items-left gap-1">
+                @if(HttpContextAccessor.HttpContext.Session.GetString("UserName").ToUpper() == "SUPERADMIN")
+                {
+                    <a href="~/Admin/Company" class="nav-item nav-link">
+                        <div class="d-flex align-items-left gap-1">
 
-                        <strong>Create Company</strong>
-                    </div>
-                </a>
-                <a href="~/Admin/Branch" class="nav-item nav-link">
-                    <div class="d-flex align-items-center gap-1">
+                            <strong>Create Company</strong>
+                        </div>
+                    </a>
+                    <a href="~/Admin/Branch" class="nav-item nav-link">
+                        <div class="d-flex align-items-center gap-1">
 
                         <strong>Create Branch</strong>
                     </div>
-                </a>
+                </a>}
 
             </div>
 
@@ -157,7 +162,7 @@
     <script src="~/js/Master.js" asp-append-version="true"></script>
     <!-- endinject -->
 
-
+@* 
     <script>
 
         setTimeout(function () {
@@ -171,7 +176,7 @@
             event.preventDefault();
             document.getElementById("card").classList.remove("flipped");
         });
-    </script>
+    </script> *@
 
 </body>
 </html>

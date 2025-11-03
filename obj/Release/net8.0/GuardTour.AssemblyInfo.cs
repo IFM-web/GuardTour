@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GuardTour")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6dafb8895c082d8ae7d9845009c335c96f89f26b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3524573052c39fa039defcaf1c59c497f9e13c97")]
 [assembly: System.Reflection.AssemblyProductAttribute("GuardTour")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GuardTour")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

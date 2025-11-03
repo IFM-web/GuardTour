@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "Employee Customer Mapping";
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+    @using Microsoft.AspNetCore.Http;
+
+    @inject IHttpContextAccessor HttpContextAccessor;
 }
 <style>
     .custom-multiselect {
@@ -48,11 +51,11 @@
                                                     <div class="d-sm-flex justify-content-between align-items-start">
                                                         <div>
                                                             <h4 class="card-title card-title-dash">
-                                                                <a href="~/Admin/DashboardLogin">Home</a> / <a href="#">
+<a href="~/Admin/DashboardLogin?id=@HttpContextAccessor.HttpContext.Session.GetString("MainUrl")">Home</a> <a href="#">
                                                                     Employee Customer Mapping
                                                                 </a>
                                                             </h4>
-                                                            <a href="~/Admin/DashboardLogin" class="btn btn-success">
+                                                            <a href="~/Admin/DashboardLogin?id=@HttpContextAccessor.HttpContext.Session.GetString("MainUrl")" class="btn btn-success">
                                                                 Back
                                                             </a>
                                                         </div>

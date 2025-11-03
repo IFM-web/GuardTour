@@ -1,7 +1,9 @@
 ﻿
 $(document).ready(() => {
-    $("#beatid").trigger("change")
-    $("").val()
+
+    $("#customer").trigger("change")
+    $("#site").trigger("change")
+  
 
 })
 
@@ -211,7 +213,7 @@ function bindsite(id) {
 
             var dropdown = $('#beatid');
             dropdown.empty();
-            dropdown.append($('<option></option>').attr('value', 0).text('Select Beat'));
+            //dropdown.append($('<option></option>').attr('value', 0).text('Select Beat'));
             for (var i = 0; i < data.length; i++) {
 
                 dropdown.append($('<option></option>').attr('value', data[i].locid).text(data[i].BeatName));
@@ -254,12 +256,12 @@ function BindSite() {
 
             var dropdown = $('#site');
             dropdown.empty();
-            dropdown.append($('<option></option>').attr('value', 0).text('Select Site'));
+            //dropdown.append($('<option></option>').attr('value', 0).text('Select Site'));
             for (var i = 0; i < data.length; i++) {
 
                 dropdown.append($('<option></option>').attr('value', data[i].SiteId).text(data[i].SitName));
             }
-
+            BindShift()
         },
         error: function (error) {
             alert(error.massage);
@@ -267,29 +269,89 @@ function BindSite() {
     })
 }
 
+//function BindShift() {
+//    let id = $("#site").val();
+
+//    $.ajax({
+//        url: localStorage.getItem("Url") + '/DropDownList/BindShifttoSide2',
+//        type: 'Post',
+//        data: { id: id },
+//        success: function (data) {
+//            var data = JSON.parse(data);
+
+//            var dropdown = $('#shift-dropdown');
+//            dropdown.empty();
+//            //dropdown.append($('<option></option>').attr('value', 0).text('Select Shift'));
+//            for (var i = 0; i < data.length; i++) {
+
+//                dropdown.append($('<option></option>').attr('value', data[i].Id).text(data[i].Name));
+//            }
+//            if (data.length>0)
+//               BindRoute(id)
+//        },
+//        error: function (error) {
+//            alert(error.massage);
+//        }
+//    })
+//}
 function BindShift() {
-    let id = $("#site").val();   
-    BindRoute(id)
+    let id = $("#site").val();
+
     $.ajax({
         url: localStorage.getItem("Url") + '/DropDownList/BindShifttoSide',
         type: 'Post',
         data: { id: id },
         success: function (data) {
             var data = JSON.parse(data);
+            console.log("abc", data);
+
+            const now = new Date();
+            const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+            let matchedShiftId = null;
 
             var dropdown = $('#shift-dropdown');
             dropdown.empty();
-            dropdown.append($('<option></option>').attr('value', 0).text('Select Shift'));
-            for (var i = 0; i < data.length; i++) {
 
-                dropdown.append($('<option></option>').attr('value', data[i].Id).text(data[i].Name));
+            data.forEach(item => {
+                // Append all options
+                dropdown.append($('<option></option>').attr('value', item.Id).text(item.Name));
+
+                // Extract time range from Name e.g. "A (A)-(10:00 - 14:00)"
+                const match = item.Name.match(/\((\d{2}:\d{2})\s*-\s*(\d{2}:\d{2})\)/);
+                if (match) {
+                    const [_, start, end] = match;
+                    const [startH, startM] = start.split(':').map(Number);
+                    const [endH, endM] = end.split(':').map(Number);
+
+                    const startMin = startH * 60 + startM;
+                    const endMin = endH * 60 + endM;
+
+                    // Handle overnight shifts (e.g., 22:00 to 06:00)
+                    if (
+                        (startMin < endMin && currentMinutes >= startMin && currentMinutes <= endMin) ||
+                        (startMin > endMin && (currentMinutes >= startMin || currentMinutes <= endMin))
+                    ) {
+                        matchedShiftId = item.Id;
+                    }
+                }
+            });
+
+            // Auto-select matching shift
+            if (matchedShiftId !== null) {
+                dropdown.val(matchedShiftId);
+            } else if (data.length > 0) {
+                dropdown.val(data[0].Id); // fallback to first
             }
 
+            // Trigger change so that route gets bound correctly
+            dropdown.trigger('change');
+            BindRoute(id);
         },
         error: function (error) {
-            alert(error.massage);
+            alert(error.message);
         }
-    })
+    });
 }
 function BindFrequency() {
     let id = $("#routeid").val();
@@ -297,12 +359,13 @@ function BindFrequency() {
     let data = { RouteId: id, ShiftId:id2 };
     let url = localStorage.getItem("Url") + '/DropDownList/Frequency';
     let dropdown = $('#Frequency');
-    BindDropdownsingle(url, data, '', '', '', dropdown, 'Select Frequency')
+    BindDropdownsingle(url, data, '', '', '', dropdown, '')
+    mapAction()
 
 }
 
-function BindRoute(id) {
-  
+function BindRoute() {
+    let id = $("#shift-dropdown").val();
     $.ajax({
         url: localStorage.getItem("Url") + '/DropDownList/bindroute2',
         type: 'Get',
@@ -312,15 +375,24 @@ function BindRoute(id) {
 
             var dropdown = $('#routeid');
             dropdown.empty();
-            dropdown.append($('<option></option>').attr('value', 0).text('Select Route'));
+            //dropdown.append($('<option></option>').attr('value', 0).text('Select Route'));
             for (var i = 0; i < data.length; i++) {
 
                 dropdown.append($('<option></option>').attr('value', data[i].Id).text(data[i].Name));
             }
-
+            BindFrequency(); 
         },
         error: function (error) {
             alert(error.massage);
         }
     })
+}
+function toggleSidebar() {
+    const panel = document.querySelector('.vehicle-panel');
+    const content = document.querySelector('.content');
+
+    panel.classList.toggle('hidden');
+    setTimeout(() => {
+        map.invalidateSize();
+    }, 210);
 }
