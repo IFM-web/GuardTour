@@ -55,6 +55,7 @@ function SAVEall() {
             obj.Remarkflg = row.find('.Remarkflg1').is(':checked') ? 1 : 0;
             obj.ObservationFlg = row.find('.ObservationFlg1').is(':checked') ? 1 : 0;
             obj.sos_flg = row.find('.sos_flg1').is(':checked') ? 1 : 0;
+            obj.IsSequence = row.find('.IsSequence').is(':checked') ? 1 : 0;
 
             obj.type = 10;
             arr.push(obj);
