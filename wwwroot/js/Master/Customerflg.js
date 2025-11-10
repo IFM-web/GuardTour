@@ -32,9 +32,7 @@ function SAVEall() {
     var url = localStorage.getItem("Url") + '/api/ApiServices/ManuRight';
     var Hid_Con = $("#cid").val() + "##" + $("#UserId").val() + "##" + menuname + "##" + $("#flgmode").val();
 
-    let arr = [];
-
- 
+    let arr = []; 
 
     $("#printdiv tbody tr").each(function (index, row) {
         if (index === 0) return;
@@ -42,12 +40,9 @@ function SAVEall() {
         let obj = {};
         let CustomerId = $("#custidddd").val();
         let SelfiFLG = row.find('input.SelfiFLG1').is(':checked') ? 1 : 0;
-        if (CustomerId != '' && SelfiFLG != undefined) {
-
-   
+        if (CustomerId != '' && SelfiFLG != undefined) {   
 
             obj.CustomerId = CustomerId;
-
             obj.SelfiFLG = SelfiFLG;
             obj.assetflg = row.find('.assetflg1').is(':checked') ? 1 : 0;
             obj.IncidentFlg = row.find('.IncidentFlg1').is(':checked') ? 1 : 0;
@@ -56,7 +51,6 @@ function SAVEall() {
             obj.ObservationFlg = row.find('.ObservationFlg1').is(':checked') ? 1 : 0;
             obj.sos_flg = row.find('.sos_flg1').is(':checked') ? 1 : 0;
             obj.IsSequence = row.find('.IsSequence').is(':checked') ? 1 : 0;
-
             obj.type = 10;
             arr.push(obj);
         }

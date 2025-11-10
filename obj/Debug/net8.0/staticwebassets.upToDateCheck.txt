@@ -730,6 +730,7 @@ wwwroot\assets\vendors\typicons\typicons.ttf
 wwwroot\assets\vendors\typicons\typicons.woff
 wwwroot\assets\vendors\typicons\typicons.woff2
 wwwroot\css\Dashboard.css
+wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\img\Action-trash.png
 wwwroot\img\Action.png
@@ -765,7 +766,6 @@ wwwroot\js\Master.js
 wwwroot\js\Master\Beat.js
 wwwroot\js\Master\BeatAssign.js
 wwwroot\js\Master\Customer.js
-wwwroot\js\Master\Customerflg.js
 wwwroot\js\Master\Employee.js
 wwwroot\js\Master\EmployeeMaptoCustomerandSite.js
 wwwroot\js\Master\EmployeeMapToRoute.js
@@ -851,4 +851,4 @@ wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\lib\sweetalert.min.js
-wwwroot\css\site.css
+wwwroot\js\Master\Customerflg.js
