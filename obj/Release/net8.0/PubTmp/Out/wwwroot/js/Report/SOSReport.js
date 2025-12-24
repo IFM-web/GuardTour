@@ -105,7 +105,7 @@ function ShowdataSOS() {
         siteid: $("#siteid").val(),
         routename: $("#Routename").val(),
         shiftid: $("#Shiftname").val(),
-
+  UserId:$("#UserId").val(),
         Todate: $("#Todate").val(),
         Fromdate: $("#Fromdate").val(),
         type: 52

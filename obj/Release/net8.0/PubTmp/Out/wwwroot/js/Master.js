@@ -157,9 +157,14 @@ function CommonAjax(var_url, var_data, var_type, var_ct, var_dt, UserData, divid
                             PostName: e["Post Name"],
                             Shift: e["Shift"],
                             FrequencyTime: e["Frequency Time"],
-                            Remark: e["Remark"],
+                           
                             Date: e["Date"],
                             Time: e["Time"],
+                            Selfie: e.Image,
+//                                `<img data-toggle="modal" data-target="#myModal" onclick="image('${e.ImageFile}')" style="width:100px; height:100px;border-radius:0" src="data:image/jpeg;base64,${e.ImageFile}"/>`,
+                            ["Check Post"]: e.Image2,
+//                                `<img data-toggle="modal" data-target="#myModal" onclick="image('${e.ImageFile2}')" style="width:100px; height:100px;border-radius:0" src="data:image/jpeg;base64,${e.ImageFile2}"/>`,
+                            Remark: e["Remark"],
                             ["Post GeoLocation"]: e.AssignLocation,
                             ["Capture GeoLocation"]: e.GeoLocation,           
                             ["Difference GeoLocation"]: getDistanceFromLatLonInMeters(
@@ -168,12 +173,15 @@ function CommonAjax(var_url, var_data, var_type, var_ct, var_dt, UserData, divid
                                         e.AssignLocation, e.GeoLocation)} meters</span>`,
 
                             LocationName: e["Location Name"],
-                            Selfie: e.Image,
-                            ["Check Post"]: e.Image2,
+                           
                             Audio: e.Audio,
 
                         };
                     });
+
+                    //renderTableHeader(newarr);
+                    //renderTableBody(newarr);
+                    //renderPagination(newarr)
                     CreateTableFromArray(newarr, divid);
 
                 }
@@ -707,10 +715,10 @@ function exportexcel(fileName) {
     // Identify columns to remove (e.g., starts with Hid_ or Action)
     rows[0].querySelectorAll("th, td").forEach((cell, index) => {
         const text = cell.textContent.trim();
-        if (text.startsWith("Hid_") || text.startsWith("Action")) {
+        if (text.startsWith("Hid_") || text.startsWith("Action") || text.startsWith("Audio") || text.startsWith("Check Post") || text.startsWith("Selfie") ) {
             columnsToRemove.add(index);
         }
-    });
+    }); 
 
     // Remove marked columns
     rows.forEach(row => {

@@ -6,10 +6,8 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Operations;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using Newtonsoft.Json;
-using QRCoder;
-
 using System.ComponentModel.Design;
-using System.Drawing;
+
 using System.Security.Policy;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -235,45 +233,6 @@ namespace GuardTour.Controllers
         #endregion
 
 
-
-
-
-        #region QRCode Generator
-
-        public string CreateQRCode(string name = "")
-        {
-            string qrText = name;
-
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrText, QRCodeGenerator.ECCLevel.Q);
-
-
-            QRCode qrCode1 = new QRCode(qrCodeData);
-
-            Bitmap qrCodeImage = qrCode1.GetGraphic(20);
-
-            byte[] byteImage = BitmapToBytes(qrCodeImage);
-
-
-            string imageBase64 = Convert.ToBase64String(byteImage);
-            string imageSrc = $"data:image/png;base64,{imageBase64}";
-
-
-
-            return imageSrc;
-        }
-        public byte[] BitmapToBytes(Bitmap img)
-        {
-            using (MemoryStream stream = new MemoryStream())
-            {
-                img.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-                return stream.ToArray();
-            }
-        }
-        #endregion
-
-
         public IActionResult RouteBeatAssign()
         {
 
@@ -309,6 +268,19 @@ namespace GuardTour.Controllers
             ViewBag.cust = util.PopulateDropDown("exec Dropdownlist 'BindCustomerMap', @id='" + companyId + "',@id2='" + branchId + "', @id3='"+ ProfileId + "'", util.strElect);
             return View();
         }
+
+        public IActionResult EmailMaster() {
+            ViewBag.cust = util.PopulateDropDown("exec Dropdownlist 'BindCustomerMap', @id='" + companyId + "',@id2='" + branchId + "', @id3='" + ProfileId + "'", util.strElect);
+            return View();
+        }
+
+        public IActionResult Department() {
+            ViewBag.cust = util.PopulateDropDown("exec Dropdownlist 'BindCustomerMap', @id='" + companyId + "',@id2='" + branchId + "', @id3='" + ProfileId + "'", util.strElect);
+            return View();
+        }
+
+
+             
 
     }
 

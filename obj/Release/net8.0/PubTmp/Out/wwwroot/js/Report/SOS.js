@@ -32,6 +32,7 @@ function ShowdataSOS() {
         BranchId: $("#BranchId").val(),
         Todate: $("#Todate").val(),
         Fromdate: $("#Fromdate").val(),
+  UserId:$("#UserId").val(),
         type: 54
 
     }

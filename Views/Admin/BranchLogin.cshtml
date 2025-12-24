@@ -49,7 +49,19 @@
 
     <nav class="navbar navbar-expand-lg bg-white navbar-light">
         <a href="" class="navbar-brand d-flex align-items-center ps-2">
-            <img src="~/img/logo.png" alt="" class="img-fluid" width="140px" />
+            @if (HttpContextAccessor.HttpContext.Session.GetString("UserName").ToUpper() == "MCLADMIN")
+            {
+                <img src="~/img/MCL_logo.png" alt="" class="img-fluid" width="140px" />
+            }
+            else if (HttpContextAccessor.HttpContext.Session.GetString("UserName").ToUpper() == "STERLIGHT")
+            {
+                <img src="~/img/Sterlitelogo.jpg" class="img-fluid" width="140px" />
+            }
+            else
+            {
+                <img src="~/img/logo.png" alt="" class="img-fluid" width="140px" />
+            }
+       
         </a>
         <button type="button"
                 class="navbar-toggler me-4"
@@ -82,7 +94,7 @@
             </a>
         </div>
     </nav>
-    <div class="container-scrollerbranch">
+    <div class="container-scrollerbranch" style="background-image: url('@Url.Content("~/img/Rectangle-922.png")');">
         <div class="container-fluid page-body-wrapperbranch  full-page-wrapper">
             <div class="content-wrapper d-flex align-items-center auth px-0">
                 <div class="row w-100 mx-0">

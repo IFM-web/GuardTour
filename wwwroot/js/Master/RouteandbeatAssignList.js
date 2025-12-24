@@ -4,7 +4,6 @@ $(document).ready(() => {
 
 })
 
-
 function Showdata() {
 
     url_add = window.location.href;
@@ -79,16 +78,12 @@ function DeletebyId(Id) {
 
     }
 
-
-
-
 }
 
 
 function FrequencyDelete(Id) {
     var checkstr = confirm('Are You Sure You Want To Delete This?');
     if (checkstr == true) {
-
 
         url_add = window.location.href;
         var data = url_add.split("://");
@@ -101,7 +96,6 @@ function FrequencyDelete(Id) {
         var Data = {
 
             id: Id,
-
             type: 51,
 
         }
@@ -116,9 +110,6 @@ function FrequencyDelete(Id) {
 }
 
 function save() {
-
-
-
 
     url_add = window.location.href;
     var data = url_add.split("://");

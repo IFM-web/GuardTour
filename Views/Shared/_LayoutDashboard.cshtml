@@ -74,7 +74,7 @@
         }
 
         .page-body-wrapper {
-            padding-top: 70px;
+            /* padding-top: 70px; */
         }
 
         .content-wrapper {
@@ -370,7 +370,19 @@
     <div class="container-fluid">
       <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="~/img/logo.png" alt="logo" />
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("UserName").ToUpper() == "MCLADMIN")
+                    {
+                        <img src="~/img/MCL_logo.png" alt="logo" />
+                    }
+                    else if (HttpContextAccessor.HttpContext.Session.GetString("UserName").ToUpper() == "STERLIGHT")
+                    {
+                          <img src="~/img/Sterlitelogo.jpg" alt="logo" />
+                    }
+                    else
+                    {
+                        <img src="~/img/logo.png" alt="logo" />
+                    }
+                   
        
       </a>
 

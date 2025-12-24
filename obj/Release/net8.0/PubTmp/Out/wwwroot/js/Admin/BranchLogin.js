@@ -11,7 +11,7 @@ $(document).ready(function () {
 function bindBranch(id) {
 
     $.ajax({
-        url: localStorage.getItem("Url") + '/Admin/bindBranch',
+        url: localStorage.getItem("Url") + '/Admin/bindBranchAuth',
         type: 'post',
         data: { id: id },
         success: function (data) {

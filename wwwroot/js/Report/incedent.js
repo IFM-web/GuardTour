@@ -58,7 +58,7 @@ function ShowdataSOS() {
         BranchId: $("#BranchId").val(),
         custid: $("#custid").val(),
         siteid: $("#siteid").val(),       
-
+  UserId:$("#UserId").val(),
         Todate: $("#Todate").val(),
         Fromdate: $("#Fromdate").val(),
         type: 53

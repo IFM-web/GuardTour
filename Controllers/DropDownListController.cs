@@ -30,12 +30,6 @@ namespace GuardTour.Controllers
 
 
 
-
-
-
-
-
-
         [HttpGet]
 
             public JsonResult bindbeatwithroute(int id)
@@ -156,5 +150,12 @@ namespace GuardTour.Controllers
         }
         #endregion
 
+        #region Department
+        public JsonResult Department(string custid,string siteId)
+        {
+            var data = util.PopulateDropDown($"exec Dropdownlist 'Department' ,@id='{custid}',@id2='{siteId}'", util.strElect);
+           return Json(data);
+        }
+        #endregion
     }
 }

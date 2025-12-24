@@ -1,22 +1,22 @@
 ﻿
 $(document).ready(() => {
-  
+
     $("#custid").trigger("change");
 
     $("#Todate").val(new Date().toISOString().split('T')[0]);
     $("#Fromdate").val(new Date().toISOString().split('T')[0]);
-    Showdata();
+    //Showdata();
 
     if ($("#typeName").val() == "SOS") {
-    ShowdataSOS();
+        //ShowdataSOS();
     }
- 
+
 })
 
 
 function Showdata() {
     $("#loader").removeClass("d-none");
-    
+
     url_add = window.location.href;
     var data = url_add.split("://");
     data = data[1].split("/");
@@ -32,10 +32,10 @@ function Showdata() {
         siteid: $("#siteid").val(),
         routename: $("#Routename").val(),
         shiftid: $("#Shiftname").val(),
-   
+        UserId: $("#UserId").val(),
         Todate: $("#Todate").val(),
         Fromdate: $("#Fromdate").val(),
-        type:37
+        type: 37
 
     }
 
@@ -43,68 +43,68 @@ function Showdata() {
     //    url: url,
     //    type: 'get',
     //    data:  Data,
-//        success: (data) => {
-//            var data = JSON.parse(data);
-//            var divid = '#printdivReport';
+    //        success: (data) => {
+    //            var data = JSON.parse(data);
+    //            var divid = '#printdivReport';
 
-//            console.log(data);
-           
-//            $("#loader").addClass("d-none");
-         
-//            var th = `
-//            <table id='data-table' class='table table-bordered'>
-//            <thead>
-//            <th>SNo</th>
-//            <th>Customer Name</th>
-//            <th>Site Name</th>
-//            <th>Emp Name</th>
-//            <th>Route Name</th>
-//            <th>Post Name</th>
-//            <th>Shift Name</th>
-//            <th>Date</th>
-//            <th>Time</th>
-//            <th>Remark</th>
-//            <th>GeoLocation</th>
-//            <th>Location Name</th>
-//            <th>Image</th>
+    //            console.log(data);
 
-//            <thead>
+    //            $("#loader").addClass("d-none");
 
-//            `;
-//            var tr = '<tbody>';
-//            var i = 1;
-//            for (var e of data) {
-//                var url = "data:image/jpeg;base64," + e.Image
-//                tr += `
-//                <tr>
-//                <td>${i}</td>
-//                <td>${e.CustomerName
-//                    }</td>
-//                <td>${e.SitName}</td>
-//                <td>${e.EmpName}</td>
-//                <td>${e.RouteName}</td>
-//                <td>${e.PostName}</td>
-//                <td>${e.Shift}</td>
-//                <td>${e.Date}</td>
-//                <td>${e.Time}</td>
-//                <td>${e.Remark}</td>
-//                <td>${e.GeoLocation}</td>
-//                <td>${e.LocationName}</td>
-//                <td><image width:"150" src="${url}"/></td>
-                
+    //            var th = `
+    //            <table id='data-table' class='table table-bordered'>
+    //            <thead>
+    //            <th>SNo</th>
+    //            <th>Customer Name</th>
+    //            <th>Site Name</th>
+    //            <th>Emp Name</th>
+    //            <th>Route Name</th>
+    //            <th>Post Name</th>
+    //            <th>Shift Name</th>
+    //            <th>Date</th>
+    //            <th>Time</th>
+    //            <th>Remark</th>
+    //            <th>GeoLocation</th>
+    //            <th>Location Name</th>
+    //            <th>Image</th>
+
+    //            <thead>
+
+    //            `;
+    //            var tr = '<tbody>';
+    //            var i = 1;
+    //            for (var e of data) {
+    //                var url = "data:image/jpeg;base64," + e.Image
+    //                tr += `
+    //                <tr>
+    //                <td>${i}</td>
+    //                <td>${e.CustomerName
+    //                    }</td>
+    //                <td>${e.SitName}</td>
+    //                <td>${e.EmpName}</td>
+    //                <td>${e.RouteName}</td>
+    //                <td>${e.PostName}</td>
+    //                <td>${e.Shift}</td>
+    //                <td>${e.Date}</td>
+    //                <td>${e.Time}</td>
+    //                <td>${e.Remark}</td>
+    //                <td>${e.GeoLocation}</td>
+    //                <td>${e.LocationName}</td>
+    //                <td><image width:"150" src="${url}"/></td>
 
 
-//                </tr>
 
-//`; ++i;
-//            }
-//            tr += '</tbody> </table>'
-//            $(divid).empty();
-//            $(divid).append(th+tr);
+    //                </tr>
+
+    //`; ++i;
+    //            }
+    //            tr += '</tbody> </table>'
+    //            $(divid).empty();
+    //            $(divid).append(th+tr);
     CommonAjax(url, JSON.stringify(Data), "", "", "", "", "printdivReport");
 
-     
-   
+
+
 
 
     //$("#loader").addClass("d-none");
@@ -114,7 +114,7 @@ function Showdata() {
 function bindsiteid(id) {
 
 
-  
+
     $.ajax({
         url: localStorage.getItem("Url") + '/DropDownList/bindsiteid',
         type: 'post',
@@ -129,7 +129,7 @@ function bindsiteid(id) {
 
                 dropdown.append($('<option></option>').attr('value', data[i].SiteId).text(data[i].SitName));
             }
-           
+
         },
         error: function (error) {
             alert(error.massage);
@@ -140,7 +140,7 @@ function bindsiteid(id) {
 
 
 function BindRoute(id) {
-    
+
 
     $.ajax({
         url: localStorage.getItem("Url") + '/DropDownList/bindroute',
@@ -166,7 +166,7 @@ function BindRoute(id) {
 
 
 function BindShift(id) {
-  
+
     $.ajax({
         url: localStorage.getItem("Url") + '/DropDownList/BindShifttoSide',
         type: 'Post',
@@ -196,7 +196,7 @@ function exportexcele() {
 
 
 
-  
+
 function ShowdataSOS() {
     $("#loader").removeClass("d-none");
 
@@ -284,7 +284,7 @@ function ShowdataSOS() {
     //            tr += '</tbody> </table>'
     //            $(divid).empty();
     //            $(divid).append(th+tr);
-    CommonAjax(url, JSON.stringify(Data), "", "", "", "", "printdivReport");
+    CommonAjax(url, JSON.stringify(Data), "", "", "", "", "printdivreport");
 
 
 
@@ -293,14 +293,14 @@ function ShowdataSOS() {
     //$("#loader").addClass("d-none");
 
 }
-   
-    
-  
 
 
 
-    function ExportPdf() {
-        var style = `
+
+
+
+function ExportPdf() {
+    var style = `
     <style>
     table {
         width: 100%;
@@ -372,25 +372,25 @@ function ShowdataSOS() {
         }
     </style>
     `;
-   
-        
-        var datadiv = document.getElementById("printdiv");
 
-        var popupwin = window.open();
 
-        popupwin.document.write(style  + datadiv.innerHTML);
-        popupwin.document.close();
-        var logoImage = popupwin.document.getElementById("logoimag");
-        popupwin.onload = function () {
-            popupwin.focus();
-            popupwin.print();
-            popupwin.close();
-        }
+    var datadiv = document.getElementById("printdiv");
+
+    var popupwin = window.open();
+
+    popupwin.document.write(style + datadiv.innerHTML);
+    popupwin.document.close();
+    var logoImage = popupwin.document.getElementById("logoimag");
+    popupwin.onload = function () {
+        popupwin.focus();
+        popupwin.print();
+        popupwin.close();
     }
+}
 
 
 function image(id) {
-    $("#img01").attr("src", 'data:image/jpeg;base64,'+id);
+    $("#img01").attr("src", 'data:image/jpeg;base64,' + id);
     //$(".modal-body").css("backgroundImage", "url(" + id + ")"); 
 
 

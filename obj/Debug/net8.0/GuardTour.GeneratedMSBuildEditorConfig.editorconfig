@@ -60,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTG9naW50b0Rhc2hib3JhZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/MainDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFpbkRhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Admin/PhotoAttendance.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGhvdG9BdHRlbmRhbmNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -94,6 +98,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Customer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Department.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXERlcGFydG1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/EmailMaster.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEVtYWlsTWFzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Nadeem Ali/Tour Gaurd/GuardTour/Views/Master/Employee.cshtml]

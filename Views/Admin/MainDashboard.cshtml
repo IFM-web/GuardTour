@@ -1,0 +1,440 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Map Dashboard ";
+    Layout = null;
+}
+
+<style>
+    #map {
+        height: 600px;
+        width: 100%;
+    }
+
+
+
+    /* Avatar styling */
+    .avatar {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Popup styling for marker info */
+    .custom-popup {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Name and company below the marker */
+    .marker-label {
+        background-color: #fff;
+        padding: 5px 10px;
+        width: max-content;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        /* margin-top: 5px; */
+        font-weight: bold;
+        /* font-size: 14px; */
+        color: #333;
+    }
+
+
+    .qr-status {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+        .qr-status .checked, .qr-status .unchecked {
+            margin: 0 2px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+
+    .checked {
+        background-color: green;
+    }
+
+    .unchecked {
+        background-color: red;
+    }
+
+    li a i:hover {
+        color: Blue !important;
+    }
+
+    .tooltip-box {
+        position: absolute;
+        background-color: #333;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 13px;
+        white-space: nowrap;
+        z-index: 1000;
+        display: none;
+    }
+
+    .logo img {
+        width: 94px;
+        transform: rotate(90deg);
+        margin-top: 20px;
+        margin-bottom: 31px;
+        image-rendering: pixelated;
+    }
+
+    .leaflet-control-attribution {
+        display: none;
+    }
+</style>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/Dashboard.css" asp-append-version="true">
+    <link rel="icon" href="~/img/Logo-Icon.png" />
+    <title>IFM360 Guard Tour</title>
+    <style>
+        /* Reset */
+
+
+    </style>
+
+</head>
+<body>
+
+
+    <div class="dashboard">
+        <div class="sidebar">
+            @* <div class="logo"><img src="~/img/logowhite.png" /></div> *@
+            <ul>
+
+                <li data-tooltip="Master"><a href="~/Admin/DashboardLogin?id=Master"><i class="fa-solid fa-house-user text-white"></i></a></li>
+                <li data-tooltip="Users"><a href="~/Admin/DashboardLogin?id=Mapping"><i class="fa-solid fa-users text-white"></i></a></li>
+                <li data-tooltip="Reports"><a href="~/Admin/DashboardLogin?id=Dashboard"><i class="fa-solid fa-clipboard-list text-white"></i></a></li>
+                <li data-tooltip="Branch Login">
+                    <a href="~/Admin/BranchLogin">
+                        <i class="fa fa-code-branch text-white"></i>
+
+                    </a>
+                </li>
+                <li data-tooltip="Logout"><a href="~/Home/Logout"><i class="fa-solid fa-power-off text-white"></i></a></li>
+
+                @*
+                <li><a href="~/Admin/DashboardLogin">🗺️</a></li> *@
+            </ul>
+        </div>
+
+
+
+
+        <div class="container mt-3 ">
+
+            <!-- Top summary row -->
+            <div class="summary-row">
+                <a href="~/Report/TourReport" class="summary-box" style=" background-color: #009150;">
+
+                    Total Guards
+                    <span class="value">@ViewBag.employee</span>
+                </a>
+
+                <a href="~/Report/SOSReport" class="summary-box" style=" background-color: #dc133f;">
+                    Total Observations
+                    <span class="value">&nbsp; @ViewBag.Obj</span>
+                </a>
+            </div>
+
+            <div class="row d-flex">
+
+                <div class="col-6">
+                    <div class="content-row mb-4">
+                        <!-- Guard Daily Cover -->
+                        <div class="daily-cover">
+                            <h2>Guard Daily Cover (@(Math.Round(ViewBag.totalDist,2)) km)</h2>
+
+                            <ul class="daily-list">
+                                @foreach (var e in ViewBag.totals as Dictionary
+                                <string, double>
+                                    )
+                                    {
+                                    <li>@e.Key <span>@(Math.Round(e.Value, 2)) km</span></li>
+                                    }
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <!-- Monthly Distance Covered Pie Chart -->
+                    <div class="monthly-chart">
+                        <h2>Monthly Distance Covered (@(Math.Round(ViewBag.TatalofMonth,2)) km)</h2>
+                        <div class="chart-container">
+                            <canvas id="monthlyPieChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('monthlyPieChart').getContext('2d');
+        let totals = @Html.Raw(
+            System.Text.Json.JsonSerializer.Serialize(ViewBag.totalsmonthly)
+        )
+
+
+        let labelsname = Object.keys(totals);
+        let values = Object.values(totals).map(v => Math.round(v, 2));
+        console.log("test ", totals);
+        const data = {
+            labels: labelsname,
+            datasets: [{
+                label: 'Distance Covered (km)',
+                data: values,
+                backgroundColor: [
+                    '#4a90e2',
+                    '#50e3c2',
+                    '#f5a623'
+                ],
+                borderWidth: 1,
+                borderColor: '#fff',
+                hoverOffset: 25
+            }]
+        };
+
+        const config = {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 14 },
+                            color: '#333'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => `${ctx.label}: ${ctx.parsed} km`
+                        }
+                    }
+                }
+            }
+        };
+
+        new Chart(ctx, config);
+    </script>
+
+
+    </div>
+
+
+    @*  <div id="map" style="width:100%; height:500px;"></div> *@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Control.FullScreen.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.6.0/Control.FullScreen.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+   
+    <script src="~/js/Master.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let $tooltip = $('<div class="tooltip-box"></div>').appendTo('body');
+
+            $('[data-tooltip]').on('mouseenter', function (e) {
+                const tipText = $(this).data('tooltip');
+                $tooltip.text(tipText).fadeIn(200);
+            }).on('mousemove', function (e) {
+                $tooltip.css({
+                    top: e.pageY + 10,
+                    left: e.pageX + 10
+                });
+            }).on('mouseleave', function () {
+                $tooltip.hide();
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+<script>
+    const xValues = ["No Observation for today"];
+    const yValues = [55];
+    const barColors = [
+        "#b91d47",
+
+    ];
+
+    new Chart("myChart", {
+        type: "doughnut",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        // options: {
+        //     title: {
+        //         display: true,
+        //         text: "World Wide Wine Production 2018"
+        //     }
+        // }
+    });
+</script>
+@*
+<script>
+    document.getElementById("toggle").addEventListener("change", function () {
+        document.getElementById("status").textContent = this.checked ? "ON" : "OFF";
+    });
+
+
+
+
+</script> *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guard Distance Covered</title>
+    <style>
+
+
+        /* Main container */
+        /*   .container {
+            max-width: 900px;
+            margin: auto;
+        } */
+
+        /* Top summary row */
+        .summary-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .summary-box {
+            flex: 1;
+            max-width: 350px;
+            background: #4a90e2;
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            user-select: none;
+            box-shadow: 0 3px 8px rgba(74, 144, 226, 0.4);
+        }
+
+            .summary-box span.value {
+                display: block;
+                font-size: 2.5rem;
+                margin-top: 8px;
+            }
+
+        .summary-box {
+            color: white !important;
+        }
+        /* Bottom content row */
+        .content-row {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Daily cover box */
+        .daily-cover, .monthly-chart {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            flex: 1 1 350px;
+        }
+
+        /* Section titles */
+        h2 {
+            margin-top: 0;
+            font-weight: 700;
+            color: #2c3e50;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 8px;
+        }
+
+        /* Daily cover list styles */
+        .daily-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+            .daily-list li {
+                background-color: #003776;
+                /* background-color: #009150; */
+                color: white;
+                margin: 8px 0;
+                padding: 12px 15px;
+                border-radius: 5px;
+                font-weight: 600;
+                display: flex;
+                justify-content: space-between;
+            }
+
+                .daily-list li span {
+                    font-weight: 400;
+                }
+
+        /* Pie chart container */
+        .chart-container {
+            max-width: 100%;
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 768px) {
+            .content-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+</body>
+</html>
+

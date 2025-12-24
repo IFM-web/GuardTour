@@ -209,6 +209,9 @@ function Showdata() {
 
     var Data = {
         CompanyId: $("#CompanyId").val(),
+        custid: $("#custidd").val(),
+        siteid: $("#siteidd").val(),
+        CompanyId: $("#CompanyId").val(),
         BranchId: $("#BranchId").val(),
         UserId: $("#UserId").val(),
         ProfileId: $("#ProfileIdd").val(), 

@@ -748,9 +748,11 @@ wwwroot\img\Logo-Icon.png
 wwwroot\img\logo-login.png
 wwwroot\img\Logo.png
 wwwroot\img\logowhite.png
+wwwroot\img\MCL_logo.png
 wwwroot\img\Menus.png
 wwwroot\img\Photos.png
 wwwroot\img\Rectangle-922.png
+wwwroot\img\Sterlitelogo.jpg
 wwwroot\img\Tracking.png
 wwwroot\img\user.png
 wwwroot\js\Admin\Branch.js
@@ -766,6 +768,9 @@ wwwroot\js\Master.js
 wwwroot\js\Master\Beat.js
 wwwroot\js\Master\BeatAssign.js
 wwwroot\js\Master\Customer.js
+wwwroot\js\Master\Customerflg.js
+wwwroot\js\Master\Department.js
+wwwroot\js\Master\EmailMaster.js
 wwwroot\js\Master\Employee.js
 wwwroot\js\Master\EmployeeMaptoCustomerandSite.js
 wwwroot\js\Master\EmployeeMapToRoute.js
@@ -851,4 +856,4 @@ wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\lib\sweetalert.min.js
-wwwroot\js\Master\Customerflg.js
+wwwroot\MapImage\lulumap.jpg

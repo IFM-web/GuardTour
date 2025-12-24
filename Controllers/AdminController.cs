@@ -48,6 +48,8 @@ namespace GuardTour.Controllers
         public IActionResult BranchLogin()
         {
 
+
+
             if (HttpContext.Session.GetString("UserName").ToUpper() == "SUPERADMIN")
             {
                 ViewBag.com = util.PopulateDropDown("exec Dropdownlist 'bindCompany'", util.strElect);
@@ -90,6 +92,13 @@ namespace GuardTour.Controllers
                     HttpContext.Session.SetString("companyname", comname.ToString());
                     HttpContext.Session.SetString("branchname", brnname.ToString());
 
+                    if (HttpContext.Session.GetString("UserName").ToUpper() == "MCLADMIN")
+                    {
+                        HttpContext.Session.SetString("MainUrl", "MainDashboard");
+                        return RedirectToAction("MainDashboard", "Admin");
+                    }
+
+
                     return RedirectToAction("Dashboard", "Admin");
                 }
                 else
@@ -107,6 +116,7 @@ namespace GuardTour.Controllers
 
         #region Dashboard
 
+      
         public IActionResult Dashboard()
 
         {
@@ -273,11 +283,70 @@ namespace GuardTour.Controllers
         #endregion
 
 
+        public IActionResult MainDashboard()
+        {
+
+            DataSet ds = new DataSet();
+            int totalEmployee = 0;
+            int totalObj = 0;
+
+
+            ds = util.Fill(@$"GraphicDashboard '{companyId}','{branchId}','{UserId}'", util.strElect);
+
+            List<Points> guardData = new List<Points>();
+            List<Points> guardDatamonth = new List<Points>();
+
+            foreach (DataRow r in ds.Tables[2].Rows)
+            {
+                var data = new Points
+                {
+                    EmployeeId = r["EmpName"].ToString(),
+                    TimeStamp = Convert.ToDateTime(r["EntryDate"]),
+                    Latitude = Convert.ToDouble(r["Latitude"]),
+                    Longitude = Convert.ToDouble(r["Longitude"]),
+                };
+                guardData.Add(data);
+            }
+
+            foreach (DataRow r in ds.Tables[3].Rows)
+            {
+                var data = new Points
+                {
+                    EmployeeId = r["EmpName"].ToString(),
+                    TimeStamp = Convert.ToDateTime(r["EntryDate"]),
+                    Latitude = Convert.ToDouble(r["Latitude"]),
+                    Longitude = Convert.ToDouble(r["Longitude"]),
+                };
+                guardDatamonth.Add(data);
+            }
+
+
+            var totals = Calculationdistinace.CalculateTotalDistancePerGuard(guardData);
+            ViewBag.totalDist = totals.Sum(e=>e.Value);
+            ViewBag.totals = totals;
+            var totalsmonthly = Calculationdistinace.CalculateTotalDistancePerGuard(guardDatamonth);
+            ViewBag.TatalofMonth = totalsmonthly.Sum(e => e.Value);
+            ViewBag.totalsmonthly = totalsmonthly;
+            ViewBag.employee = ds.Tables[0].Rows[0][0];
+            ViewBag.Obj = ds.Tables[1].Rows[0][0];
+
+
+
+            return View();
+        }
 
 
         public IActionResult DashboardLogin(string? Id)
         {
-            HttpContext.Session.SetString("MainUrl", Id);
+            if (HttpContext.Session.GetString("UserName").ToUpper() == "MCLADMIN")
+            {
+                HttpContext.Session.SetString("MainUrl", "Admin/MainDashboard");
+            }
+            else
+            {
+                HttpContext.Session.SetString("MainUrl", Id);
+            }
+            
             ViewBag.Type = Id;
             return View();
         }

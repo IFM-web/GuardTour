@@ -2,7 +2,9 @@
     ViewData["Title"] = "Dashboard Login";
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
+@using Microsoft.AspNetCore.Http;
 
+@inject IHttpContextAccessor HttpContextAccessor
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -146,7 +148,7 @@
 
                                                     <div class="d-flex">
                                                       
-                                                                 <a class="btn btn-success"  href="~/Admin/Dashboard">
+                                                                 <a class="btn btn-success"  href="~/@(HttpContextAccessor.HttpContext.Session.GetString("UserName").ToUpper()!="MCLADMIN"?"Admin/Dashboard":"Admin/MainDashboard")">
                                                                     <i class="fa-solid fa-house-user text-white"></i>
                                                                 </a>
                                                         <p class="m-auto fa-2x " style="font-weight:bold">@(ViewBag.Type == "Mapping" ? "User" : ViewBag.Type == "Dashboard"?"Reports":"Master")</p>

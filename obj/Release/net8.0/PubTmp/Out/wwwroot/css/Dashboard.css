@@ -58,8 +58,8 @@
 }
 
 .vehicle-panel {
-    width: 0;
-    padding: 0;
+    width: 300px;
+    padding: 1rem;
     overflow: hidden;
     background: #fff;
     border-right: 1px solid #ddd;
